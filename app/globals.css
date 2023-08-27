@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-secondary text-base font-normal text-neutral-400;
+}
+
+svg {
+  @apply text-white
+}
