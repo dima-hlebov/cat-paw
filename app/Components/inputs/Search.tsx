@@ -1,6 +1,6 @@
-import { InputType } from "./ComponentTypes";
-import IconBtn from "./IconBtn";
-import SearchSvg20 from "./icons/SearchSvg20";
+import { InputType } from "../ComponentTypes";
+import Btn from "../buttons/Btn";
+import SearchSvg20 from "../icons/SearchSvg20";
 
 export default function Search({ placeHolder }: InputType) {
     return (
@@ -10,7 +10,7 @@ export default function Search({ placeHolder }: InputType) {
                     <input className="w-full outline-none text-xl" placeholder={placeHolder ? placeHolder : "Search"} />
                 </div>
                 <div className="pl-[10px]">
-                    <IconBtn isHoverable isSecondary Icon={{ Icon: SearchSvg20 }} />
+                    <Btn icon={{ Icon: SearchSvg20 }} />
                 </div>
             </div>
         </form>

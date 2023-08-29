@@ -1,5 +1,13 @@
 import { StaticImageData } from "next/image";
 
+export enum BtnEnum {
+    ACTIVABLE,
+    SECONDARY,
+    SORTING,
+    DISABLED,
+    DEFAULT,
+}
+
 export type InputType = {
     placeHolder?: string
 }
@@ -18,27 +26,24 @@ export type ImageType = {
 }
 
 export type IconType = {
-    Icon: {
+    icon?: {
         Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
         IconActive?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
     }
 
 }
 
-export type IconBtnType = IconType & {
-    isActive?: boolean;
-    isHoverable?: boolean;
-    isSecondary?: boolean;
-    isAbsolute?: boolean;
+export type BtnType = IconType & {
+    type?: BtnEnum;
+    text?: string;
 }
 
-export type ImageLinkType = ImageType & LinkType
+export type ImageLinkType = ImageType & LinkType & {
+    name: string;
+};
 
 export type IconLinkType = IconType & LinkType
 
-export type ImageBtnLinkType = ImageLinkType & {
-    name: string;
-};
 
 export type BtnGroupItemType = IconType & {
     label: string;
@@ -46,4 +51,11 @@ export type BtnGroupItemType = IconType & {
 
 export type BtnGroupType = {
     buttons: BtnGroupItemType[]
+}
+
+export type SelectType = {
+    name: string;
+    options: string[];
+    width?: number;
+    isFilter?: boolean;
 }

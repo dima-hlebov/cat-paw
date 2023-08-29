@@ -1,19 +1,18 @@
-import { BtnGroupType } from "./ComponentTypes";
-
+import { BtnGroupType } from "../ComponentTypes";
 
 export default function BtnGroup({ buttons }: BtnGroupType) {
 
     return (
         <div className="flex w-fit">
-            {buttons.map(({ Icon: { Icon, IconActive }, label }, i: number) => {
+            {buttons.map(({ icon, label }, i: number) => {
                 const classes = getClasesByLabel(label);
                 return (
                     <button
                         key={i}
-                        className={`group grid p-[21px] border-y-4 border-white ${i === 0 ? classes.btnClasses : i === (buttons.length - 1) ? classes.btnClasses : classes.btnClasses} transition-all`}
+                        className={`group grid p-[21px] border-y-4 border-white ${i === 0 ? classes[0] : i === (buttons.length - 1) ? classes[0] : classes[0]} transition-all`}
                     >
-                        <Icon className={`${classes.iconClasses} text-white transition-all`} />
-                        {IconActive ? <IconActive className="hidden text-white group-active:block" /> : null}
+                        {icon?.Icon ? <icon.Icon className={`${classes[1]} text-white transition-all`} /> : null}
+                        {icon?.IconActive ? <icon.IconActive className="hidden text-white group-active:inline" /> : null}
                     </button>
                 )
             })}
@@ -21,7 +20,7 @@ export default function BtnGroup({ buttons }: BtnGroupType) {
     )
 }
 
-function getClasesByLabel(label: string): { btnClasses: string, iconClasses: string } {
+function getClasesByLabel(label: string): String[] {
     let btnClasses = ""
     let iconClasses = ""
     switch (label) {
@@ -38,5 +37,5 @@ function getClasesByLabel(label: string): { btnClasses: string, iconClasses: str
             iconClasses = "group-hover:text-amber-200"
             break;
     }
-    return { btnClasses, iconClasses }
+    return [btnClasses, iconClasses]
 }

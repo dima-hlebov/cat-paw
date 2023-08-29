@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ImageBtnLinkType } from "./ComponentTypes";
+import { ImageLinkType } from "../ComponentTypes";
 
-export default function ImageBtnLink({ href, name, image: { src, alt, width } }: ImageBtnLinkType) {
+export default function ImageLink({ href, name, image: { src, alt, width } }: ImageLinkType) {
   return (
     <div className="group w-[138px]">
       <Link href={href}>
-        <div className={`flex h-[198px] items-center justify-center rounded-[20px] border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-secondary transition-all`}>
+        <div className={`flex h-[198px] items-center justify-center rounded-[20px] border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-red-100 transition-all`}>
           <Image
             src={src}
             alt={alt}

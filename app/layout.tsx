@@ -3,15 +3,15 @@ import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 
 // components
-import ImageBtnLink from "./Components/ImageBtnLink";
-import IconLink from "./Components/IconLink";
-import IconBtn from "./Components/IconBtn";
-import Search from "./Components/Search";
-import BtnGroup from "./Components/BtnGroup";
+import ImageBtnLink from "./Components/buttons/ImageLink";
+import IconLink from "./Components/buttons/IconLink";
+import Btn from "./Components/buttons/Btn";
+import Search from "./Components/inputs/Search";
+import BtnGroup from "./Components/buttons/BtnGroup";
 
 // images
-import VotingImg from "../public/img-links/voting.png";
-import BreedsImg from "../public/img-links/breeds.png";
+import VotingImg from "../public/img/voting.png";
+import BreedsImg from "../public/img/breeds.png";
 import GalleryImg from "../public/img-links/gallery.png";
 import SearchSvg from "./Components/icons/SearchSvg20";
 import LikeSvg from "./Components/icons/LikeSvg30";
@@ -22,7 +22,11 @@ import FavSvg30 from "./Components/icons/FavSvg30";
 import FavFullSvg30 from "./Components/icons/FavFullSvg30";
 import GalleryItem from "./Components/GalleryItem";
 import CatPic from "../public/catpic.jpg"
-import Select from "./Components/Select";
+import Select from "./Components/inputs/Select";
+import UpdateSvg20 from "./Components/icons/UpdateSvg20";
+import SortSvg20 from "./Components/icons/SortSvg20";
+import UploadSvg20 from "./Components/icons/UploadSvg20";
+import { BtnEnum } from "./Components/ComponentTypes";
 
 
 const jost = Jost({ subsets: ["latin"] });
@@ -36,23 +40,31 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
   return (
     <html lang="en">
       <body className={jost.className}>
-        {/* <ImageBtnLink
+        <ImageBtnLink
           href="/"
           name="Voting"
           image={{ src: VotingImg, alt: "Clipboard", width: 100 }}
-        /> */}
-        {/* <IconLink href="/" Icon={SearchSvg} /> */}
-        {/* <IconBtn isHoverable Icon={SearchSvg} /> */}
-        {/* <Search placeHolder="Search for breeds by name" /> */}
-        {/* <BtnGroup
+        />
+        <ImageBtnLink
+          href="/"
+          name="Breeds"
+          image={{ src: BreedsImg, alt: "Cat", width: 100 }}
+        />
+        <IconLink href="/" icon={{ Icon: SearchSvg }} />
+        <Search placeHolder="Search for breeds by name" />
+        <BtnGroup
           buttons={[
-            { Icon: LikeSvg, label: "Like" },
-            { Icon: FavSvg30, IconActive: FavFullSvg30, label: "Favourite" },
-            { Icon: DislikeSvg, label: "Dislike" }
+            { icon: { Icon: LikeSvg }, label: "Like" },
+            { icon: { Icon: FavSvg30, IconActive: FavFullSvg30 }, label: "Favourite" },
+            { icon: { Icon: DislikeSvg }, label: "Dislike" }
           ]}
-        /> */}
-        {/* <GalleryItem image={{ src: CatPic, alt: "Clipboard" }} /> */}
-        <Select name="Order" options={["String1", "String2"]} width={300} isFilter />
+        />
+        <Select name="Order" options={["String1", "String2"]} width={300} />
+        <Select name="Order" options={["String1", "String2"]} width={300}>
+          <Btn icon={{ Icon: UpdateSvg20 }} />
+        </Select>
+        <Btn icon={{ Icon: SortSvg20 }} />
+        <Btn icon={{ Icon: UploadSvg20 }} text=" Upload" type={BtnEnum.ACTIVABLE} />
         {children}
       </body>
     </html>
