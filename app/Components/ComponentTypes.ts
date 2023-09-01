@@ -1,61 +1,33 @@
-import { StaticImageData } from "next/image";
-
-export enum BtnEnum {
-    ACTIVABLE,
-    SECONDARY,
-    SORTING,
-    DISABLED,
-    DEFAULT,
-}
-
-export type InputType = {
-    placeHolder?: string
-}
+import { ImageProps } from "next/image";
+import { iconVariants } from "./icons/IconWrapper";
+import { VariantProps } from "class-variance-authority";
+import { buttonVariants } from "./buttons/Button";
+import { ButtonHTMLAttributes, PropsWithChildren, ReactNode, SVGProps, SelectHTMLAttributes } from "react";
+import { LinkProps } from "next/link";
+import { selectVariants } from "./inputs/Select";
 
 export type LinkType = {
-    href: string;
-}
+    className?: string;
+} & PropsWithChildren<LinkProps>
 
-export type ImageType = {
-    image: {
-        src: StaticImageData;
-        alt: string;
-        width?: number;
-        height?: number;
-    };
-}
-
-export type IconType = {
-    icon?: {
-        Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-        IconActive?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-    }
-
-}
-
-export type BtnType = IconType & {
-    type?: BtnEnum;
-    text?: string;
-}
-
-export type ImageLinkType = ImageType & LinkType & {
+export type ImageLinkType = LinkType & {
     name: string;
+    image: ImageProps;
 };
 
-export type IconLinkType = IconType & LinkType
-
-
-export type BtnGroupItemType = IconType & {
-    label: string;
+export type IconType = {
+    Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+    SecondaryIcon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 }
 
-export type BtnGroupType = {
-    buttons: BtnGroupItemType[]
+export type IconWrapperType = & IconType & SVGProps<SVGSVGElement> & VariantProps<typeof iconVariants>
+
+export type ButtonType = ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
+
+export type ButtonGroupType = {
+    children: ReactNode
 }
 
 export type SelectType = {
-    name: string;
     options: string[];
-    width?: number;
-    isFilter?: boolean;
-}
+} & SelectHTMLAttributes<HTMLSelectElement> & VariantProps<typeof selectVariants>

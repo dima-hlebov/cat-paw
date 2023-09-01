@@ -1,40 +1,43 @@
 import Link from "next/link";
 import Image from "next/image";
+import { buttonVariants } from "./Button";
 import { ImageLinkType } from "../ComponentTypes";
 
-export default function ImageLink({ href, name, image: { src, alt, width } }: ImageLinkType) {
+export default function ImageLink({ href, name, image: { src, alt, width, ...imageProps }, ...linkProps }: ImageLinkType) {
   return (
-    <div className="group w-[138px]">
-      <Link href={href}>
-        <div className={`flex h-[198px] items-center justify-center rounded-[20px] border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-red-100 transition-all`}>
+    <div className="group">
+      <Link href={href} {...linkProps}>
+        <div className={`w-[138px] h-[198px] flex items-center justify-center rounded-[20px] border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-red-100 transition-all`}>
           <Image
             src={src}
             alt={alt}
             width={width}
             quality={100}
             className="object-contain"
+            {...imageProps}
           />
         </div>
-        <div className="mt-2.5 rounded-[10px] bg-white py-2.5 text-center text-xs uppercase leading-4 tracking-widest text-primary group-hover:bg-primary/20 group-active:bg-primary group-active:text-white transition-all">
-          {name}
-        </div>
+        {name
+          ?
+          <div className={buttonVariants({ variant: "activableWhite", size: "sm", fullWidth: "full", className: "mt-[10px]" })}>
+            {name}
+          </div>
+          : null
+        }
       </Link>
     </div>
   );
 }
 
 function getBgColorByName(name: string): string {
-  let bgColor = ""
   switch (name) {
     case "Voting":
-      bgColor = "bg-indigo-300"
-      break;
+      return "bg-indigo-300";
     case "Breeds":
-      bgColor = "bg-green-300"
-      break;
+      return "bg-green-300";
     case "Gallery":
-      bgColor = "bg-amber-200"
-      break;
+      return "bg-amber-200";
+    default:
+      return "bg-secondary";
   }
-  return bgColor
 }

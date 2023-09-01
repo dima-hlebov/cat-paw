@@ -1,21 +1,18 @@
-import { ImageType } from "./ComponentTypes";
-import Image from "next/image";
-import Btn from "./buttons/Btn";
-import FavSvg20 from "./icons/FavSvg20";
-import FavFullSvg20 from "./icons/FavFullSvg20";
+import Image, { ImageProps } from "next/image";
+import FavSvg from "./icons/FavSvg";
+import Button from "./buttons/Button";
+import IconWrapper from "./icons/IconWrapper";
 
-export default function GalleryItem({ image: { src, alt } }: ImageType) {
+export default function GalleryItem({ src, alt, ...props }: ImageProps) {
     return (
         <div className="group relative cursor-pointer" >
-            <Image src={src} alt={alt} className="rounded-[20px]" />
+            <Image src={src} alt={alt} className="rounded-[20px]" {...props} />
             <div className="absolute top-0 w-full h-full rounded-[20px] group-hover:bg-primary/60 transition-all"></div>
             <div className="group w-fit absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <Btn
-                    Icon={{ Icon: FavSvg20, IconActive: FavFullSvg20 }}
-                    isAbsolute
-                />
+                <Button variant={"white"} size={"sm"}>
+                    <IconWrapper Icon={FavSvg} />
+                </Button>
             </div>
-
         </div>
     )
 }
