@@ -4,6 +4,8 @@ import { LinkProps } from "next/link";
 import { ImageProps } from "next/image";
 import { VariantProps } from "class-variance-authority";
 
+// Types for links and buttons
+
 export type LinkType = {
     className?: string;
 } & PropsWithChildren<LinkProps>

@@ -3,6 +3,8 @@ import Image from "next/image";
 import { buttonVariants } from "@components/buttons/Button";
 import { ImageLinkType } from "@components/buttons/buttons.types";
 
+// Link nested with image and button like element
+
 export function ImageLink({ href, name, image: { src, alt, width, ...imageProps }, ...linkProps }: ImageLinkType) {
   return (
     <div className="group">

@@ -12,7 +12,12 @@ import CatPic from "@img/cat-pic.jpg"
 export default function Home() {
   return (
     <main >
-      <div className="pt-4">
+
+    </main>
+  )
+}
+
+{/* <div className="pt-4">
         <h2 className="text-2xl">Links</h2>
         <div className="flex justify-around pt-2">
           <ImageLink name="Voting" href="/" image={{ src: VotingImg, alt: "Clipboard", width: 100 }} />
@@ -73,8 +78,4 @@ export default function Home() {
         <div className="flex justify-around pt-2">
           <GalleryItem src={CatPic} alt="img" width={200} />
         </div>
-      </div>
-
-    </main>
-  )
-}
+      </div> */}

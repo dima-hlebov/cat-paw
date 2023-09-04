@@ -8,7 +8,7 @@ export const selectVariants = cva(
     {
         variants: {
             variant: {
-                default: "border-white text-stone-900",
+                default: "border-white text-accent",
                 filter: "text-neutral-400 bg-secondary border-secondary"
             },
             size: {
@@ -21,6 +21,8 @@ export const selectVariants = cva(
         }
     }
 );
+
+// For ex.: refresh button could be added as a children
 
 export default function Select({ name, options, children, variant, size, className, ...props }: PropsWithChildren<SelectType>) {
     return (

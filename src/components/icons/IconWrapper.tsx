@@ -20,9 +20,8 @@ export const iconVariants = cva(
         }
     }
 )
-
-// Icon able to toggle betweend two icons. 
-// Secondary icon and parent goroup class needs to be provided
+// Wrapper for svgs which is able to toggle betweend two icons. 
+// Foor toggling affenct secondary icon and parent goroup class needs to be provided
 export default function IconWrapper({ Icon, SecondaryIcon, className, size, active, ...props }: IconWrapperType) {
     return (
         <div>

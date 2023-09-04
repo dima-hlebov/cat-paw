@@ -4,7 +4,7 @@ import { ButtonType } from "@components/buttons/buttons.types";
 
 export default function Button({ variant, size, className, children }: ButtonType) {
     return (
-        <div className="group">
+        <div>
             <button className={cn(buttonVariants({ variant, size, className }))}>
                 {children}
             </button>
@@ -12,7 +12,7 @@ export default function Button({ variant, size, className, children }: ButtonTyp
     )
 }
 
-// Rework using compound variants
+// Fix: Rework using compound variants
 export const buttonVariants = cva(
     "uppercase text-center text-xs font-normal tracking-[2px] transition-all",
     {

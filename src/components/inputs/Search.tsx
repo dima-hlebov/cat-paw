@@ -1,6 +1,8 @@
 import Button from "@components/buttons/Button";
 import IconWrapper, { SearchIcon } from "@components/icons";
 
+// Search component witch disabled button
+
 export default function Search({ placeholder, ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
     return (
         <form className="w-[395px]">
@@ -9,7 +11,7 @@ export default function Search({ placeholder, ...props }: React.InputHTMLAttribu
                     <input className="w-full outline-none text-xl" placeholder={placeholder ? placeholder : "Search"} {...props} />
                 </div>
                 <div className="pl-[10px]">
-                    <Button variant={"disabled"} size={"sm"}>
+                    <Button variant={"disabled"} size={"sm"} disabled>
                         <IconWrapper Icon={SearchIcon} />
                     </Button>
                 </div>

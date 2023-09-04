@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply text-base font-normal text-neutral-400
+}
+
 body {
-  @apply bg-secondary text-base font-normal text-neutral-400;
+  @apply bg-secondary;
 }
 
 svg {
   @apply text-white
+}
+
+h2 {
+  @apply text-accent text-xl font-medium
 }

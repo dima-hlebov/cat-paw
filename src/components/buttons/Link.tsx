@@ -3,7 +3,7 @@ import { LinkType } from "@components/buttons/buttons.types";
 
 export function Link({ href, className, children, ...props }: LinkType) {
     return (
-        <div className="group">
+        <div>
             <NextLink href={href} className={"block " + className} {...props}>
                 {children}
             </NextLink>
