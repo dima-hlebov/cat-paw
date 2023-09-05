@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
-import { cn } from "src/util/utils";
-import { ButtonType } from "@components/buttons/buttons.types";
+import { cn } from "@util/utils";
+import { ButtonType } from "@components/buttons";
 
 export default function Button({ variant, size, className, children }: ButtonType) {
     return (

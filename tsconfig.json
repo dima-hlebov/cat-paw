@@ -25,13 +25,13 @@
     "baseUrl": ".",
     "paths": {
       "@app/*": [
-        "src/app/*"
+        "app/*"
       ],
       "@components/*": [
-        "src/components/*"
+        "app/_components/*"
       ],
-      "@utils/*": [
-        "src/util/*"
+      "@util/*": [
+        "app/_util/*"
       ],
       "@img/*": [
         "public/img/*"

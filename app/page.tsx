@@ -1,21 +1,30 @@
-import GalleryItem from "@components/GalleryItem";
-import Button, { ButtonGroup, ImageLink, Link, buttonVariants } from "@components/buttons";
-import IconWrapper, { BackIcon, CloseIcon, DislikeIcon, FavFullIcon, FavIcon, LikeIcon, SearchIcon, SortIcon, SortRevertIcon, UpdateIcon, UploadIcon } from "@components/icons";
-import Search from "@components/inputs/Search";
-import Select from "@components/inputs/Select";
+import { Container, Header } from "@components/layouts";
+import Image from "next/image";
 
-import VotingImg from "@img/voting.png"
-import BreedsImg from "@img/breeds.png"
-import GalleryImg from "@img/gallery.png"
-import CatPic from "@img/cat-pic.jpg"
+import GirlAndPet from "@img/girl-and-pet.png"
 
 export default function Home() {
   return (
-    <main >
+    <div>
+      {/* Header is being removed from page for small res devices */}
+      <Header />
+      <main className="hidden xl:block w-[775px] h-[840px] relative">
+        {/* overlay image  */}
+        <div className="absolute inset-0 flex items-center">
+          <Image
+            src={GirlAndPet} width={775}
+            alt="Girl reaching cat with open arms. Both flying."
 
-    </main>
+            quality={100} />
+        </div>
+        <Container></Container>
+
+      </main>
+    </div>
   )
 }
+
+// How to use components
 
 {/* <div className="pt-4">
         <h2 className="text-2xl">Links</h2>

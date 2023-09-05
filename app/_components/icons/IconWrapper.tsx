@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { cn } from "src/util/utils";
+import { cn } from "@util/utils";
 import { IconWrapperType } from "@components/icons/icons.types";
 
 export const iconVariants = cva(
