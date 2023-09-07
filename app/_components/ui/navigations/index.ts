@@ -1,2 +1,3 @@
-export { MainNavigation } from "@app/_components/ui/navigations/MainNavigation"
-export { UtilityNavigation } from "@app/_components/ui/navigations/UtilityNavigation"
+export { MainNavigation } from "@components/ui/navigations/MainNavigation"
+export { UtilityNavigation } from "@components/ui/navigations/UtilityNavigation"
+export { Breadcrumbs } from "@components/ui/navigations/Breadcrumbs"
