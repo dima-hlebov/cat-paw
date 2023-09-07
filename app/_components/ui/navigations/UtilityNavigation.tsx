@@ -1,4 +1,4 @@
-import { Navigation } from "@components/Nav";
+import { Navigation } from "@app/_components/lists/Nav";
 import { Link, buttonVariants } from "@components/buttons";
 import IconWrapper, { DislikeIcon, FavIcon, LikeIcon } from "@components/icons";
 export function UtilityNavigation() {

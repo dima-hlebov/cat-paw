@@ -1,6 +1,3 @@
-import { Search } from "@components/inputs";
-import { Link, buttonVariants } from "@components/buttons";
-import IconWrapper, { DislikeIcon, FavIcon, LikeIcon } from "@components/icons";
 import Header from "@components/layouts/Header";
 import { Container } from "@components/layouts";
 

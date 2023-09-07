@@ -1,6 +1,6 @@
 import { Search } from "@components/inputs";
-import { UtilityNavigation } from "@components/layouts";
-import Menu from "@components/Menu";
+import { UtilityNavigation } from "@components/ui";
+import { Menu } from "@components/ui";
 
 export default function Header() {
     return (

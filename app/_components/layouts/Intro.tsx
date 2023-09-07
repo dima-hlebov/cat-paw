@@ -1,6 +1,6 @@
 // components
 import Logo from '@components/Logo'
-import { MainNavigation } from '@components/layouts'
+import { MainNavigation } from '@components/ui'
 
 
 
