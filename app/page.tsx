@@ -1,4 +1,4 @@
-import { Container, Header } from "@components/layouts";
+import { Container, Intro } from "@components/layouts";
 import Image from "next/image";
 
 import GirlAndPet from "@img/girl-and-pet.png"
@@ -6,20 +6,19 @@ import GirlAndPet from "@img/girl-and-pet.png"
 export default function Home() {
   return (
     <div>
-      {/* Header is being removed from page for small res devices */}
-      <Header />
-      <main className="hidden xl:block w-[775px] h-[840px] relative">
-        {/* overlay image  */}
-        <div className="absolute inset-0 flex items-center">
+      {/* Intro is shown for small resolution displays and Intro + Container for higher resolution divices. */}
+      <Container variant={"mobile"}>
+        <Intro />
+      </Container>
+      <Container variant={"desktop"} color={"primaryTransp"}>
+        <main className="w-[680px] h-[840px]">
           <Image
             src={GirlAndPet} width={775}
             alt="Girl reaching cat with open arms. Both flying."
-
-            quality={100} />
-        </div>
-        <Container></Container>
-
-      </main>
+            quality={100}
+            className="absolute right-0 top-0" />
+        </main>
+      </Container>
     </div>
   )
 }

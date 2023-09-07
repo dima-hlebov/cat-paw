@@ -1,7 +1,7 @@
 import "@app/global.css"
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
-import { Header } from "@components/layouts";
+import { Container, Intro } from "@components/layouts";
 
 const jost = Jost({ subsets: ["latin"] });
 
@@ -14,11 +14,11 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
   return (
     <html lang="en">
       <body className={jost.className}>
-        {/* Header is being removed from layout for lg and higer res devices and added to pages*/}
-        <div className="xl:flex xl:justify-between" >
-          <div>
-            <Header isDesktop />
-          </div>
+        {/* Left container is being removed from layout for xl and higer res devices and added to pages*/}
+        <div className="xl:grid xl:grid-cols-2" >
+          <Container variant={"desktop"}>
+            <Intro />
+          </Container>
           {children}
         </div>
       </body>

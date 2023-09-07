@@ -1,7 +1,42 @@
-export function Container({ children }: { children?: React.ReactNode }) {
+import { cn } from "@util/utils";
+import { VariantProps, cva } from "class-variance-authority"
+
+export const containerVariants = cva(
+    "",
+    {
+        variants: {
+            variant: {
+                desktop: "hidden xl:block",
+                mobile: "block xl:hidden"
+            },
+            color: {
+                default: "bg-white",
+                primaryTransp: "bg-primary/20"
+            },
+            size: {
+                default: "p-[20px] md:p-[30px] w-full",
+            }
+        },
+        defaultVariants: {
+            size: "default"
+        }
+    }
+);
+
+type ContainerTypes = {
+    children?: React.ReactNode
+} & React.HTMLProps<HTMLDivElement> & VariantProps<typeof containerVariants>
+
+
+export function Container({ children, variant, color, size, className, ...props }: ContainerTypes) {
     return (
-        <div className="h-[calc(100%-60px)] my-[30px] mr-[30px] ml-[65px] bg-primary/20 rounded-[20px]">
-            {children}
+        <div className={cn(containerVariants({ variant, size, className }))} {...props}>
+            <div className={`h-full rounded-[20px] \ 
+                ${color === "primaryTransp" ? "bg-primary/20" : ""}`}
+            >
+                {children}
+                <div></div>
+            </div>
         </div>
     )
 }

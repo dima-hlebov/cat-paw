@@ -1,3 +1,3 @@
-export { Header } from "@components/layouts/Header"
-export { Navigation } from "@components/layouts/Navigation"
+export { Intro } from "@components/layouts/Intro"
 export { Container } from "@components/layouts/Container"
+export * from "@components/layouts/navigations"

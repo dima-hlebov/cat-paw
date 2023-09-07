@@ -15,7 +15,9 @@ export type ImageLinkType = LinkType & {
     image: ImageProps;
 };
 
-export type ButtonType = ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
+export type ButtonType = {
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+} & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
 
 export type ButtonGroupType = {
     children: ReactNode

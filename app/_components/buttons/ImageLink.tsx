@@ -10,7 +10,7 @@ export function ImageLink({ href, name, image: { src, alt, width, ...imageProps 
     <div className="group">
       <Link href={href} {...linkProps}>
         {/* image is visible starting with tablets and higher */}
-        <div className={`hidden lg:flex items-center justify-center w-[138px] h-[198px]  rounded-[20px] border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-red-100 transition-all`}>
+        <div className={`hidden md:flex items-center justify-center w-[138px] h-[198px]  rounded-[20px] border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-red-100 transition-all`}>
           <Image
             src={src}
             alt={alt}
@@ -20,7 +20,7 @@ export function ImageLink({ href, name, image: { src, alt, width, ...imageProps 
             {...imageProps}
           />
         </div>
-        <div className={buttonVariants({ variant: "activableWhite", size: "sm", fullWidth: "full", className: "mt-[10px]" })}>
+        <div className={buttonVariants({ variant: "activableWhite", size: "sm", className: "mt-[10px]" })}>
           {name}
         </div>
       </Link>
