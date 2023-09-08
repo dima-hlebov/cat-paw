@@ -15,18 +15,6 @@ export const buttonVariants = cva(
     "group uppercase text-center text-xs font-normal tracking-[2px] transition-all",
     {
         variants: {
-            // variant: {
-            //     // Hoverable and Activable
-            //     activableWhite: "border-2 bg-white border-white text-primary hover:bg-primary/20 hover:text-primary active:bg-primary active:text-white",
-            //     activablePrimary: "border-2 bg-primary border-primary text-white hover:bg-primary/20 hover:text-primary active:bg-primary active:text-white",
-            //     // Hoverable
-            //     white: "border-2 bg-white border-white text-primary hover:bg-primary hover:border-primary hover:text-white",
-            //     secondary: "border-2 border-secondary text-neutral-400 ",
-            //     primaryTransp: "border-2 bg-primary/20 text-primary border-primary/0 ",
-            //     disabled: "border-2 bg-primary/20 text-primary border-primary/0",
-            //     // Group Items
-
-            // },
             variant: {
                 primary: "border-2 border-primary bg-primary text-white",
                 soft: "border-2 border-primary/0 bg-primary/20 text-primary",

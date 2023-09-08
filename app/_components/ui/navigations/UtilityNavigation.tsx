@@ -2,7 +2,7 @@ import { Navigation } from "@components/ui/navigations/Nav";
 import { Link, buttonVariants } from "@components/buttons";
 import IconWrapper, { DislikeIcon, FavIcon, LikeIcon } from "@components/icons";
 export function UtilityNavigation() {
-  const buttonVariant = buttonVariants({ variant: "activableWhite", size: "md" })
+  const buttonVariant = buttonVariants({ variant: "monochrome", state: "isActive", size: "md" })
   return (
     <Navigation className="flex gap-[10px]">
       <Link href="/" className={buttonVariant} >

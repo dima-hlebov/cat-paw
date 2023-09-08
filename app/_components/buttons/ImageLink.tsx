@@ -20,7 +20,7 @@ export function ImageLink({ href, name, image: { src, alt, width, ...imageProps 
             {...imageProps}
           />
         </div>
-        <div className={buttonVariants({ variant: "activableWhite", size: "sm", className: "mt-[10px]" })}>
+        <div className={buttonVariants({ variant: "monochrome", state: "isActive", size: "sm", className: "mt-[10px]" })}>
           {name}
         </div>
       </Link>

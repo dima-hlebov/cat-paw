@@ -12,7 +12,7 @@ export function Menu() {
     return (
         <div className="xl:hidden">
             <Button
-                variant={"white"}
+                variant={"monochrome"}
                 size={"md"}
                 onClick={() => setIsMenuOpen(true)}>
                 <IconWrapper Icon={MenuIcon} size={"md"} />
@@ -23,7 +23,7 @@ export function Menu() {
                     <div className="flex justify-end">
                         <Button
                             onClick={() => setIsMenuOpen(false)}
-                            variant={"white"}
+                            variant={"monochrome"}
                             size={"md"}>
                             <IconWrapper Icon={CloseIcon} size={"md"} />
                         </Button>
