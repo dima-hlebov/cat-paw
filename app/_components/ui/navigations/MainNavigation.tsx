@@ -1,4 +1,4 @@
-import { Navigation } from "@app/_components/lists/Nav";
+import { Navigation } from "@components/ui/navigations/Nav";
 import { ImageLink } from "@components/buttons";
 
 // img
