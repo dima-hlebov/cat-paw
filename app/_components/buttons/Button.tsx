@@ -1,8 +1,8 @@
 import { cva } from "class-variance-authority";
-import { cn } from "@util/utils";
-import { ButtonType } from "@components/buttons";
+import { cn } from "@lib/utils";
+import { ButtonProps } from "@components/buttons";
 
-export default function Button({ onClick, variant, size, state, className, children }: ButtonType) {
+export default function Button({ onClick, variant, size, state, className, children }: ButtonProps) {
     return (
         <button onClick={onClick} className={cn(buttonVariants({ variant, size, state, className }))}>
             {children}
@@ -21,9 +21,9 @@ export const buttonVariants = cva(
                 secondary: "border-2 border-secondary text-neutral-400",
                 monochrome: "border-2 bg-white border-white text-primary",
                 // Button group variants
-                btnGroupFirst: "border-y-4 border-x-4 border-white rounded-l-[20px] text-white bg-green-300 hover:bg-green-300/30 hover:text-green-300",
+                btnGroupFirst: "border-y-4 border-x-4 border-white rounded-l-md text-white bg-green-300 hover:bg-green-300/30 hover:text-green-300",
                 btnGroupMiddle: "border-y-4 border-r-4 border-white text-white bg-primary hover:bg-primary/30 hover:text-primary",
-                btnGroupLast: "border-y-4 border-r-4 rounded-r-[20px] border-white text-white bg-amber-200 hover:bg-amber-200/30 hover:text-amber-200",
+                btnGroupLast: "border-y-4 border-r-4 rounded-r-md border-white text-white bg-amber-200 hover:bg-amber-200/30 hover:text-amber-200",
             },
             state: {
                 isHoverable: "",
@@ -31,9 +31,9 @@ export const buttonVariants = cva(
                 isDisabled: ""
             },
             size: {
-                default: "px-[28px] py-[10px] rounded-[10px]",
-                sm: "p-[8px] rounded-[10px]",
-                md: "p-[13px] rounded-[20px]",
+                default: "px-[28px] py-sm rounded-sm",
+                sm: "p-[8px] rounded-sm",
+                md: "p-[13px] rounded-md",
                 groupSize: "p-[23px]"
             },
         },

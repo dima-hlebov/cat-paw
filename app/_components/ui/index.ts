@@ -1,2 +1,4 @@
 export * from "@components/ui/navigations"
-export { Menu } from "@components/ui/Menu"
+
+export { VotingPanel } from "@components/ui/VotingPanel"
+export { Logs } from "@components/ui/Logs"

@@ -1,7 +1,7 @@
 import NextLink from "next/link";
-import { LinkType } from "@components/buttons/buttons.types";
+import { LinkProps } from "@components/buttons";
 
-export function Link({ href, className, children, ...props }: LinkType) {
+export function Link({ href, className, children, ...props }: LinkProps) {
     return (
         <NextLink href={href} className={"block " + className} {...props}>
             {children}

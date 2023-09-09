@@ -13,12 +13,30 @@ const config: Config = {
         secondary: "#F8F8F7",
         accent: "#1D1D1D",
       },
-      backgroundImage: {
-        'home-page': "url('../public/img/girl-and-pet.png')",
-      },
       screens: {
         'xl': '1440px',
       },
+      borderRadius: {
+        xs: "5px",
+        sm: "10px",
+        md: "20px"
+      },
+      padding: {
+        sm: "10px",
+        md: "20px",
+        lg: "30px"
+      },
+      margin: {
+        sm: "10px",
+        md: "20px",
+        lg: "30px",
+        "2xl": "50px"
+      },
+      gap: {
+        sm: "10px",
+        md: "20px",
+        lg: "30px",
+      }
     },
   },
   plugins: [],

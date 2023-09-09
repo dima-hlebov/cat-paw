@@ -1,12 +1,10 @@
 // components
 import Logo from '@components/Logo'
-import { MainNavigation } from '@components/ui'
+import { MainNavigation } from '@components/ui/navigations'
 
-
-
-export function Intro() {
+export default function Intro() {
   return (
-    <div className="md:pl-[117px]">
+    <section className="sticky top-[30px] md:pl-[117px]">
       <Logo />
 
       <div className="mt-[80px]">
@@ -16,6 +14,6 @@ export function Intro() {
 
       <h2 className="mt-[60px]">Lets start using The Cat API</h2>
       <MainNavigation />
-    </div>
+    </section>
   )
 }

@@ -24,17 +24,20 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@img/*": [
+        "public/img/*"
+      ],
       "@app/*": [
         "app/*"
       ],
       "@components/*": [
         "app/_components/*"
       ],
-      "@util/*": [
-        "app/_util/*"
+      "@lib/*": [
+        "app/_lib/*"
       ],
-      "@img/*": [
-        "public/img/*"
+      "@context/*": [
+        "app/_context/*"
       ],
     }
   },

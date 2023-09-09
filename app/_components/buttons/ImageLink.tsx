@@ -1,16 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { buttonVariants } from "@components/buttons/Button";
-import { ImageLinkType } from "@components/buttons/buttons.types";
+import { ImageLinkPropss } from "@components/buttons/buttons.types";
 
 // Link nested with image and button like element
 
-export function ImageLink({ href, name, image: { src, alt, width, ...imageProps }, ...linkProps }: ImageLinkType) {
+export function ImageLink({ href, name, image: { src, alt, width, ...imageProps }, ...linkProps }: ImageLinkPropss) {
   return (
     <div className="group">
       <Link href={href} {...linkProps}>
         {/* image is visible starting with tablets and higher */}
-        <div className={`hidden md:flex items-center justify-center w-[138px] h-[198px]  rounded-[20px] border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-red-100 transition-all`}>
+        <div className={`hidden md:flex items-center justify-center w-[138px] h-[198px]  rounded-md border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-red-100 transition-all`}>
           <Image
             src={src}
             alt={alt}
@@ -20,7 +20,7 @@ export function ImageLink({ href, name, image: { src, alt, width, ...imageProps 
             {...imageProps}
           />
         </div>
-        <div className={buttonVariants({ variant: "monochrome", state: "isActive", size: "sm", className: "mt-[10px]" })}>
+        <div className={buttonVariants({ variant: "monochrome", state: "isActive", size: "sm", className: "mt-sm" })}>
           {name}
         </div>
       </Link>

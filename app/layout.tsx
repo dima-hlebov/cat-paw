@@ -1,7 +1,9 @@
 import "@app/global.css"
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
-import { Container, Intro } from "@components/layouts";
+import { Container } from "@components/layouts";
+import Intro from "@app/Intro";
+import ReduxProvider from "@context/Provider";
 
 const jost = Jost({ subsets: ["latin"] });
 
@@ -14,13 +16,15 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
   return (
     <html lang="en">
       <body className={jost.className}>
-        {/* "Left" container is being removed from layout for xl and higer res devices and added to pages*/}
-        <div className="xl:grid xl:grid-cols-2" >
-          <Container variant={"desktop"}>
-            <Intro />
-          </Container>
-          {children}
-        </div>
+        <ReduxProvider>
+          {/* "Left" container is being removed from layout for xl and higer res devices and added to pages*/}
+          <div className="xl:grid xl:grid-cols-2" >
+            <Container variant={"desktop"} className="relative">
+              <Intro />
+            </Container>
+            {children}
+          </div>
+        </ReduxProvider>
       </body>
     </html>
   );

@@ -1,4 +1,5 @@
-import { Container, Intro } from "@components/layouts";
+import { Container } from "@components/layouts";
+import Intro from "@app/Intro";
 import Image from "next/image";
 
 import GirlAndPet from "@img/girl-and-pet.png"

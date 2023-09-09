@@ -1,20 +1,23 @@
 "use client"
 
-import Button, { Link, buttonVariants } from "@components/buttons";
+import Button from "@components/buttons";
 import IconWrapper, { CloseIcon, MenuIcon } from "@components/icons";
-import { useState } from "react";
 import { Container } from "@components/layouts";
 import { MainNavigation } from "@components/ui";
 
-export function Menu() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+import { useAppDispatch, useAppSelector } from "@app/_hooks/reduxHooks";
+import { toggle } from "@context/features";
+
+export function BurgerMenu() {
+    const isMenuOpen = useAppSelector(state => state.burgerMenuReducer.isMenuOpen);
+    const dispatch = useAppDispatch()
 
     return (
         <div className="xl:hidden">
             <Button
                 variant={"monochrome"}
                 size={"md"}
-                onClick={() => setIsMenuOpen(true)}>
+                onClick={() => dispatch(toggle())}>
                 <IconWrapper Icon={MenuIcon} size={"md"} />
             </Button>
             {/* overlay */}
@@ -22,7 +25,7 @@ export function Menu() {
                 <Container>
                     <div className="flex justify-end">
                         <Button
-                            onClick={() => setIsMenuOpen(false)}
+                            onClick={() => dispatch(toggle())}
                             variant={"monochrome"}
                             size={"md"}>
                             <IconWrapper Icon={CloseIcon} size={"md"} />

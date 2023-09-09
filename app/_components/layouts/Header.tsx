@@ -1,11 +1,11 @@
 import { Search } from "@components/inputs";
 import { UtilityNavigation } from "@components/ui";
-import { Menu } from "@components/ui";
+import { BurgerMenu } from "@components/ui";
 
-export default function Header() {
+export function Header() {
     return (
-        <header className="flex gap-[10px]">
-            <Menu />
+        <header className="flex gap-sm">
+            <BurgerMenu />
             <Search />
             <UtilityNavigation />
         </header>

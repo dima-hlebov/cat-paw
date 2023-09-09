@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Navigation({ className, children }: React.HTMLProps<HTMLUListElement>) {
+export function Navigation({ className, children }: { className: string, children: React.ReactNode }) {
     return (
         <nav>
             <ul className={className}>

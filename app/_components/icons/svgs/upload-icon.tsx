@@ -1,4 +1,6 @@
-export function UploadIcon({ className, ...props }: React.SVGProps<SVGSVGElement>) {
+import { Svg } from "@components/icons";
+
+export function UploadIcon({ className, ...props }: Svg): React.ReactElement<Svg> {
     return (
         <svg className={className} {...props} height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="upload-white-16" clipPath="url(#clip0_1_1746)">

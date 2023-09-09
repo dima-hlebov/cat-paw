@@ -2,9 +2,11 @@ import { VariantProps } from "class-variance-authority"
 import { SVGProps } from "react"
 import { iconVariants } from "@components/icons/IconWrapper"
 
-export type IconType = {
-    Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+export type SvgProps = React.SVGProps<SVGSVGElement>
+
+export type IconProps = {
+    Icon: React.FunctionComponent<SvgProps>
     SecondaryIcon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 }
 
-export type IconWrapperType = & IconType & SVGProps<SVGSVGElement> & VariantProps<typeof iconVariants>
+export type IconWrapperProps = & IconProps & SVGProps<SVGSVGElement> & VariantProps<typeof iconVariants>

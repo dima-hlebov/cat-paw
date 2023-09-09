@@ -11,7 +11,7 @@ export function Breadcrumbs() {
     const slugs = usePathname().split("/").filter((str) => str !== "");
 
     return (
-        <nav className="flex gap-[10px]">
+        <nav className="flex gap-sm">
             <Button
                 variant="soft"
                 size="sm"
@@ -19,7 +19,6 @@ export function Breadcrumbs() {
                 <IconWrapper Icon={BackIcon} />
             </Button>
             {slugs.map((slug, i) => {
-                console.log(slugs.length)
                 if (slugs.length - 1 === i) {
                     return (
                         <span key={i} className={buttonVariants({ variant: "primary", state: "isDisabled" })}>
