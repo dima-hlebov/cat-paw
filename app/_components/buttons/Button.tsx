@@ -12,7 +12,7 @@ export default function Button({ onClick, variant, size, state, className, child
 
 // Fix: Rework using compound variants
 export const buttonVariants = cva(
-    "group uppercase text-center text-xs font-normal tracking-[2px] transition-all",
+    "group uppercase text-center text-xs font-normal tracking-[2px] transition-all duration-300",
     {
         variants: {
             variant: {

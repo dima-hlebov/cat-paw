@@ -1,4 +1,4 @@
 export * from "@components/ui/navigations"
 
-export { VotingPanel } from "@components/ui/VotingPanel"
-export { Logs } from "@components/ui/Logs"
+export { VotingPanel } from "@app/_features/voting/components/VotingPanel"
+export { Logs } from "@app/_features/voting/components/Logs"

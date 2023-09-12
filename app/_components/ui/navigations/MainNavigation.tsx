@@ -1,4 +1,4 @@
-import { Navigation } from "@components/layouts";
+import { Navigation } from "@layouts/index";
 import { ImageLink } from "@components/buttons";
 
 // img

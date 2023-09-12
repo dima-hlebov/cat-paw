@@ -2,11 +2,11 @@
 
 import Button from "@components/buttons";
 import IconWrapper, { CloseIcon, MenuIcon } from "@components/icons";
-import { Container } from "@components/layouts";
+import { Container } from "@layouts/index";
 import { MainNavigation } from "@components/ui";
 
-import { useAppDispatch, useAppSelector } from "@app/_hooks/reduxHooks";
-import { toggle } from "@context/features";
+import { useAppDispatch, useAppSelector } from "@hooks/index";
+import { toggle } from "@context/features/burgermenuSlice";
 
 export function BurgerMenu() {
     const isMenuOpen = useAppSelector(state => state.burgerMenuReducer.isMenuOpen);

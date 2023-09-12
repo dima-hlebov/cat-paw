@@ -1,6 +1,6 @@
-import { Svg } from "@components/icons";
+import { SvgProps } from "@components/icons";
 
-export function BackIcon({ className, ...props }: Svg): React.ReactElement<Svg> {
+export function BackIcon({ className, ...props }: SvgProps): React.ReactElement<SvgProps> {
     return (
         <svg className={className} {...props} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="back-white-20" clipPath="url(#clip0_1_1602)">

@@ -1,6 +1,6 @@
-import { Svg } from "@components/icons";
+import { SvgProps } from "@components/icons";
 
-export function LikeIcon({ className, ...props }: Svg): React.ReactElement<Svg> {
+export function LikeIcon({ className, ...props }: SvgProps): React.ReactElement<SvgProps> {
     return (
         <svg className={className} {...props} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="like-white-30" clipPath="url(#clip0_1_1614)">

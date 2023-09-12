@@ -1,6 +1,6 @@
 import { Logs, VotingPanel } from "@components/ui";
 
-import { UserAction, UserLog } from "@app/_components/ui/Logs";
+import { UserAction, UserLog } from "@app/_features/voting/components/Logs";
 import CatPic from "@img/cat-pic.jpg"
 
 

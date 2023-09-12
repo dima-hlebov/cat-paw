@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import burgerMenuReducer from "@context/features"
+import burgerMenuReducer from "@context/features/burgermenuSlice"
 
 export const store = configureStore({
     reducer: {
-        burgerMenuReducer
+        burgerMenuReducer,
     },
 })
 

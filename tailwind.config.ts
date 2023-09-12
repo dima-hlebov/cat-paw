@@ -22,17 +22,20 @@ const config: Config = {
         md: "20px"
       },
       padding: {
+        xs: "5px",
         sm: "10px",
         md: "20px",
         lg: "30px"
       },
       margin: {
+        xs: "5px",
         sm: "10px",
         md: "20px",
         lg: "30px",
         "2xl": "50px"
       },
       gap: {
+        xs: "5px",
         sm: "10px",
         md: "20px",
         lg: "30px",

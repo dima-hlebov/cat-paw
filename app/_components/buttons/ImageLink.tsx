@@ -10,7 +10,7 @@ export function ImageLink({ href, name, image: { src, alt, width, ...imageProps 
     <div className="group">
       <Link href={href} {...linkProps}>
         {/* image is visible starting with tablets and higher */}
-        <div className={`hidden md:flex items-center justify-center w-[138px] h-[198px]  rounded-md border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-red-100 transition-all`}>
+        <div className={`hidden md:flex items-center justify-center w-[138px] h-[198px]  rounded-md border-4 border-white/60 ${getBgColorByName(name)} group-hover:border-white group-active:border-red-100 transition-all duration-300`}>
           <Image
             src={src}
             alt={alt}

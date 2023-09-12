@@ -33,11 +33,20 @@
       "@components/*": [
         "app/_components/*"
       ],
+      "@layouts/*": [
+        "app/_layouts/*"
+      ],
       "@lib/*": [
         "app/_lib/*"
       ],
       "@context/*": [
         "app/_context/*"
+      ],
+      "@hooks/*": [
+        "app/_hooks/*"
+      ],
+      "@features/*": [
+        "app/_features/*"
       ],
     }
   },

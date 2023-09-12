@@ -1,4 +1,4 @@
-import { Container } from "@components/layouts";
+import { Container } from "@layouts/index";
 import Intro from "@app/Intro";
 import Image from "next/image";
 

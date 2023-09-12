@@ -1,5 +1,4 @@
-import { Header } from "@components/layouts";
-import { Container } from "@components/layouts";
+import { Header, Container } from "@layouts/index";
 import { Breadcrumbs } from "@components/ui";
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {

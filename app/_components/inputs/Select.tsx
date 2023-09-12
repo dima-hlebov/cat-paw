@@ -9,7 +9,7 @@ export const selectVariants = cva(
         variants: {
             variant: {
                 default: "border-white text-accent",
-                filter: "text-neutral-400 bg-secondary border-secondary"
+                sorting: "text-neutral-400 bg-secondary border-secondary"
             },
             size: {
                 default: "py-[7px] px-sm"
@@ -25,7 +25,7 @@ export const selectVariants = cva(
 export function Select({ name, options, children, variant, size, className, ...props }: PropsWithChildren<SelectProps>) {
     return (
         <div className="flex flex-col">
-            {variant === "filter" ? null : <label className="pl-[13px] text-sm leading-[18px] uppercase font-medium" htmlFor={name}>{name}</label>}
+            {variant === "sorting" ? null : <label className="pl-[13px] text-sm leading-[18px] uppercase font-medium" htmlFor={name}>{name}</label>}
             <div className="flex">
                 <select
                     name={name}

@@ -1,4 +1,4 @@
-import { Navigation } from "@app/_components/layouts/Nav";
+import { Navigation } from "@layouts/index";
 import { Link, buttonVariants } from "@components/buttons";
 import IconWrapper, { DislikeIcon, FavIcon, LikeIcon } from "@components/icons";
 
