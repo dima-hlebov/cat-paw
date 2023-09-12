@@ -3,7 +3,7 @@
 import Button from "@components/buttons";
 import IconWrapper, { CloseIcon, MenuIcon } from "@components/icons";
 import { Container } from "@layouts/index";
-import { MainNavigation } from "@components/ui";
+import { MainNavigation } from "@components/ui/navigations";
 
 import { useAppDispatch, useAppSelector } from "@hooks/index";
 import { toggle } from "@context/features/burgermenuSlice";

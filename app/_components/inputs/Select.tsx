@@ -4,7 +4,7 @@ import { cn } from "@lib/utils";
 import { SelectProps } from "@components/inputs";
 
 export const selectVariants = cva(
-    "w-full rounded-md border-2 text-base hover:border-primary/20",
+    "w-full rounded-sm border-2 text-base hover:border-primary/20",
     {
         variants: {
             variant: {

@@ -18,7 +18,7 @@ export const buttonVariants = cva(
             variant: {
                 primary: "border-2 border-primary bg-primary text-white",
                 soft: "border-2 border-primary/0 bg-primary/20 text-primary",
-                secondary: "border-2 border-secondary text-neutral-400",
+                secondary: "border-2 bg-secondary border-secondary text-neutral-400",
                 monochrome: "border-2 bg-white border-white text-primary",
                 // Button group variants
                 btnGroupFirst: "border-y-4 border-x-4 border-white rounded-l-md text-white bg-green-300 hover:bg-green-300/30 hover:text-green-300",

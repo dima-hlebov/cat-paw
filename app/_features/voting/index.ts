@@ -1,2 +1,2 @@
-export { VotingPanel } from "./components/VotingPanel";
-export { Logs } from "./components/Logs";
+export * from "./components/VotingPanel";
+export * from "./components/Logs";

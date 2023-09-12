@@ -1,6 +1,7 @@
-import { Logs, VotingPanel } from "@components/ui";
+import { Breadcrumbs } from "@components/ui/navigations";
 
-import { UserAction, UserLog } from "@app/_features/voting/components/Logs";
+import { VotingPanel, Logs, UserAction, UserLog } from "@features/voting";
+
 import CatPic from "@img/cat-pic.jpg"
 
 
@@ -12,13 +13,16 @@ export default function App() {
         { id: "1as12fds", timestamp: new Date(), action: UserAction.Favourite }
     ]
     return (
-        <main className="mt-md">
-            <div>
-                <VotingPanel image={{ alt: alt, src: CatPic }} />
-                <div className="mt-2xl">
-                    <Logs logs={logs} />
+        <div>
+            <Breadcrumbs />
+            <main className="mt-md">
+                <div>
+                    <VotingPanel image={{ alt: alt, src: CatPic }} />
+                    <div className="mt-2xl">
+                        <Logs logs={logs} />
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     )
 }
