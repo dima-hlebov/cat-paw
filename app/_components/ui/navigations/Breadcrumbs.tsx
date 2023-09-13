@@ -29,8 +29,8 @@ export function Breadcrumbs() {
                     return (
                         <Link
                             key={i}
-                            href={slug}
-                            className={buttonVariants({ variant: "primary", state: "isActive" })}
+                            href={"/" + slug}
+                            className={buttonVariants({ variant: "soft", state: "isActive" })}
                         >
                             {slug}
                         </Link>

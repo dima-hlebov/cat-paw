@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import burgerMenuReducer from "@context/features/burgermenuSlice"
-import sliderSlice from "@context/features/sliderSlice"
 
 export const store = configureStore({
     reducer: {
         burgerMenuReducer,
-        sliderSlice,
     },
 })
 
