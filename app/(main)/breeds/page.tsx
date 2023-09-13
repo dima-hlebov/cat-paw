@@ -4,7 +4,7 @@ import { Gallery, GalleryType } from "@features/gallery";
 
 import CatPic from "@img/cat-pic.jpg"
 
-export default function App() {
+export default function Breeds() {
     return (
         <div>
             <div className="flex flex-wrap">

@@ -19,7 +19,8 @@ const config: Config = {
       borderRadius: {
         xs: "5px",
         sm: "10px",
-        md: "20px"
+        md: "20px",
+        lg: "30px"
       },
       padding: {
         xs: "5px",

@@ -1,0 +1,16 @@
+.swiper {
+    @apply rounded-md overflow-x-clip
+}
+
+.swiper-pagination {
+    @apply flex gap-xs !w-fit p-sm !left-1/2 transform -translate-x-1/2 z-10 bg-white rounded-md
+}
+
+.swiper-pagination-bullet {
+    @apply w-[10px] h-[10px] !m-0 bg-primary/20 opacity-100
+}
+
+/* active bullets */
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    @apply bg-primary;
+}

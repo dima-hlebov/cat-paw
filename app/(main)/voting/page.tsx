@@ -5,7 +5,7 @@ import { VotingPanel, Logs, UserAction, UserLog } from "@features/voting";
 import CatPic from "@img/cat-pic.jpg"
 
 
-export default function App() {
+export default function Voting() {
     const alt: string = "some alt"
     const logs: UserLog[] = [
         { id: "1as12fds", timestamp: new Date(), action: UserAction.Like },
