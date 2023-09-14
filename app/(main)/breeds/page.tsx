@@ -1,4 +1,4 @@
-import { FilterForm } from "@app/_components/forms";
+import { SortForm } from "@app/_components/forms";
 import { Breadcrumbs } from "@app/_components/navigations";
 import { Gallery, GalleryType } from "@features/gallery";
 
@@ -12,7 +12,7 @@ export default function Breeds() {
                     <Breadcrumbs />
                 </div>
                 <div className="grow mt-sm md:mt-0 md:ml-sm">
-                    <FilterForm />
+                    <SortForm />
                 </div>
             </div>
             <Gallery

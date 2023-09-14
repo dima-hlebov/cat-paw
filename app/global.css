@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply text-base font-normal text-light-dark
+  @apply text-base font-normal text-neutral-400
 }
 
 body {
