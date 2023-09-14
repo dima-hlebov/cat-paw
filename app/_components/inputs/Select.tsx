@@ -8,8 +8,8 @@ export const selectVariants = cva(
     {
         variants: {
             variant: {
-                default: "border-white text-accent",
-                sorting: "text-neutral-400 bg-secondary border-secondary"
+                default: "border-white text-dark",
+                sorting: "text-light-dark bg-secondary border-secondary"
             },
             size: {
                 default: "py-[7px] px-sm"

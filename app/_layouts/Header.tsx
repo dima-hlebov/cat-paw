@@ -1,10 +1,10 @@
 import { Search } from "@components/inputs";
-import { UtilityNavigation, BurgerMenu } from "@components/ui/navigations";
+import { UtilityNavigation, BurgerMenu } from "@app/_components/navigations";
 
 export function Header() {
     return (
         <header className="flex flex-wrap gap-sm justify-between">
-            <div className="order-1">
+            <div className="xl:hidden order-1">
                 <BurgerMenu />
             </div>
             <div className="order-3 grow basis-full sm:order-2 sm:basis-auto">

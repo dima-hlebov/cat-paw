@@ -5,7 +5,7 @@ import { Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './carousel.css';
+import '../carousel.css';
 import Image, { ImageProps } from "next/image";
 
 export default function Carousel({ slides }: { slides: ImageProps[] }) {

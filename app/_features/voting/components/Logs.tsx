@@ -25,13 +25,13 @@ export function Logs({ logs }: LogsProps) {
                     key={log.id}
                     className="flex items-center gap-lg p-[15px] rounded-sm bg-secondary"
                 >
-                    <div className="py-[3px] px-[10px] rounded-xs text-accent bg-white">
+                    <div className="py-[3px] px-[10px] rounded-xs text-dark bg-white">
                         <time dateTime={log.timestamp.getDate().toString()}>
                             {log.timestamp.getHours() + ":" + formatMinutes(log.timestamp.getMinutes())}
                         </time>
                     </div>
                     <div>
-                        Image ID: <span className="text-accent">{log.id}</span> was added to {log.action}
+                        Image ID: <span className="text-dark">{log.id}</span> was added to {log.action}
                     </div>
                     <div className="ml-auto">
                         {getActionIcon(log.action)}

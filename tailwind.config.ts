@@ -11,10 +11,11 @@ const config: Config = {
       colors: {
         primary: "#FF868E",
         secondary: "#F8F8F7",
-        accent: "#1D1D1D",
+        dark: "#1D1D1D",
+        "light-dark": "#8C8C8C "
       },
       screens: {
-        'xl': '1440px',
+        '2xl': '1440px',
       },
       borderRadius: {
         xs: "5px",
@@ -26,7 +27,9 @@ const config: Config = {
         xs: "5px",
         sm: "10px",
         md: "20px",
-        lg: "30px"
+        lg: "30px",
+        xl: "40px",
+        "2xl": "50px",
       },
       margin: {
         xs: "5px",

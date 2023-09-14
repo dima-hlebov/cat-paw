@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
     <html lang="en">
       <body className={jost.className}>
         <ReduxProvider>
-          {/* "Left" container is being removed from layout for xl and higer res devices and added to pages*/}
+          {/* "Left" container is being removed from layout for 2xl and higer res devices and added to pages*/}
           <div className="xl:grid xl:grid-cols-2" >
             <Container variant={"desktop"}>
               <Intro />

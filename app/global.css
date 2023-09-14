@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply text-base font-normal text-neutral-400
+  @apply text-base font-normal text-light-dark
 }
 
 body {
@@ -14,6 +14,6 @@ svg {
   @apply text-white
 }
 
-h2 {
-  @apply text-accent text-xl font-medium
+h1, h2, h3, h4, h5, h6 {
+  @apply text-dark font-medium
 }

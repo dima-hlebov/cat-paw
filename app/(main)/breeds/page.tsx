@@ -1,5 +1,5 @@
-import { FilterForm } from "@components/ui/forms";
-import { Breadcrumbs } from "@components/ui/navigations";
+import { FilterForm } from "@app/_components/forms";
+import { Breadcrumbs } from "@app/_components/navigations";
 import { Gallery, GalleryType } from "@features/gallery";
 
 import CatPic from "@img/cat-pic.jpg"

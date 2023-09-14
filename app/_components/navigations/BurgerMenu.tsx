@@ -3,7 +3,7 @@
 import Button from "@components/buttons";
 import IconWrapper, { CloseIcon, MenuIcon } from "@components/icons";
 import { Container } from "@layouts/index";
-import { MainNavigation } from "@components/ui/navigations";
+import { MainNavigation } from "@app/_components/navigations";
 
 import { useAppDispatch, useAppSelector } from "@hooks/index";
 import { toggle } from "@context/features/burgermenuSlice";
@@ -13,7 +13,7 @@ export function BurgerMenu() {
     const dispatch = useAppDispatch()
 
     return (
-        <div className="xl:hidden">
+        <div>
             <Button
                 variant={"monochrome"}
                 size={"md"}

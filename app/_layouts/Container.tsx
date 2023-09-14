@@ -2,7 +2,7 @@ import { cn } from "@lib/utils";
 import { VariantProps, cva } from "class-variance-authority"
 
 export const containerVariants = cva(
-    "relative",
+    "relative max-w-[1280px]",
     {
         variants: {
             variant: {

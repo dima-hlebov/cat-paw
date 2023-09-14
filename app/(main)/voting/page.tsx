@@ -1,4 +1,4 @@
-import { Breadcrumbs } from "@components/ui/navigations";
+import { Breadcrumbs } from "@app/_components/navigations";
 
 import { VotingPanel, Logs, UserAction, UserLog } from "@features/voting";
 

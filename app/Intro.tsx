@@ -1,15 +1,15 @@
 // components
-import { Logo } from '@components/ui/Logo'
-import { MainNavigation } from '@components/ui/navigations'
+import { Logo } from '@app/_components/Logo'
+import { MainNavigation } from '@app/_components/navigations'
 
 export default function Intro() {
   return (
-    <section className="sticky top-[30px] md:pl-[117px]">
+    <section className="sticky top-[30px] 2xl:pl-[117px]">
       <Logo />
 
       <div className="mt-[80px]">
-        <p className="text-[44px] font-medium leading-[58px] text-accent">Hi!👋</p>
-        <h1 className="text-xl">Welcome to MacPaw Bootcamp 2023!</h1>
+        <p className="text-[44px] font-medium leading-[58px] text-dark">Hi!👋</p>
+        <h1 className="text-2xl text-light-dark">Welcome to MacPaw Bootcamp 2023!</h1>
       </div>
 
       <h2 className="mt-[60px]">Lets start using The Cat API</h2>
