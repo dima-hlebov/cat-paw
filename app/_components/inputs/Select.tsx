@@ -4,7 +4,7 @@ import { cn } from "@lib/utils";
 import { SelectProps } from "@components/inputs";
 
 export const selectVariants = cva(
-    "w-full rounded-sm border-2 text-base hover:border-primary/20",
+    "w-full max-h-[40px] rounded-sm border-2 hover:border-primary/20",
     {
         variants: {
             variant: {
@@ -25,7 +25,7 @@ export const selectVariants = cva(
 export function Select({ name, options, children, variant, size, className, ...props }: PropsWithChildren<SelectProps>) {
     return (
         <div className="flex flex-col">
-            {variant === "sorting" ? null : <label className="pl-[13px] text-sm leading-[18px] uppercase font-medium" htmlFor={name}>{name}</label>}
+            {variant === "sorting" ? null : <label className="pl-[13px] text-sm uppercase font-medium" htmlFor={name}>{name}</label>}
             <div className="flex">
                 <select
                     name={name}
