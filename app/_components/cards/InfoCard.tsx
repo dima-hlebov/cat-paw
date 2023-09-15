@@ -32,7 +32,7 @@ export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCa
                     <div className="flex flex-col gap-sm p-sm sm:p-md">
                         {column2.map((item, i) => (
                             <div key={i} className="flex">
-                                <h4>{`${item.title}: `}</h4>
+                                <h4 className="whitespace-pre">{`${item.title}: `}</h4>
                                 <p>{item.text}</p>
                             </div>
                         ))}
