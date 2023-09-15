@@ -12,15 +12,15 @@ type InfoCardProps = {
 export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCardProps) {
     const [column1, column2] = distributeByStringLength(info)
     return (
-        <article className="relative px-md pb-md pt-[55px] border-2 border-primary/20 rounded-md">
+        <article className="relative px-sm pb-sm pt-[55px]  border-2 border-primary/20 rounded-md sm:px-md sm:pb-md sm:pt-[55px]">
             <header className="absolute text-center inset-0 transform -translate-y-[25px]">
-                <div className="inline-block px-2xl py-xs bg-white">
-                    <h2 className="text-4xl">{mainHeading}</h2>
+                <div className="inline-block px-md py-xs bg-white sm:px-2xl">
+                    <h2 className="text-xl sm:text-4xl">{mainHeading}</h2>
                 </div>
-                <h3 className="text-2xl">{secondaryHeading}</h3>
+                <h3 className="sm:text-2xl text-light-dark">{secondaryHeading}</h3>
             </header>
-            <main className="grid grid-cols-2">
-                <div className="flex flex-col gap-sm p-md">
+            <main className="grid sm:grid-cols-2">
+                <div className="flex flex-col gap-sm p-sm sm:p-md">
                     {column1.map((item, i) => (
                         <div key={i}>
                             <h4 className="text-dark">{item.title}:</h4>
@@ -29,7 +29,7 @@ export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCa
                     ))}
                 </div >
                 {column2 ?
-                    <div className="flex flex-col gap-sm p-md">
+                    <div className="flex flex-col gap-sm p-sm sm:p-md">
                         {column2.map((item, i) => (
                             <div key={i} className="flex">
                                 <h4>{`${item.title}: `}</h4>
