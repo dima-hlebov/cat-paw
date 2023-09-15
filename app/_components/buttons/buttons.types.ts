@@ -3,6 +3,7 @@ import { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from "react";
 import { LinkProps as NextLinkProps } from "next/link";
 import { ImageProps } from "next/image";
 import { VariantProps } from "class-variance-authority";
+import { OnClick } from "@app/_types/components";
 
 // Types for links and buttons
 
@@ -17,7 +18,7 @@ export type ImageLinkPropss = LinkProps & {
 };
 
 export type ButtonProps = {
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onClick?: OnClick<HTMLButtonElement>
 } & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
 
 export type ButtonGroupProps = {

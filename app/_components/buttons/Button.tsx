@@ -38,6 +38,7 @@ export const buttonVariants = cva(
             },
         },
         defaultVariants: {
+            variant: "monochrome",
             size: "default",
             state: "isHoverable"
         },
