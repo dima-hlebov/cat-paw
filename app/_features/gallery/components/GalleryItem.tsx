@@ -26,7 +26,7 @@ export function GalleryItem({ className, link, image: { src, alt, ...imageProps 
     }
     return (
         <div className={`group relative ${className}`} >
-            <Image src={src} alt={alt} className="rounded-md" {...imageProps} />
+            <Image src={src} alt={alt} className="h-full object-cover rounded-md" {...imageProps} />
             <div className="absolute top-0 w-full h-full rounded-md group-hover:bg-primary/60 transition-all duration-300"></div>
             <div className="w-fit absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <Button variant={"monochrome"} size={"sm"}>

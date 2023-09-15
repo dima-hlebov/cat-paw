@@ -17,7 +17,7 @@ type GalleryProps = {
 
 export function Gallery({ images, type = GalleryType.BUTTONS }: GalleryProps) {
     return (
-        <div className="mt-md grid grid-cols-3 gap-md">
+        <div className="grid grid-cols-3 gap-md">
             {type === GalleryType.LINKS
                 ? images.map((image, i) => (
                     <GalleryItem key={i} className={renderGrid(i)} link={{ href: `breeds/${image.id}` }} image={{ src: image.src, alt: image.alt }} />
