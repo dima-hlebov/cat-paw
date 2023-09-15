@@ -8,7 +8,7 @@ export function Header() {
                 <BurgerMenu />
             </div>
             <div className="order-3 grow basis-full sm:order-2 sm:basis-auto">
-                <Search />
+                <Search placeholder="Search for breeds by name" />
             </div>
             <div className="order-2 sm:order-3">
                 <UtilityNavigation />

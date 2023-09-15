@@ -10,12 +10,16 @@ export function Breadcrumbs() {
 
     const slugs = usePathname().split("/").filter((str) => str !== "");
 
+    const handleClick = () => {
+        router.back()
+    }
+
     return (
         <nav className="flex gap-sm">
             <Button
                 variant="soft"
                 size="sm"
-                onClick={() => router.back()} >
+                onClick={handleClick} >
                 <IconWrapper Icon={BackIcon} />
             </Button>
             {slugs.map((slug, i) => {
