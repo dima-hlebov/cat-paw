@@ -12,12 +12,16 @@ export function BurgerMenu() {
     const isMenuOpen = useAppSelector(state => state.burgerMenuReducer.isMenuOpen);
     const dispatch = useAppDispatch()
 
+    const handleClick = () => {
+        dispatch(toggle())
+    }
+
     return (
         <div>
             <Button
                 variant={"monochrome"}
                 size={"md"}
-                onClick={() => dispatch(toggle())}>
+                onClick={handleClick}>
                 <IconWrapper Icon={MenuIcon} size={"md"} />
             </Button>
             {/* overlay */}
@@ -25,13 +29,13 @@ export function BurgerMenu() {
                 <Container>
                     <div className="flex justify-end">
                         <Button
-                            onClick={() => dispatch(toggle())}
+                            onClick={handleClick}
                             variant={"monochrome"}
                             size={"md"}>
                             <IconWrapper Icon={CloseIcon} size={"md"} />
                         </Button>
                     </div>
-                    <MainNavigation />
+                    <MainNavigation onClick={handleClick} />
                 </Container>
             </div>
         </div>
