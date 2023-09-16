@@ -1,8 +1,40 @@
 import { SortForm } from "@app/_components/forms";
 import { Breadcrumbs } from "@app/_components/navigations";
 import { Gallery, GalleryType } from "@features/gallery";
+import { Suspense } from "react";
 
 import CatPic from "@img/cat-pic.jpg"
+import IconWrapper from "@app/_components/icons/IconWrapper";
+import { LoadingIcon } from "@app/_components/icons";
+
+async function getGallery() {
+    await new Promise(resolve => setTimeout(resolve, 3000)).catch(e => console.log(e))
+    return (<Gallery
+        images={[
+            { id: 1, src: CatPic, alt: "cat" },
+            { id: 2, src: CatPic, alt: "cat" },
+            { id: 3, src: CatPic, alt: "cat" },
+            { id: 4, src: CatPic, alt: "cat" },
+            { id: 5, src: CatPic, alt: "cat" },
+            { id: 6, src: CatPic, alt: "cat" },
+            { id: 7, src: CatPic, alt: "cat" },
+            { id: 8, src: CatPic, alt: "cat" },
+            { id: 9, src: CatPic, alt: "cat" },
+            { id: 10, src: CatPic, alt: "cat" },
+            { id: 11, src: CatPic, alt: "cat" },
+            { id: 12, src: CatPic, alt: "cat" },
+            { id: 13, src: CatPic, alt: "cat" },
+            { id: 14, src: CatPic, alt: "cat" },
+            { id: 15, src: CatPic, alt: "cat" },
+            { id: 16, src: CatPic, alt: "cat" },
+            { id: 17, src: CatPic, alt: "cat" },
+            { id: 18, src: CatPic, alt: "cat" },
+            { id: 19, src: CatPic, alt: "cat" },
+            { id: 20, src: CatPic, alt: "cat" },
+            { id: 21, src: CatPic, alt: "cat" },
+        ]}
+        type={GalleryType.LINKS} />)
+}
 
 export default function Breeds() {
     return (
@@ -16,31 +48,9 @@ export default function Breeds() {
                 </div>
             </div>
             <div className="mt-sm sm:mt-md">
-                <Gallery
-                    images={[
-                        { id: 1, src: CatPic, alt: "cat" },
-                        { id: 2, src: CatPic, alt: "cat" },
-                        { id: 3, src: CatPic, alt: "cat" },
-                        { id: 4, src: CatPic, alt: "cat" },
-                        { id: 5, src: CatPic, alt: "cat" },
-                        { id: 6, src: CatPic, alt: "cat" },
-                        { id: 7, src: CatPic, alt: "cat" },
-                        { id: 8, src: CatPic, alt: "cat" },
-                        { id: 9, src: CatPic, alt: "cat" },
-                        { id: 10, src: CatPic, alt: "cat" },
-                        { id: 11, src: CatPic, alt: "cat" },
-                        { id: 12, src: CatPic, alt: "cat" },
-                        { id: 13, src: CatPic, alt: "cat" },
-                        { id: 14, src: CatPic, alt: "cat" },
-                        { id: 15, src: CatPic, alt: "cat" },
-                        { id: 16, src: CatPic, alt: "cat" },
-                        { id: 17, src: CatPic, alt: "cat" },
-                        { id: 18, src: CatPic, alt: "cat" },
-                        { id: 19, src: CatPic, alt: "cat" },
-                        { id: 20, src: CatPic, alt: "cat" },
-                        { id: 21, src: CatPic, alt: "cat" },
-                    ]}
-                    type={GalleryType.LINKS} />
+                <Suspense fallback={<IconWrapper Icon={LoadingIcon} />}>
+                    {getGallery()}
+                </Suspense>
             </div>
         </div>
     )

@@ -5,19 +5,20 @@ import { GalleryItem } from '@features/gallery'
 export enum GalleryType {
     LINKS,
     BUTTONS,
+    DEFAULT,
 }
 
 type GalleryProps = {
     images: { id: number, src: string, alt: string }[]
-    type: GalleryType
+    type?: GalleryType
 }
 
 // temp props type
 // Renders gallery items based on type provided 
 
-export function Gallery({ images, type = GalleryType.BUTTONS }: GalleryProps) {
+export function Gallery({ images, type = GalleryType.DEFAULT }: GalleryProps) {
     return (
-        <div className="grid grid-cols-3 gap-md">
+        <div className="grid grid-cols-1 gap-y-sm sm:gap-md sm:grid-cols-3 ">
             {type === GalleryType.LINKS
                 ? images.map((image, i) => (
                     <GalleryItem key={i} className={renderGrid(i)} link={{ href: `breeds/${image.id}` }} image={{ src: image.src, alt: image.alt }} />

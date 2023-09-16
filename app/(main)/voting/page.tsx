@@ -1,6 +1,7 @@
+import { Logs, UserAction, UserLog } from "@app/_components/lists";
 import { Breadcrumbs } from "@app/_components/navigations";
 
-import { VotingPanel, Logs, UserAction, UserLog } from "@features/voting";
+import { VotingPanel } from "@features/voting";
 
 import CatPic from "@img/cat-pic.jpg"
 

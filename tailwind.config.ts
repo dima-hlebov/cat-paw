@@ -36,6 +36,7 @@ const config: Config = {
         sm: "10px",
         md: "20px",
         lg: "30px",
+        xl: "40px",
         "2xl": "50px"
       },
       gap: {
