@@ -12,7 +12,7 @@ export default function Home() {
         <Intro />
       </Container>
       <Container variant={"desktop"} color={"primaryTransp"}>
-        <main className="w-[680px] h-[840px]">
+        <main className="bg-primary/20 rounded-md w-[680px] h-[820px]">
           <Image
             src={GirlAndPet} width={775}
             alt="Girl reaching cat with open arms. Both flying."
