@@ -11,7 +11,7 @@ export function VotingPanel({ image }: { image: ImageProps }) {
                 alt={image.alt}
                 quality={100}
                 src={image.src}
-                className="rounded-md" />
+                className="aspect-video object-cover object-center rounded-md" />
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-[-50%]">
                 <ButtonGroup >
                     <Button variant={"btnGroupFirst"} size={"groupSize"}>
