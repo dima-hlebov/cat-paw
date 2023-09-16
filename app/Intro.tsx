@@ -1,5 +1,5 @@
 // components
-import { Logo } from '@app/_components/Logo'
+import { Logo } from '@components/navigations/Logo'
 import { MainNavigation } from '@app/_components/navigations'
 
 export default function Intro() {
