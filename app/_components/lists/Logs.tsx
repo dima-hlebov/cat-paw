@@ -23,17 +23,17 @@ export function Logs({ logs }: LogsProps) {
             {logs.map((log) => (
                 <li
                     key={log.id}
-                    className="flex items-center gap-lg p-[15px] rounded-sm bg-secondary"
+                    className="flex flex-wrap items-center gap-lg p-[15px] rounded-sm bg-secondary"
                 >
-                    <div className="py-[3px] px-[10px] rounded-xs text-dark bg-white">
+                    <div className="order-1 py-[3px] px-[10px] rounded-xs text-dark bg-white">
                         <time dateTime={log.timestamp.getDate().toString()}>
                             {log.timestamp.getHours() + ":" + formatMinutes(log.timestamp.getMinutes())}
                         </time>
                     </div>
-                    <div>
+                    <div className="order-3 grow basis-full sm:order-2 sm:basis-auto">
                         Image ID: <span className="text-dark">{log.id}</span> was added to {log.action}
                     </div>
-                    <div className="ml-auto">
+                    <div className="order-2 ml-auto sm:order-3">
                         {getActionIcon(log.action)}
                     </div>
                 </li>

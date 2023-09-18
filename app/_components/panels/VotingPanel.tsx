@@ -15,13 +15,13 @@ export function VotingPanel({ image }: { image: ImageProps }) {
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-[-50%]">
                 <ButtonGroup >
                     <Button variant={"btnGroupFirst"} size={"groupSize"}>
-                        <IconWrapper Icon={LikeIcon} size="md" />
+                        <IconWrapper Icon={LikeIcon} size="btnGroup" />
                     </Button>
                     <Button variant={"btnGroupMiddle"} size={"groupSize"}>
-                        <IconWrapper Icon={FavIcon} SecondaryIcon={FavFullIcon} size="md" active="white" />
+                        <IconWrapper Icon={FavIcon} SecondaryIcon={FavFullIcon} size="btnGroup" active="white" />
                     </Button>
                     <Button variant={"btnGroupLast"} size={"groupSize"}>
-                        <IconWrapper Icon={DislikeIcon} size="md" />
+                        <IconWrapper Icon={DislikeIcon} size="btnGroup" />
                     </Button>
                 </ButtonGroup>
             </div>
