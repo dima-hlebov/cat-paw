@@ -28,6 +28,7 @@ export function Select({ name, options, children, variant, size, className, ...p
             {variant === "sorting" ? null : <label className="pl-[13px] text-sm uppercase font-medium" htmlFor={name}>{name}</label>}
             <div className="flex">
                 <select
+                    id={name}
                     name={name}
                     className={`${children ? "mr-sm" : ""} ${cn(selectVariants({ variant, size, className }))}`}
                     {...props}

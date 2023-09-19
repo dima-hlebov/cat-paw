@@ -28,8 +28,9 @@ export function Search({ placeholder, onSubmit, ...props }: React.InputHTMLAttri
             <div className="group flex justify-between items-center p-[8px] bg-white rounded-md border-2 border-white hover:border-2 hover:border-primary/20 focus-within:border-primary active:border-primary transition-all duration-300 ">
                 <div className="w-full pl-sm">
                     <input
+                        name="search"
                         onChange={handleChangeSubmit}
-                        className="w-full outline-none text-2xl text-dark"
+                        className="w-full text-2xl outline-none text-dark"
                         placeholder={placeholder ? placeholder : "Search"}
                         {...props} />
                 </div>
