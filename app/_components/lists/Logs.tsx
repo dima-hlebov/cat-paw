@@ -45,10 +45,10 @@ export function Logs({ logs }: LogsProps) {
 function getActionIcon(action: UserAction): React.ReactElement<IconWrapperProps> {
     switch (action) {
         case UserAction.Like:
-            return <IconWrapper className="text-green-300" Icon={LikeIcon} />
+            return <IconWrapper className="text-green-300" Icon={LikeIcon} size={"sm"} />
         case UserAction.Dislike:
-            return <IconWrapper className="text-amber-300" Icon={DislikeIcon} />
+            return <IconWrapper className="text-amber-300" Icon={DislikeIcon} size={"sm"} />
         case UserAction.Favourite:
-            return <IconWrapper className="text-primary" Icon={FavIcon} />
+            return <IconWrapper className="text-primary" Icon={FavIcon} size={"sm"} />
     }
 }
