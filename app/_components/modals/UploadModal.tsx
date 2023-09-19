@@ -4,6 +4,7 @@ import { useAppSelector } from "@app/_hooks";
 import { DropZone } from "@components/inputs";
 import Modal from "./Modal";
 import Button from "../buttons/Button";
+import Alert from "../alerts/Alert";
 
 export function UploadModal() {
     const { files } = useAppSelector(state => state.modalReducer)
@@ -14,7 +15,7 @@ export function UploadModal() {
                 <h2>Upload a .jpg or .png Cat Image</h2>
                 <p className="text-xl mt-sm">Any uploads must comply with the <a href="https://thecatapi.com/privacy" className="text-primary">upload guidelines</a> or face deletion.</p>
             </div>
-            <form className="flex flex-col items-center mt-xl gap-md">
+            <form className="flex flex-col items-center mt-xl gap-sm sm:gap-md">
                 <DropZone />
                 {files.map((file, i) => (
                     <p key={i} className="break-all">
@@ -23,6 +24,9 @@ export function UploadModal() {
                 ))}
                 <Button variant={"primary"} state={"isActive"}>Upload photo</Button>
             </form>
+            <div className="mt-sm sm:mt-md">
+                <Alert variant={"succes"} text="Thanks for the Upload - Cat found!" color={"monochrome"} />
+            </div>
         </Modal>
     )
 }

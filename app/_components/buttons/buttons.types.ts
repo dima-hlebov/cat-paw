@@ -1,5 +1,5 @@
 import { buttonVariants } from "@components/buttons/Button";
-import { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import { LinkProps as NextLinkProps } from "next/link";
 import { ImageProps } from "next/image";
 import { VariantProps } from "class-variance-authority";
