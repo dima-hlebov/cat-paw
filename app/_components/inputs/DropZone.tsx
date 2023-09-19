@@ -71,7 +71,7 @@ export function DropZone() {
 
   return (
     <div className="flex items-center justify-center w-full ">
-      <label htmlFor="dropzone-file" className="custom-cursor flex flex-col items-center justify-center w-full px-lg py-md aspect-video border-2 bg-white border-primary/20 hover:border-primary border-dashed rounded-sm bg-[url('../public/img/upload-bg.svg')] bg-auto bg-center bg-no-repeat">
+      <label htmlFor="dropzone-file" className="custom-cursor flex flex-col items-center justify-center w-full px-lg py-md aspect-video border-2 bg-white border-primary/20 hover:border-primary border-dashed rounded-sm bg-[url('../public/img/upload-bg.svg')] bg-origin-content bg-contain sm:bg-auto bg-center bg-no-repeat">
         {images.length
           ?
           <div className="relative w-full h-full">
