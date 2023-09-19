@@ -16,9 +16,6 @@ export const iconVariants = cva(
                 white: "group-active:text-white"
             },
         },
-        defaultVariants: {
-            size: "sm"
-        }
     }
 )
 // Wrapper for svgs which is able to toggle betweend two icons. 

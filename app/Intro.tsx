@@ -1,11 +1,15 @@
 // components
 import { Logo } from '@components/navigations/Logo'
 import { MainNavigation } from '@app/_components/navigations'
+import { ThemeSwitcher } from '@components/ui'
 
 export default function Intro() {
   return (
     <section className="sticky top-[30px] 2xl:pl-[117px]">
-      <Logo />
+      <div className='flex justify-between'>
+        <Logo />
+        <ThemeSwitcher />
+      </div>
 
       <div className="mt-[80px]">
         <p className="text-[44px] font-medium leading-[58px] text-dark">Hi!👋</p>

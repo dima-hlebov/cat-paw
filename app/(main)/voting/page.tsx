@@ -1,7 +1,7 @@
 import { Logs, UserAction, UserLog } from "@components/lists";
 import { Breadcrumbs } from "@components/navigations";
 
-import { VotingPanel } from "@components/panels";
+import { VotingPanel } from "@components/ui";
 
 import CatPic from "@img/cat-pic.jpg"
 

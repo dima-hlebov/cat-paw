@@ -1,1 +1,0 @@
-export { VotingPanel } from "./VotingPanel";
