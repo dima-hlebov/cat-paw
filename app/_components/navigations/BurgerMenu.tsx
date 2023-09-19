@@ -6,14 +6,14 @@ import { Container } from "@layouts/index";
 import { MainNavigation } from "@app/_components/navigations";
 
 import { useAppDispatch, useAppSelector } from "@hooks/index";
-import { toggle } from "@context/features/burgermenuSlice";
+import { toggleMenu } from "@context/features/burgermenuSlice";
 
 export function BurgerMenu() {
     const isMenuOpen = useAppSelector(state => state.burgerMenuReducer.isMenuOpen);
     const dispatch = useAppDispatch()
 
     const handleClick = () => {
-        dispatch(toggle())
+        dispatch(toggleMenu())
     }
 
     return (
@@ -25,7 +25,7 @@ export function BurgerMenu() {
                 <IconWrapper Icon={MenuIcon} size={"md"} />
             </Button>
             {/* overlay */}
-            <div className={`${isMenuOpen ? "block" : "hidden"} inset-0 absolute top-0 left-0 bg-secondary z-10`}>
+            <div className={`${isMenuOpen ? "block" : "hidden"} inset-0 absolute bg-secondary z-10`}>
                 <Container>
                     <div className="flex justify-end">
                         <Button
