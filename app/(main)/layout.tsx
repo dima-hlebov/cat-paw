@@ -5,7 +5,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         <div>
             <Container>
                 <Header />
-                <div className="mt-sm p-md bg-white rounded-md">
+                <div className="mt-sm p-md h-full bg-white rounded-md">
                     {children}
                 </div>
             </Container>

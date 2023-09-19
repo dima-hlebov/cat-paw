@@ -12,7 +12,7 @@ export const burgerMenuSlice = createSlice({
     name: "burgermenu",
     initialState,
     reducers: {
-        toggle: (state) => {
+        toggleMenu: (state) => {
             return {
                 isMenuOpen: !state.isMenuOpen
             }
@@ -20,5 +20,5 @@ export const burgerMenuSlice = createSlice({
     }
 })
 
-export const { toggle } = burgerMenuSlice.actions;
+export const { toggleMenu } = burgerMenuSlice.actions;
 export default burgerMenuSlice.reducer

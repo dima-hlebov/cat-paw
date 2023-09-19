@@ -1,25 +1,23 @@
-import Button from "@components/buttons";
-import IconWrapper, { UploadIcon } from "@components/icons";
 import { Breadcrumbs } from "@components/navigations";
 import { FilterForm } from "@components/forms";
 import { Gallery, GalleryType } from "@features/gallery";
 
 import CatPic from "@img/cat-pic.jpg"
+import UploadButton from "./UploadButton";
+import { UploadModal } from "@components/modals";
 
 export default function GalleryPage() {
+
+
     return (
         <div>
-            <div className="flex flex-col gap-sm justify-between sm:flex-row">
+            <UploadModal />
+            <div className="flex flex-col justify-between gap-sm sm:flex-row">
                 <Breadcrumbs />
-                <Button variant={"soft"} >
-                    <div className="flex justify-center ">
-                        <IconWrapper Icon={UploadIcon} size="xs" />
-                        <div>&nbsp;&nbsp;Upload</div>
-                    </div>
-                </Button>
+                <UploadButton />
             </div>
             <main className="mt-sm sm:mt-md">
-                <div className="px-md pt-sm pb-md bg-secondary rounded-md">
+                <div className="rounded-md px-md pt-sm pb-md bg-secondary">
                     <FilterForm />
                 </div>
                 <div className="mt-sm sm:mt-md">

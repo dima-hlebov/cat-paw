@@ -2,23 +2,20 @@ import { cn } from "@lib/utils";
 import { VariantProps, cva } from "class-variance-authority"
 
 export const containerVariants = cva(
-    "h-screen",
+    "min-h-screen max-w-[1280px]",
     {
         variants: {
             variant: {
                 desktop: "hidden xl:block",
                 mobile: "block xl:hidden"
             },
-            color: {
-                default: "bg-white",
-                primaryTransp: "bg-primary/20"
-            },
-            size: {
-                default: "max-w-[1280px] p-md md:p-lg w-full",
+            size_: {
+                default: "p-md md:p-lg w-full",
+                modal: "sm:p-lg w-full"
             }
         },
         defaultVariants: {
-            size: "default"
+            size_: "default"
         }
     }
 );
@@ -28,9 +25,9 @@ type ContainerProps = {
 } & React.HTMLProps<HTMLDivElement> & VariantProps<typeof containerVariants>
 
 
-export function Container({ children, variant, color, size, className, ...props }: ContainerProps) {
+export function Container({ children, variant, size_, className, ...props }: ContainerProps) {
     return (
-        <div className={cn(containerVariants({ variant, size, className }))} {...props}>
+        <div className={cn(containerVariants({ variant, size_, className }))} {...props}>
             <div className={`h-full rounded-md`}>
                 {children}
             </div>

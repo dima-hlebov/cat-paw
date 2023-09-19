@@ -44,6 +44,9 @@ const config: Config = {
         sm: "10px",
         md: "20px",
         lg: "30px",
+      },
+      cursor: {
+        'maxwell': 'url("../public/cursor/maxwell-cat.gif"), pointer',
       }
     },
   },

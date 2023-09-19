@@ -15,9 +15,9 @@ export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCa
         <article className="relative px-sm pb-sm pt-[55px]  border-2 border-primary/20 rounded-md sm:px-md sm:pb-md sm:pt-[55px]">
             <header className="absolute text-center inset-0 transform -translate-y-[25px]">
                 <div className="inline-block px-md py-xs bg-white sm:px-2xl">
-                    <h2 className="text-xl sm:text-4xl">{mainHeading}</h2>
+                    <h2>{mainHeading}</h2>
                 </div>
-                <h3 className="sm:text-2xl text-light-dark">{secondaryHeading}</h3>
+                <h3>{secondaryHeading}</h3>
             </header>
             <main className="grid sm:grid-cols-2">
                 <div className="flex flex-col gap-sm p-sm sm:p-md">
