@@ -25,7 +25,7 @@ export function BurgerMenu() {
                 <IconWrapper Icon={MenuIcon} size={"md"} />
             </Button>
             {/* overlay */}
-            <div className={`${isMenuOpen ? "block" : "hidden"} inset-0 absolute bg-secondary z-10`}>
+            <div className={`${isMenuOpen ? "block" : "hidden"} inset-0 absolute bg-secondary z-10 dark:bg-dark`}>
                 <Container>
                     <div className="flex justify-end">
                         <Button
