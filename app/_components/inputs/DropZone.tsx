@@ -71,7 +71,10 @@ export function DropZone() {
 
   return (
     <div className="flex items-center justify-center w-full ">
-      <label htmlFor="dropzone-file" className="custom-cursor flex flex-col items-center justify-center w-full px-lg py-md aspect-video border-2 bg-white border-primary/20 hover:border-primary border-dashed rounded-sm bg-[url('../public/img/upload-bg.svg')] bg-origin-content bg-contain sm:bg-auto bg-center bg-no-repeat">
+      <label
+        htmlFor="dropzone-file"
+        className="flex flex-col items-center justify-center w-full bg-white bg-center bg-no-repeat bg-contain border-2 border-dashed rounded-sm custom-cursor px-lg py-md aspect-video bg-upload-bg-light bg-origin-content border-primary/20 hover:border-primary sm:bg-auto dark:bg-white/5 dark:bg-upload-bg-dark"
+      >
         {images.length
           ?
           <div className="relative w-full h-full">
@@ -83,7 +86,7 @@ export function DropZone() {
               quality={100}
             />
           </div>
-          : <p><span className="text-dark">Drag here</span> your file or <span className="text-dark">Click here</span> to upload</p>
+          : <p><span className="text-dark dark:text-white">Drag here</span> your file or <span className="text-dark dark:text-white">Click here</span> to upload</p>
         }
         <input onChange={onFileChange} id="dropzone-file" type="file" accept="image/*" className="hidden" />
       </label>

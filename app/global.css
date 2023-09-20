@@ -26,8 +26,6 @@ h3 {
   @apply text-light-dark sm:text-2xl
 }
 
-
-
 input, select {
   background-color: transparent;
 }
@@ -41,7 +39,7 @@ input, select {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-secondary
+  @apply bg-transparent
 }
 
 ::-webkit-scrollbar-thumb {

@@ -21,7 +21,7 @@ export default function Modal({ children }: ModalProps) {
             className={`${isModalOpen ? "block" : "hidden"} absolute inset-0 z-10 bg-dark/40`}>
             <div className="grid xl:grid-cols-2">
                 <Container className="col-start-2 col-end-3" size_={"modal"} >
-                    <div className="flex flex-col h-full bg-secondary p-md sm:rounded-sm">
+                    <div className="flex flex-col h-full bg-secondary p-md sm:rounded-sm dark:bg-zinc-800">
                         <Button
                             onClick={handleClick}
                             variant={"monochrome"}

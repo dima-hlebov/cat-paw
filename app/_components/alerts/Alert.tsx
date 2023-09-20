@@ -25,8 +25,8 @@ export const alertVariants = cva(
                 destructive: "",
             },
             color: {
-                monochrome: "bg-white",
-                secondary: "bg-secondary",
+                monochrome: "bg-white dark:bg-white/5",
+                secondary: "bg-secondary dark:bg-white/5",
             }
         },
         defaultVariants: {

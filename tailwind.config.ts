@@ -49,6 +49,10 @@ const config: Config = {
       },
       cursor: {
         'maxwell': 'url("../public/cursor/maxwell-cat.gif"), pointer',
+      },
+      backgroundImage: {
+        "upload-bg-light": "url('../public/img/upload-bg-light.svg')",
+        "upload-bg-dark": "url('../public/img/upload-bg-dark.svg')"
       }
     },
   },
