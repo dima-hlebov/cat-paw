@@ -18,7 +18,7 @@ export const buttonVariants = cva(
             variant: {
                 primary: "border-2 border-primary bg-primary text-white",
                 soft: "border-2 border-primary/0 bg-primary/20 text-primary",
-                secondary: "border-2 bg-secondary border-secondary text-neutral-400",
+                secondary: "border-2 bg-secondary border-secondary text-light-dark dark:bg-white/5 dark:border-white/0",
                 monochrome: "border-2 bg-white border-white text-primary dark:bg-white/5 dark:border-white/0",
                 // Button group variants
                 btnGroupFirst: "border-y-4 border-l-4 rounded-l-md border-white text-white bg-green-300 dark:border-zinc-800 hover:bg-green-300/30 hover:text-green-300",
@@ -47,7 +47,7 @@ export const buttonVariants = cva(
             { variant: ["monochrome", "primary"], state: "isHoverable", className: "hover:bg-primary hover:border-primary hover:text-white hover:bg-primary hover:border-primary hover:text-white" },
             { variant: ["soft"], state: "isActive", className: "hover:text-white hover:bg-primary active:text-primary active:bg-primary/20" },
             { variant: ["soft"], state: "isHoverable", className: "hover:text-white hover:bg-primary" },
-            { variant: ["secondary"], state: "isHoverable", className: "hover:border-primary/20 hover:text-primary" },
+            { variant: ["secondary"], state: "isHoverable", className: "hover:border-primary/20 hover:text-primary dark:hover:border-primary/20" },
             { variant: ["monochrome", "primary", "secondary", "soft"], state: "isDisabled", className: "" },
         ]
     }

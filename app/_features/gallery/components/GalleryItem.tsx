@@ -14,10 +14,10 @@ export function GalleryItem({ className, link, image: { src, alt, ...imageProps 
         const { href, ...linkProps } = link
         return (
             <Link href={href} className={`group relative ${className}`} {...linkProps}>
-                <Image src={src} alt={alt} className="h-full object-cover rounded-md" {...imageProps} />
-                <div className="absolute top-0 w-full h-full rounded-md group-hover:bg-primary/60 transition-all duration-300"></div>
-                <div className="w-full absolute p-sm bottom-0 opacity-0 text-center group-hover:opacity-100 transition-all duration-300">
-                    <div className="bg-white rounded-sm text-primary py-xs">
+                <Image src={src} alt={alt} className="object-cover h-full rounded-md" {...imageProps} />
+                <div className="absolute top-0 w-full h-full transition-all duration-300 rounded-md group-hover:bg-primary/60"></div>
+                <div className="absolute bottom-0 w-full text-center transition-all duration-300 opacity-0 p-sm group-hover:opacity-100">
+                    <div className="bg-white rounded-sm text-primary py-xs dark:bg-zinc-800">
                         Abyssinian
                     </div>
                 </div>
@@ -26,10 +26,10 @@ export function GalleryItem({ className, link, image: { src, alt, ...imageProps 
     }
     return (
         <div className={`group relative ${className}`} >
-            <Image src={src} alt={alt} className="h-full object-cover rounded-md" {...imageProps} />
-            <div className="absolute top-0 w-full h-full rounded-md group-hover:bg-primary/60 transition-all duration-300"></div>
-            <div className="w-fit absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <Button variant={"monochrome"} size={"sm"}>
+            <Image src={src} alt={alt} className="object-cover h-full rounded-md" {...imageProps} />
+            <div className="absolute top-0 w-full h-full transition-all duration-300 rounded-md group-hover:bg-primary/60"></div>
+            <div className="absolute transition-all duration-300 transform -translate-x-1/2 -translate-y-1/2 opacity-0 w-fit top-1/2 left-1/2 group-hover:opacity-100">
+                <Button variant={"monochrome"} size={"sm"} className="dark:bg-zinc-800">
                     <IconWrapper Icon={FavIcon} size="md" />
                 </Button>
             </div>

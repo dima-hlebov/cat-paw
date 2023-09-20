@@ -16,7 +16,7 @@ export function FilterForm() {
             <div><Select name='Breed' options={["None"]} /></div>
             <div>
                 <Select name='Limit' options={["Limit"]}>
-                    <Button size={"sm"}>
+                    <Button size={"sm"} className="dark:bg-dark">
                         <IconWrapper Icon={UpdateIcon}></IconWrapper>
                     </Button>
                 </Select>

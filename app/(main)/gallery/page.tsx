@@ -17,7 +17,7 @@ export default function GalleryPage() {
                 <UploadButton />
             </div>
             <main className="mt-sm sm:mt-md">
-                <div className="rounded-md px-md pt-sm pb-md bg-secondary">
+                <div className="rounded-md px-md pt-sm pb-md bg-secondary dark:bg-white/5">
                     <FilterForm />
                 </div>
                 <div className="mt-sm sm:mt-md">

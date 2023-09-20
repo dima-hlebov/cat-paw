@@ -4,12 +4,12 @@ import { cn } from "@lib/utils";
 import { SelectProps } from "@components/inputs";
 
 export const selectVariants = cva(
-    "w-full max-h-[40px] rounded-sm border-2 hover:border-primary/20",
+    "w-full max-h-[40px] rounded-sm border-2 hover:border-primary/20 dark:hover:border-primary/20",
     {
         variants: {
             variant: {
-                default: "bg-white border-white text-dark ",
-                sorting: "text-light-dark bg-secondary border-secondary"
+                default: "bg-white border-white text-dark dark:bg-dark dark:border-dark dark:text-white",
+                sorting: "text-light-dark bg-secondary border-secondary dark:bg-white/5 dark:border-white/0"
             },
             size: {
                 default: "py-[7px] px-sm"
