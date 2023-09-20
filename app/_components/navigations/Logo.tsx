@@ -6,7 +6,7 @@ import { Link } from '@components/buttons'
 export function Logo() {
   return (
     <div>
-      <Link href="/"><IconWrapper Icon={PawIcon} /></Link>
+      <Link href="/"><IconWrapper Icon={PawIcon} className="text-dark dark:text-white" /></Link>
     </div>
   )
 }

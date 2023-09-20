@@ -1,6 +1,6 @@
 // components
 import { Logo } from '@components/navigations/Logo'
-import { MainNavigation } from '@app/_components/navigations'
+import { MainNavigation } from '@components/navigations'
 import { ThemeSwitcher } from '@components/ui'
 
 export default function Intro() {
@@ -12,11 +12,11 @@ export default function Intro() {
       </div>
 
       <div className="mt-[80px]">
-        <p className="text-[44px] font-medium leading-[58px] text-dark">Hi!👋</p>
-        <h1 className="text-2xl text-light-dark">Welcome to MacPaw Bootcamp 2023!</h1>
+        <p className="text-[44px] font-medium leading-[58px] text-dark dark:text-white">Hi!👋</p>
+        <h1 className="text-xl text-light-dark dark:text-light-dark">Welcome to MacPaw Bootcamp 2023!</h1>
       </div>
 
-      <h2 className="mt-[60px]">Lets start using The Cat API</h2>
+      <h2 className="mt-[60px] text-xl">Lets start using The Cat API</h2>
       <MainNavigation />
     </section>
   )

@@ -18,8 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       <body className={jost.className}>
         <Providers>
           {/* "Left" container is being removed from layout for 2xl and higer res devices and added to pages*/}
-          <div className="xl:grid xl:grid-cols-2" >
-            <Container variant={"desktop"}>
+          <div className="xl:grid xl:grid-cols-2 xl:justify-items-end">
+            <Container variant={"desktop"} className="xl:w-auto xl:justify-self-start ">
               <Intro />
             </Container>
             {children}

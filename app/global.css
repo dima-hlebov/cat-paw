@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply relative bg-secondary;
+  @apply relative bg-secondary dark:bg-dark
 }
 
 svg {
@@ -15,7 +15,7 @@ svg {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply text-dark font-medium
+  @apply font-medium text-dark dark:text-white
 }
 
 h2 {

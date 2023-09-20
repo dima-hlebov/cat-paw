@@ -12,14 +12,14 @@ export default function Button({ onClick, variant, size, state, className, child
 
 // Fix: Rework using compound variants
 export const buttonVariants = cva(
-    "group uppercase text-center text-xs font-normal tracking-[2px] transition-all duration-300",
+    "group uppercase text-center text-xs font-normal tracking-[2px] transition-all duration-300 dark:transition-none",
     {
         variants: {
             variant: {
                 primary: "border-2 border-primary bg-primary text-white",
                 soft: "border-2 border-primary/0 bg-primary/20 text-primary",
                 secondary: "border-2 bg-secondary border-secondary text-neutral-400",
-                monochrome: "border-2 bg-white border-white text-primary",
+                monochrome: "border-2 bg-white border-white text-primary dark:bg-white/5 dark:border-white/0",
                 // Button group variants
                 btnGroupFirst: "border-y-4 border-x-4 border-white rounded-l-sm text-white bg-green-300 hover:bg-green-300/30 hover:text-green-300",
                 btnGroupMiddle: "border-y-4 border-r-4 border-white text-white bg-primary hover:bg-primary/30 hover:text-primary",

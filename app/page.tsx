@@ -12,12 +12,12 @@ export default function Home() {
         <Intro />
       </Container>
       <Container variant={"desktop"} color={"primaryTransp"}>
-        <main className="bg-primary/20 rounded-md w-[680px] h-[820px]">
+        <main className="bg-primary/20 rounded-md w-[680px] h-[820px] dark:bg-white/5">
           <Image
             src={GirlAndPet} width={775}
             alt="Girl reaching cat with open arms. Both flying."
             quality={100}
-            className="absolute right-0 top-0" />
+            className="absolute top-0 right-0" />
         </main>
       </Container>
     </div>
