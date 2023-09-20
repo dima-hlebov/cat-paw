@@ -26,6 +26,12 @@ h3 {
   @apply text-light-dark sm:text-2xl
 }
 
+
+
+input, select {
+  background-color: transparent;
+}
+
 .custom-cursor {
   cursor: url("../public/cursor/maxwell.png"), pointer
 }

@@ -8,7 +8,7 @@ export const selectVariants = cva(
     {
         variants: {
             variant: {
-                default: "border-white text-dark",
+                default: "bg-white border-white text-dark ",
                 sorting: "text-light-dark bg-secondary border-secondary"
             },
             size: {

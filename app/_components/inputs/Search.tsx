@@ -25,12 +25,12 @@ export function Search({ placeholder, onSubmit, ...props }: React.InputHTMLAttri
 
     return (
         <form onSubmit={handleFormSumbit} className="w-full">
-            <div className="group flex justify-between items-center p-[8px] bg-white rounded-md border-2 border-white hover:border-2 hover:border-primary/20 focus-within:border-primary active:border-primary transition-all duration-300 ">
+            <div className="group flex justify-between items-center p-[8px] bg-white rounded-md border-2 border-white transition-all duration-300 dark:bg-white/5 dark:border-white/0 hover:border-2 hover:border-primary/20 focus-within:border-primary active:border-primary">
                 <div className="w-full pl-sm">
                     <input
                         name="search"
                         onChange={handleChangeSubmit}
-                        className="w-full text-2xl outline-none text-dark"
+                        className="w-full text-xl outline-none bg-transperent"
                         placeholder={placeholder ? placeholder : "Search"}
                         {...props} />
                 </div>

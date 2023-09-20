@@ -23,7 +23,6 @@ export function ThemeSwitcher() {
                 setTheme(Theme.LIGHT)
                 break;
         }
-        console.log(theme)
     }
 
     useEffect(() => {
