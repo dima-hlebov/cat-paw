@@ -3,7 +3,7 @@ import { cn } from "@lib/utils";
 import { IconWrapperProps } from "@components/icons/icons.types";
 
 export const iconVariants = cva(
-    "text-inherit active:animate-pulse",
+    "text-inherit",
     {
         variants: {
             size: {
