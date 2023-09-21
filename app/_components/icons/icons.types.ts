@@ -1,5 +1,4 @@
 import { VariantProps } from "class-variance-authority"
-import { SVGProps } from "react"
 import { iconVariants } from "@components/icons/IconWrapper"
 
 export type SvgProps = React.SVGProps<SVGSVGElement>
