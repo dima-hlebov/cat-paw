@@ -3,7 +3,7 @@
 }
 
 .swiper-pagination {
-    @apply flex gap-xs !w-fit p-sm !left-1/2 transform -translate-x-1/2 z-10 bg-white rounded-md
+    @apply flex gap-xs !w-fit p-sm !left-1/2 transform -translate-x-1/2 z-10 bg-white rounded-md dark:bg-dark
 }
 
 .swiper-pagination-bullet {
