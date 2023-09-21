@@ -4,8 +4,6 @@ import UploadForm from "../forms/UploadForm";
 import Modal from "./Modal";
 
 export function UploadModal() {
-
-
     return (
         <Modal>
             <div className="text-center mt-xl">

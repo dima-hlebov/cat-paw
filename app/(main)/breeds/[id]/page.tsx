@@ -1,4 +1,4 @@
-import Carousel from "@app/_features/carousel/components/Carousel";
+import Carousel from "@components/widgets/carousel";
 
 import CatPic from "@img/cat-pic.jpg"
 import CatPic2 from "@img/cat-pic-2.jpg"

@@ -1,13 +1,15 @@
 import { SortForm } from "@components/forms";
 import { Breadcrumbs } from "@components/navigations";
-import { Gallery, GalleryType } from "@app/_components/widgets/gallery";
+import Gallery, { GalleryItemLink, renderGridItem } from "@app/_components/widgets/gallery";
 import { Suspense } from "react";
 
-import CatPic from "@img/cat-pic.jpg"
 import IconWrapper from "@components/icons/IconWrapper";
 import { LoadingIcon } from "@components/icons";
+import { getImages } from "@app/_db/db";
 
 export default function Breeds() {
+    const images = getImages()
+
     return (
         <div>
             <div className="flex flex-wrap">
@@ -20,31 +22,15 @@ export default function Breeds() {
             </div>
             <div className="mt-sm sm:mt-md">
                 <Suspense fallback={<IconWrapper Icon={LoadingIcon} />}>
-                    {<Gallery
-                        images={[
-                            { id: 1, src: CatPic, alt: "cat" },
-                            { id: 2, src: CatPic, alt: "cat" },
-                            { id: 3, src: CatPic, alt: "cat" },
-                            { id: 4, src: CatPic, alt: "cat" },
-                            { id: 5, src: CatPic, alt: "cat" },
-                            { id: 6, src: CatPic, alt: "cat" },
-                            { id: 7, src: CatPic, alt: "cat" },
-                            { id: 8, src: CatPic, alt: "cat" },
-                            { id: 9, src: CatPic, alt: "cat" },
-                            { id: 10, src: CatPic, alt: "cat" },
-                            { id: 11, src: CatPic, alt: "cat" },
-                            { id: 12, src: CatPic, alt: "cat" },
-                            { id: 13, src: CatPic, alt: "cat" },
-                            { id: 14, src: CatPic, alt: "cat" },
-                            { id: 15, src: CatPic, alt: "cat" },
-                            { id: 16, src: CatPic, alt: "cat" },
-                            { id: 17, src: CatPic, alt: "cat" },
-                            { id: 18, src: CatPic, alt: "cat" },
-                            { id: 19, src: CatPic, alt: "cat" },
-                            { id: 20, src: CatPic, alt: "cat" },
-                            { id: 21, src: CatPic, alt: "cat" },
-                        ]}
-                        type={GalleryType.LINKS} />}
+                    <Gallery>
+                        {images.map((image, i) => (
+                            <GalleryItemLink
+                                key={image.id}
+                                image={{ src: image.src, alt: image.name, width: image.width, height: image.height }}
+                                itemLayout={renderGridItem(i)}
+                                link={{ href: `breeds/${image.id}` }} />
+                        ))}
+                    </Gallery>
                 </Suspense>
             </div>
         </div>

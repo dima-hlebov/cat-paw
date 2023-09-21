@@ -1,10 +1,13 @@
 import { Logs, UserAction, UserLog } from "@components/lists"
 import { Breadcrumbs } from "@components/navigations"
-import { Gallery, GalleryType } from "@app/_components/widgets/gallery"
+import Gallery, { GalleryItemButton, renderGridItem } from "@app/_components/widgets/gallery"
 
 import CatPic from "@img/cat-pic.jpg"
+import { getImages } from "@app/_db/db"
+import { FavIcon } from "@app/_components/icons"
 
 export default function Favourites() {
+    const images = getImages()
     const logs: UserLog[] = [
         { id: "1as12fds", timestamp: new Date(), action: UserAction.Like },
         { id: "1as12fds", timestamp: new Date(), action: UserAction.Dislike },
@@ -15,32 +18,16 @@ export default function Favourites() {
         <div>
             <Breadcrumbs />
             <main className="mt-sm sm:mt-md">
-                <Gallery
-                    images={[
-                        { id: 1, src: CatPic, alt: "cat" },
-                        { id: 2, src: CatPic, alt: "cat" },
-                        { id: 3, src: CatPic, alt: "cat" },
-                        { id: 4, src: CatPic, alt: "cat" },
-                        { id: 5, src: CatPic, alt: "cat" },
-                        { id: 6, src: CatPic, alt: "cat" },
-                        { id: 7, src: CatPic, alt: "cat" },
-                        { id: 8, src: CatPic, alt: "cat" },
-                        { id: 9, src: CatPic, alt: "cat" },
-                        { id: 10, src: CatPic, alt: "cat" },
-                        { id: 11, src: CatPic, alt: "cat" },
-                        { id: 12, src: CatPic, alt: "cat" },
-                        { id: 13, src: CatPic, alt: "cat" },
-                        { id: 14, src: CatPic, alt: "cat" },
-                        { id: 15, src: CatPic, alt: "cat" },
-                        { id: 16, src: CatPic, alt: "cat" },
-                        { id: 17, src: CatPic, alt: "cat" },
-                        { id: 18, src: CatPic, alt: "cat" },
-                        { id: 19, src: CatPic, alt: "cat" },
-                        { id: 20, src: CatPic, alt: "cat" },
-                        { id: 21, src: CatPic, alt: "cat" },
-                    ]}
-                    type={GalleryType.BUTTONS} />
-
+                <Gallery>
+                    {images.map((image, i) => (
+                        <GalleryItemButton
+                            key={image.id}
+                            image={{ src: image.src, alt: image.name, width: image.width, height: image.height }}
+                            itemLayout={renderGridItem(i)}
+                            icon={FavIcon}
+                        />
+                    ))}
+                </Gallery>
                 <div className="mt-xl">
                     <Logs logs={logs} />
                 </div>

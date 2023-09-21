@@ -4,7 +4,7 @@ import { getImages } from "@app/_db/db"
 
 import CatPic from "@img/cat-pic.jpg"
 
-export default function Likes() {
+export default function Dislikes() {
     const images = getImages()
 
     return (
