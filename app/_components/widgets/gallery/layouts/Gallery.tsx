@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GalleryItem } from '@features/gallery'
+import { GalleryItem } from '@app/_components/widgets/gallery'
 
 export enum GalleryType {
     LINKS,

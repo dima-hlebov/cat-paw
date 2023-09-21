@@ -1,9 +1,9 @@
 import { Breadcrumbs } from "@components/navigations";
 import { FilterForm } from "@components/forms";
-import { Gallery, GalleryType } from "@features/gallery";
+import { Gallery, GalleryType } from "@app/_components/widgets/gallery";
 
 import CatPic from "@img/cat-pic.jpg"
-import UploadButton from "./UploadButton";
+import UploadButton from "./components/UploadButton";
 import { UploadModal } from "@components/modals";
 
 export default function GalleryPage() {

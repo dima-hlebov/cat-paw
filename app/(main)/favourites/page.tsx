@@ -1,6 +1,6 @@
 import { Logs, UserAction, UserLog } from "@components/lists"
 import { Breadcrumbs } from "@components/navigations"
-import { Gallery, GalleryType } from "@features/gallery"
+import { Gallery, GalleryType } from "@app/_components/widgets/gallery"
 
 import CatPic from "@img/cat-pic.jpg"
 

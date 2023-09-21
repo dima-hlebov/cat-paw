@@ -1,7 +1,7 @@
 // components
 import { Logo } from '@components/navigations/Logo'
 import { MainNavigation } from '@components/navigations'
-import { ThemeSwitcher } from '@components/ui'
+import { ThemeSwitcher } from '@app/_components/widgets'
 
 export default function Intro() {
   return (

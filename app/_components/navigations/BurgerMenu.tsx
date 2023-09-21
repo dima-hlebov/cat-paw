@@ -7,7 +7,7 @@ import { MainNavigation } from "@app/_components/navigations";
 
 import { useAppDispatch, useAppSelector } from "@hooks/index";
 import { toggleMenu } from "@context/features/burgermenuSlice";
-import { ThemeSwitcher } from "@components/ui";
+import { ThemeSwitcher } from "@app/_components/widgets";
 
 export function BurgerMenu() {
     const isMenuOpen = useAppSelector(state => state.burgerMenuReducer.isMenuOpen);

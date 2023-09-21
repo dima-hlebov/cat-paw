@@ -1,6 +1,6 @@
 "use client"
 
-import { Gallery, GalleryType } from '@features/gallery'
+import { Gallery, GalleryType } from '@app/_components/widgets/gallery'
 import { useAppSelector } from '@app/_hooks'
 import { Breadcrumbs } from '@components/navigations'
 
