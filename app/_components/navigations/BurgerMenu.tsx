@@ -7,6 +7,7 @@ import { MainNavigation } from "@app/_components/navigations";
 
 import { useAppDispatch, useAppSelector } from "@hooks/index";
 import { toggleMenu } from "@context/features/burgermenuSlice";
+import { ThemeSwitcher } from "@components/ui";
 
 export function BurgerMenu() {
     const isMenuOpen = useAppSelector(state => state.burgerMenuReducer.isMenuOpen);
@@ -27,7 +28,10 @@ export function BurgerMenu() {
             {/* overlay */}
             <div className={`${isMenuOpen ? "block" : "hidden"} inset-0 absolute bg-secondary z-10 dark:bg-dark`}>
                 <Container>
-                    <div className="flex justify-end">
+                    <div className="flex justify-between">
+                        <div className="flex items-center">
+                            <ThemeSwitcher />
+                        </div>
                         <Button
                             onClick={handleClick}
                             variant={"monochrome"}
