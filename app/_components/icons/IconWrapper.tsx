@@ -25,7 +25,7 @@ export default function IconWrapper({ Icon, SecondaryIcon, className, size, acti
     return (
         <div>
             <Icon className={`${SecondaryIcon ? "group-active:hidden" : ""} ${cn(iconVariants({ size, className }))}`} {...props} />
-            {SecondaryIcon ? <SecondaryIcon className={` hidden group-active:block ${cn(iconVariants({ size, active, className }))}`} /> : null}
+            {SecondaryIcon ? <SecondaryIcon className={` hidden group-active:block ${cn(iconVariants({ size, active, className }))}`} {...props} /> : null}
         </div>
     )
 }

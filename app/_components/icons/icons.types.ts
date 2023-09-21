@@ -6,7 +6,7 @@ export type SvgProps = React.SVGProps<SVGSVGElement>
 
 export type IconProps = {
     Icon: React.FunctionComponent<SvgProps>
-    SecondaryIcon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+    SecondaryIcon?: React.FunctionComponent<SvgProps>
 }
 
-export type IconWrapperProps = & IconProps & SVGProps<SVGSVGElement> & VariantProps<typeof iconVariants>
+export type IconWrapperProps = & IconProps & SvgProps & VariantProps<typeof iconVariants>
