@@ -5,7 +5,7 @@ import { ImageLink } from "@components/buttons";
 import VotingImg from "@img/voting.png"
 import BreedsImg from "@img/breeds.png"
 import GalleryImg from "@img/gallery.png"
-import { OnClick } from "@app/_types/components";
+import { OnClick } from "@app/_types/handlers";
 
 type MainNavigationProps = {
     onClick?: OnClick<HTMLAnchorElement>

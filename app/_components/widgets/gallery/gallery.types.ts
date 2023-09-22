@@ -21,4 +21,5 @@ export type GalleryItemLinkProps = {
 
 export type GalleryItemButtonProps = {
     icon: React.FunctionComponent<SvgProps>
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 } & GalleryItemProps
