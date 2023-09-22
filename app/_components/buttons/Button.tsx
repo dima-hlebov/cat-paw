@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { cn } from "@lib/utils";
+import { cn } from "@lib/utils/cn";
 import { ButtonProps } from "@components/buttons";
 
 export default function Button({ onClick, variant, size, state, className, children }: ButtonProps) {

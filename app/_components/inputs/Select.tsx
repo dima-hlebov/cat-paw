@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react"
 import { cva } from "class-variance-authority"
-import { cn } from "@lib/utils";
+import { cn } from "@lib/utils/cn";
 import { SelectProps } from "@components/inputs";
 
 export const selectVariants = cva(

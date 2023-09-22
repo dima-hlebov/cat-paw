@@ -1,4 +1,4 @@
-import { cn } from "@lib/utils"
+import { cn } from "@lib/utils/cn"
 import { VariantProps, cva } from "class-variance-authority"
 import IconWrapper from "../icons/IconWrapper"
 import { ErrorIcon, SuccesIcon } from "@components/icons"
