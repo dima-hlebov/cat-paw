@@ -21,6 +21,7 @@ export default function Favourites() {
                 <Gallery>
                     {images.map((image, i) => (
                         <GalleryItemButton
+                            onClick={() => { }}
                             key={image.id}
                             image={{ src: image.src, alt: image.name, width: image.width, height: image.height }}
                             itemLayout={renderGridItem(i)}
