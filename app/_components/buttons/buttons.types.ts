@@ -3,7 +3,6 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 import { LinkProps as NextLinkProps } from "next/link";
 import { ImageProps } from "next/image";
 import { VariantProps } from "class-variance-authority";
-import { OnClick } from "@app/_types/handlers";
 
 // Types for links and buttons
 
