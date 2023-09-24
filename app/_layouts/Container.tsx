@@ -2,7 +2,7 @@ import { cn } from "@lib/utils/cn";
 import { VariantProps, cva } from "class-variance-authority"
 
 export const containerVariants = cva(
-    "min-h-screen max-w-[1280px]",
+    "min-h-screen max-w-[1080px]",
     {
         variants: {
             variant: {

@@ -13,7 +13,7 @@ export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCa
     const [column1, column2] = distributeByStringLength(info)
     return (
         <article className="relative px-sm pb-sm pt-[55px]  border-2 border-primary/20 rounded-md sm:px-md sm:pb-md sm:pt-[55px]">
-            <header className="absolute text-center inset-0 transform -translate-y-[25px]">
+            <header className="absolute text-center top-0 left-0 right-0 transform -translate-y-[25px]">
                 <div className="inline-block px-md py-xs rounded-md bg-white sm:px-2xl dark:bg-zinc-800">
                     <h2>{mainHeading}</h2>
                 </div>
@@ -32,7 +32,7 @@ export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCa
                     <div className="flex flex-col gap-sm p-sm pt-0 sm:p-md">
                         {column2.map((item, i) => (
                             <div key={i} className="flex">
-                                <h4 className="whitespace-pre">{`${item.title}: `}</h4>
+                                <h4 className="text-dark whitespace-pre">{`${item.title}: `}</h4>
                                 <p>{item.text}</p>
                             </div>
                         ))}
@@ -43,6 +43,7 @@ export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCa
     )
 }
 
+// Distribute card fields between first and second column by text + title length 
 function distributeByStringLength(info: CardInfo[]): CardInfo[][] {
     let columns: CardInfo[][] = [[], []]
     info.forEach((piece) => {

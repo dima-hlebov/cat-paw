@@ -16,7 +16,7 @@ export default function Carousel({ slides }: { slides: ImageProps[] }) {
         >
             {slides.map((slide, i) => (
                 <SwiperSlide key={i}>
-                    <Image src={slide.src} alt={slide.alt} className="aspect-video w-full object-cover object-center" />
+                    <Image src={slide.src} alt={slide.alt} width={slide.width} height={slide.height} className="aspect-video w-full object-cover object-center" />
                 </SwiperSlide>
             ))}
         </Swiper>

@@ -3,11 +3,11 @@
 }
 
 .swiper-pagination {
-    @apply flex gap-xs !w-fit p-sm !left-1/2 transform -translate-x-1/2 z-10 bg-white rounded-md dark:bg-dark
+    @apply flex gap-xs !w-fit p-[8px] sm:p-sm !left-1/2 transform -translate-x-1/2 z-10 bg-white rounded-md dark:bg-dark
 }
 
 .swiper-pagination-bullet {
-    @apply w-[10px] h-[10px] !m-0 bg-primary/20 opacity-100
+    @apply w-[8px] h-[8px] !m-0 bg-primary/20 opacity-100 sm:w-[10px] sm:h-[10px]
 }
 
 /* active bullets */
