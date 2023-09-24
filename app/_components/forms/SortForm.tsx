@@ -1,11 +1,14 @@
 "use client"
 
-import Button from "@app/_components/buttons/Button";
+import Button from "@components/buttons/Button";
 import { SortIcon, SortRevertIcon } from "@components/icons";
 import IconWrapper from "@app/_components/icons/IconWrapper";
 import { Select } from "@components/inputs";
+import { useAppDispatch, useAppSelector } from "@app/_hooks";
 
-export function SortForm() {
+export function InlineFilterForm() {
+    const { breed, limit, sort } = useAppSelector(state => state.inlineFilterSlice)
+    const dispatch = useAppDispatch()
     return (
         <form
             onSubmit={(e) => e.preventDefault()}

@@ -1,14 +1,14 @@
 import { SortForm } from "@components/forms";
 import { Breadcrumbs } from "@components/navigations";
-import Gallery, { GalleryItemLink, renderGridItem } from "@app/_components/widgets/gallery";
+import Gallery, { GalleryItemLink, renderGridItem } from "@components/widgets/gallery";
 import { Suspense } from "react";
 
 import IconWrapper from "@components/icons/IconWrapper";
 import { LoadingIcon } from "@components/icons";
-import { getImages } from "@app/_db/db";
+import { getBreeds } from "@services/cat_api";
 
-export default function Breeds() {
-    const images = getImages()
+export default async function Breeds() {
+    const breeds = await getBreeds({ limit: 5 })
 
     return (
         <div>
@@ -20,16 +20,17 @@ export default function Breeds() {
                     <SortForm />
                 </div>
             </div>
+
             <div className="mt-sm sm:mt-md">
                 <Suspense fallback={<IconWrapper Icon={LoadingIcon} />}>
                     <Gallery>
-                        {images.map((image, i) => (
+                        {breeds.map((breed, i) => (
                             <GalleryItemLink
-                                key={image.id}
-                                image={{ src: image.src, alt: image.name, width: image.width, height: image.height }}
+                                key={breed.id}
+                                image={{ src: breed.image.url, alt: breed.name, width: breed.image.width, height: breed.image.height }}
                                 itemLayout={renderGridItem(i)}
-                                link={{ href: `breeds/${image.id}` }} />
-                        ))}
+                                link={{ href: `breeds/${breed.id}` }} />))
+                        }
                     </Gallery>
                 </Suspense>
             </div>

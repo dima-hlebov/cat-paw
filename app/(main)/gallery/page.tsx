@@ -25,7 +25,7 @@ export default function GalleryPage() {
                 <div className="mt-sm sm:mt-md">
                     <Gallery>
                         {images.map((image, i) => (
-                            <GalleryItemButton key={image.id} icon={FavIcon} image={{ src: image.src, alt: image.name, width: image.width, height: image.height }} itemLayout={renderGridItem(i)} />
+                            <GalleryItemButton onClick={() => { }} key={image.id} icon={FavIcon} image={{ src: image.src, alt: image.name, width: image.width, height: image.height }} itemLayout={renderGridItem(i)} />
                         ))}
                     </Gallery>
                 </div>

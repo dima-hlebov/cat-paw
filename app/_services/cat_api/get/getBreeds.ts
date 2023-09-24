@@ -1,6 +1,6 @@
-import { getData } from "@app/_lib/utils"
-import { OrderType } from "@app/_types/cat_api"
-import { Breed } from "@app/_types/cat_api/Breed.types"
+import { getData } from "@lib/utils"
+import { OrderType, Breed } from "@app/_types/cat_api"
+
 
 type GetBreedsArgs = {
     limit: 5 | 10 | 15 | 20
@@ -14,7 +14,7 @@ export async function getBreeds({ order = OrderType.ASC, limit = 5 }: GetBreedsA
     }
 
     try {
-        const breeds: Breed[] = await getData<Breed[]>({ path: `/breeds?`, revalidate: 36000, searchParams })
+        const breeds: Breed[] = await getData<Breed[]>({ path: `/breeds?`, revalidate: 60 * 60 * 24 * 7, searchParams })
         return breeds
     } catch (error: any) {
         console.error("Error fetching breeds:", error);

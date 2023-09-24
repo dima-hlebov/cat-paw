@@ -1,4 +1,3 @@
-
 import { Cat, ImageType, OrderType } from "@app/_types/cat_api"
 import { getData } from "@lib/utils"
 

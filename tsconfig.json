@@ -51,6 +51,9 @@
       "@types/*": [
         "app/_types/*"
       ],
+      "@services/*": [
+        "app/_services/*"
+      ],
     }
   },
   "include": [

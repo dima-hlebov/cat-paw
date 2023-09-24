@@ -4,7 +4,7 @@ export type Breed = {
     name: string
     temperament: string
     origin: string
-    lifes_span: string
+    life_span: string
     wikipedia_url: string
     description: string
     indoor: number

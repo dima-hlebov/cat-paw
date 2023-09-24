@@ -1,37 +1,52 @@
 import Carousel from "@components/widgets/carousel";
-
-import CatPic from "@img/cat-pic.jpg"
-import CatPic2 from "@img/cat-pic-2.jpg"
 import { Breadcrumbs } from "@app/_components/navigations";
 import InfoCard from "@components/cards/InfoCard";
 
-export default function Breed() {
+import { Breed, Cat } from "@app/_types/cat_api";
+
+
+import { ImageProps } from "next/image";
+import { getCatsByBreed } from "@services/cat_api";
+
+export default async function Breed({ params }: { params: { id: string } }) {
+    const cats: Cat[] = await getCatsByBreed({ id: params.id })
+    const breed: Breed = cats[0].breeds[0]
+
+    const images: ImageProps[] = cats.map(cat => {
+        return {
+            src: cat.url,
+            alt: cat.breeds[0].name,
+            width: cat.width,
+            height: cat.height
+        }
+    })
+
     return (
         <div>
             <Breadcrumbs />
             <main className="mt-md">
-                <Carousel slides={[{ src: CatPic, alt: "cat" }, { src: CatPic2, alt: "cat" }, { src: CatPic, alt: "cat" },]} />
+                <Carousel slides={images} />
                 <div className="mt-2xl">
                     <InfoCard
-                        mainHeading="Basenji"
-                        secondaryHeading="Family companion cat"
+                        mainHeading={breed.name}
+                        secondaryHeading={breed.description}
                         info={
                             [
                                 {
                                     title: "Temperament",
-                                    text: "Active, Energetic, Independent, Intelligent, Gentle"
+                                    text: breed.temperament
                                 },
                                 {
                                     title: "Origin",
-                                    text: "US"
+                                    text: breed.origin
                                 },
                                 {
                                     title: "Weight",
-                                    text: "3 - 5 kgs"
+                                    text: breed.weight.metric
                                 },
                                 {
                                     title: "Life span",
-                                    text: "14 - 15 years"
+                                    text: breed.life_span
                                 }
                             ]
                         }
