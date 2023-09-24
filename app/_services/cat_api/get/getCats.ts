@@ -24,7 +24,7 @@ export async function getCats({ limit = 5, order = OrderType.RAND, breed, type =
     }
 
     try {
-        const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams })
+        const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams, revalidate: 60 * 60 * 24 * 7 })
         return cats
     } catch (error: any) {
         console.error("Error fetching cats:", error);

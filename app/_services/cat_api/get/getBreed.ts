@@ -7,7 +7,7 @@ type GetBreedArgs = {
 
 export async function getBreed({ id }: GetBreedArgs): Promise<Breed> {
     try {
-        const breed: Breed = await getData<Breed>({ path: `/breeds/${id}` })
+        const breed: Breed = await getData<Breed>({ path: `/breeds/${id}`, revalidate: 60 * 60 * 24 * 7 })
         return breed
     } catch (error: any) {
         console.error("Error fetching breed:", error);
