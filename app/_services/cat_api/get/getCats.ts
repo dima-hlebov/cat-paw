@@ -2,7 +2,7 @@ import { Cat, ImageType, OrderType } from "@app/_types/cat_api"
 import { getData } from "@lib/utils"
 
 type GetCatsArgs = {
-    limit: 5 | 10 | 15 | 20
+    limit: LimitType
     order?: OrderType
     breed?: string
     type: ImageType

@@ -9,3 +9,5 @@ export enum OrderType {
     DESC = "DESC",
     RAND = "RAND"
 }
+
+export type LimitType = 5 | 10 | 15 | 20 

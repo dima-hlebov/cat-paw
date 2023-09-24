@@ -1,9 +1,10 @@
 import { getData } from "@lib/utils"
-import { OrderType, Breed } from "@app/_types/cat_api"
+import { Breed } from "@app/_types/cat_api"
+import { LimitType, OrderType } from "@app/_types/cat_api/Params.types"
 
 
 type GetBreedsArgs = {
-    limit: 5 | 10 | 15 | 20
+    limit: LimitType
     order?: OrderType
 }
 
