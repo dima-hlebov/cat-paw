@@ -25,9 +25,8 @@ export function addSearchParam(
 }
 
 
-export function getSearchParam(searchParam: string | string[] | undefined): string | undefined {
-    const param = Array.isArray(searchParam)
-        ? searchParam[0]
-        : searchParam;
+export function getSearchParam(searchParam: string | string[] | undefined, defaultValue: string = ""): string {
+    const params: string | string[] = searchParam ?? defaultValue
+    const param: string = Array.isArray(params) ? params[0] : params;
     return param
 }

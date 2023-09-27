@@ -4,8 +4,8 @@ import { Breadcrumbs } from "@components/navigations";
 import Gallery, { GalleryItemLink, renderGridItem } from "@components/widgets/gallery";
 import { BreedFilter } from "./components/BreedFilter";
 
-import { GetBreedsArgs, GetCatsByBreedArgs, defaultLimit, defaultOrder, getBreeds, getCatsByBreed } from "@services/cat_api";
-import { Breed, BreedName, Cat, Limit, isValueInLimit, isValueInOrder } from "@app/_types/cat_api";
+import { defaultBreed, defaultLimit, getBreeds, getCats } from "@services/cat_api";
+import { Breed, BreedName, Cat, Limit, Order, Image } from "@app/_types/cat_api";
 import { getSearchParam } from "@lib/utils";
 
 type BreedsArgs = {
@@ -13,33 +13,27 @@ type BreedsArgs = {
 }
 
 export default async function Breeds({ searchParams }: BreedsArgs) {
-    const breedId = getSearchParam(searchParams?.breed)
-    const limit = getSearchParam(searchParams?.limit)
-    const order = getSearchParam(searchParams?.order)
+    const breedId = getSearchParam(searchParams?.breed, defaultBreed)
+    const limit = getSearchParam(searchParams?.limit, defaultLimit.toString())
+    const order = getSearchParam(searchParams?.order, Order.ASC)
+
+    // Populate breed filter
+    const breedNames: BreedName[] = await getBreeds({})
 
     // Populate gallery
     let catsData: Promise<Cat[]> | null = null
     let breedsData: Promise<Breed[]> | null = null
 
-    // Get specified breed
-    if (breedId && breedId !== "all") {
-        let params: GetCatsByBreedArgs = { id: breedId }
-        if (limit) params.limit = isValueInLimit(Number(limit)) ? Number(limit) as Limit : defaultLimit
-        catsData = getCatsByBreed(params)
+    // Get images of specified breed
+    if (breedId && breedNames.some(name => name.id === breedId)) {
+        catsData = getCats({ breed: breedId, limit: Number(limit) as Limit, type: Image.STATIC })
     }
     // Get all breeds 
     else {
-        let params: GetBreedsArgs = {}
-        if (order) params.order = isValueInOrder(order) ? order : defaultOrder
-        if (limit) params.limit = isValueInLimit(Number(limit)) ? Number(limit) as Limit : defaultLimit
-        else params.limit = defaultLimit
-        breedsData = getBreeds(params)
+        breedsData = getBreeds({ order: order as Order, limit: Number(limit) as Limit })
     }
 
-    // Populate breed select
-    const breedNamesData: Promise<BreedName[]> = getBreeds({})
-
-    const [breedNames, breeds, cats] = await Promise.all([breedNamesData, breedsData, catsData])
+    const [breeds, cats] = await Promise.all([breedsData, catsData])
 
     return (
         <div>
