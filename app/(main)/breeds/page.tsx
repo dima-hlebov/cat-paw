@@ -53,20 +53,20 @@ export default async function Breeds({ searchParams }: BreedsArgs) {
                             ? breeds.map((breed, i) => {
                                 return (
                                     <GalleryItemLink
-                                        key={breedId}
+                                        key={breed.id}
                                         image={{ src: breed.image.url, alt: breed.name, width: breed.image.width, height: breed.image.height }}
                                         itemLayout={renderGridItem(i)}
-                                        link={{ href: `breeds/${breedId}` }} />)
+                                        link={{ href: `breeds/${breed.id}` }} />)
                             })
                             : null}
                         {cats
                             ? cats.map((cat, i) => {
                                 return (
                                     <GalleryItemLink
-                                        key={breedId}
+                                        key={cat.breeds[0].id}
                                         image={{ src: cat.url, alt: cat.breeds[0].name, width: cat.width, height: cat.height }}
                                         itemLayout={renderGridItem(i)}
-                                        link={{ href: `breeds/${breedId}` }} />)
+                                        link={{ href: `breeds/${cat.breeds[0].id}` }} />)
                             })
                             : null}
                     </Suspense>

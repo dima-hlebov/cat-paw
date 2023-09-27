@@ -6,10 +6,11 @@ import { Breed, Cat } from "@app/_types/cat_api";
 
 
 import { ImageProps } from "next/image";
-import { getCatsByBreed } from "@services/cat_api";
+import { getBreed, getCats } from "@services/cat_api";
+import { getFirstSentence } from "@app/_lib/utils";
 
 export default async function Breed({ params }: { params: { id: string } }) {
-    const cats: Cat[] = await getCatsByBreed({ id: params.id })
+    const cats: Cat[] = await getCats({ breed: params.id, limit: 5 })
     const breed: Breed = cats[0].breeds[0]
 
     const images: ImageProps[] = cats.map(cat => {
@@ -29,7 +30,7 @@ export default async function Breed({ params }: { params: { id: string } }) {
                 <div className="mt-2xl">
                     <InfoCard
                         mainHeading={breed.name}
-                        secondaryHeading={breed.description}
+                        secondaryHeading={getFirstSentence(breed.description)}
                         info={
                             [
                                 {
