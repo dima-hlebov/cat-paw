@@ -21,7 +21,7 @@ export function addSearchParam(
     const search = current.toString();
     const query = search ? `?${search}` : "";
 
-    navigation.router.push(`${navigation.pathname}${query}`);
+    navigation.router.replace(`${navigation.pathname}${query}`);
 }
 
 
