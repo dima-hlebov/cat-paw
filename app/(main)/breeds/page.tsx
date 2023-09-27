@@ -6,13 +6,9 @@ import { BreedFilter } from "./components/BreedFilter";
 
 import { defaultBreed, defaultLimit, getBreeds, getCats } from "@services/cat_api";
 import { Breed, BreedName, Cat, Limit, Order, Image } from "@app/_types/cat_api";
-import { getSearchParam } from "@lib/utils";
+import { SearchParams, getSearchParam } from "@lib/utils";
 
-type BreedsArgs = {
-    searchParams: { [key: string]: string | string[] | undefined };
-}
-
-export default async function Breeds({ searchParams }: BreedsArgs) {
+export default async function Breeds({ searchParams }: SearchParams) {
     const breedId = getSearchParam(searchParams?.breed, defaultBreed)
     const limit = getSearchParam(searchParams?.limit, defaultLimit.toString())
     const order = getSearchParam(searchParams?.order, Order.ASC)

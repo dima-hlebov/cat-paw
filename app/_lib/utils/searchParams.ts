@@ -1,6 +1,10 @@
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { ReadonlyURLSearchParams } from "next/navigation";
 
+export type SearchParams = {
+    searchParams: { [key: string]: string | string[] | undefined };
+}
+
 export function addSearchParam(
     navigation: {
         router: AppRouterInstance;
