@@ -1,2 +1,1 @@
-export { SortForm } from "./SortForm";
-export { FilterForm } from "./FilterForm";
+export { GalleryFilter } from "./GalleryFilter";

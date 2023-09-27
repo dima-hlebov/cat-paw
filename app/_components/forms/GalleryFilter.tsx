@@ -5,7 +5,7 @@ import { Select } from '@components/inputs'
 import IconWrapper, { UpdateIcon, UploadIcon } from '@components/icons'
 import Button from '@components/buttons'
 
-export function FilterForm() {
+export function GalleryFilter() {
     return (
         <form
             onSubmit={(e) => e.preventDefault()}

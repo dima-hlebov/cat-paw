@@ -1,6 +1,6 @@
 "use client"
 
-import UploadForm from "../forms/InlineFilterForm";
+import UploadForm from "../forms/UploadForm";
 import Modal from "./Modal";
 
 export function UploadModal() {

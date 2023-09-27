@@ -1,17 +1,17 @@
 import { getData } from "@lib/utils"
-import { Breed } from "@app/_types/cat_api"
-import { LimitType, OrderType } from "@app/_types/cat_api/Params.types"
+import { Breed, Order, Limit } from "@app/_types/cat_api"
+import { defaultOrder } from "@services/cat_api"
 
-
-type GetBreedsArgs = {
-    limit: LimitType
-    order?: OrderType
+export type GetBreedsArgs = {
+    limit?: Limit
+    order?: Order
 }
 
-export async function getBreeds({ order = OrderType.ASC, limit = 5 }: GetBreedsArgs): Promise<Breed[]> {
-    const searchParams = new URLSearchParams({ limit: limit.toString() })
-    if (order) {
-        searchParams.append("order", order)
+export async function getBreeds({ order = defaultOrder, limit }: GetBreedsArgs): Promise<Breed[]> {
+    const searchParams = new URLSearchParams({ order: order })
+    if (limit) {
+        if (limit > 20) limit = 20
+        searchParams.append("limit", limit.toString())
     }
 
     try {

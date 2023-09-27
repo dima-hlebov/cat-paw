@@ -2,7 +2,7 @@ import { cn } from "@lib/utils/cn";
 import { VariantProps, cva } from "class-variance-authority"
 
 export const containerVariants = cva(
-    "min-h-screen max-w-[1080px]",
+    "max-w-[1080px] mx-auto xl:mx-0",
     {
         variants: {
             variant: {
@@ -28,7 +28,7 @@ type ContainerProps = {
 export function Container({ children, variant, size_, className, ...props }: ContainerProps) {
     return (
         <div className={cn(containerVariants({ variant, size_, className }))} {...props}>
-            <div className={`h-full rounded-md`}>
+            <div className={`rounded-md`}>
                 {children}
             </div>
         </div>

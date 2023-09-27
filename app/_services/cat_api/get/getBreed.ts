@@ -1,7 +1,7 @@
 import { getData } from "@app/_lib/utils"
 import { Breed } from "@app/_types/cat_api"
 
-type GetBreedArgs = {
+export type GetBreedArgs = {
     id: string
 }
 

@@ -1,25 +1,28 @@
-import { Cat, ImageType, OrderType } from "@app/_types/cat_api"
+import { Cat, Image, Limit, Order } from "@app/_types/cat_api"
 import { getData } from "@lib/utils"
+import { defaultLimit } from "@services/cat_api"
 
-type GetCatsArgs = {
-    limit: LimitType
-    order?: OrderType
+export type GetCatsArgs = {
+    limit: Limit
+    order?: Order
     breed?: string
-    type: ImageType
+    type: Image
 }
 
-export async function getCats({ limit = 5, order = OrderType.RAND, breed, type = ImageType.ALL }: GetCatsArgs): Promise<Cat[]> {
+export async function getCats({ limit = defaultLimit, order = Order.RAND, breed, type = Image.ALL }: GetCatsArgs): Promise<Cat[]> {
+    if (limit > 20) limit = 20
+
     // Initialize URLSearchParams with the optional "breed" and "order" parameter
     const searchParams = new URLSearchParams({
         has_breeds: "1",
+        type,
         limit: limit.toString(),
-        type: type,
     })
     if (breed) {
         searchParams.append("breed_ids", breed.toString())
     }
     if (order) {
-        searchParams.append("oreder", order)
+        searchParams.append("order", order)
     }
 
     try {

@@ -1,7 +1,10 @@
-export type Breed = {
-    weight: { imperial: string, metric: string }
-    id: string
+export type BreedName = {
+    id: string,
     name: string
+}
+
+export type Breed = BreedName & {
+    weight: { imperial: string, metric: string }
     temperament: string
     origin: string
     life_span: string
