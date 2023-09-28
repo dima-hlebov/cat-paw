@@ -7,7 +7,7 @@ import { Options, Select } from "@components/inputs";
 
 import { BreedName, Order } from "@app/_types/cat_api";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { addSearchParam } from "@app/_lib/utils";
+import { addSearchParams } from "@app/_lib/utils";
 import { useAppDispatch, useAppSelector } from "@app/_hooks";
 import { setBreed, setLimit } from "@app/_context/features/breedFilterSlice";
 import { useEffect } from "react";
@@ -50,12 +50,12 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
         paramName: string
     ) => {
         const value = e.target.value.trim()
-        addSearchParam(navigation, paramName, e.target.value.trim())
+        addSearchParams(navigation, [paramName], [e.target.value.trim()])
         dispatch(dispatchAction(value))
     }
 
     const handleSortClick = (e: React.MouseEvent<HTMLButtonElement>, order: Order) => {
-        addSearchParam(navigation, "order", order)
+        addSearchParams(navigation, ["order"], [order])
     }
 
     return (

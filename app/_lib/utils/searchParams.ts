@@ -5,22 +5,23 @@ export type SearchParams = {
     searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export function addSearchParam(
+export function addSearchParams(
     navigation: {
         router: AppRouterInstance;
         pathname: string;
         searchParams: ReadonlyURLSearchParams;
     },
-    paramName: string,
-    paramValue: string
+    paramNames: string[],
+    paramValues: string[]
 ) {
     const current = new URLSearchParams(navigation.searchParams);
 
-    if (!paramValue) {
-        current.delete(paramName);
-    } else {
-        current.set(paramName, paramValue);
-    }
+    paramValues.forEach((paramValue, i) => {
+        if (!paramValue || paramValue === "") {
+            return current.delete(paramNames[i])
+        }
+        return current.set(paramNames[i], paramValue)
+    })
 
     const search = current.toString();
     const query = search ? `?${search}` : "";
