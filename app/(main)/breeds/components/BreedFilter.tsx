@@ -31,7 +31,7 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
         dispatch(setLimit(limitParam))
     }, [dispatch, navigation.searchParams])
 
-    // Refactor breed object to options
+    // Refactor breed object to options and set options
     const breedsOptions: Options =
         [{ value: "all", str: "All breeds" }]
             .concat(breeds.map(breed => { return { value: breed.id, str: breed.name } }))
@@ -43,25 +43,19 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
         { value: "20", str: `Limit: 20` },
     ]
 
-    // Handle filters
-    const handleBreedChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    // Handle actions
+    const handleChange = (
+        e: React.ChangeEvent<HTMLSelectElement>,
+        dispatchAction: typeof setBreed | typeof setLimit,
+        paramName: string
+    ) => {
         const value = e.target.value.trim()
-        addSearchParam(navigation, "breed", e.target.value.trim())
-        dispatch(setBreed(value))
+        addSearchParam(navigation, paramName, e.target.value.trim())
+        dispatch(dispatchAction(value))
     }
 
-    const handleLimitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const value = e.target.value.trim()
-        addSearchParam(navigation, "limit", e.target.value.trim())
-        dispatch(setLimit(value))
-    }
-
-    const handleSortClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        addSearchParam(navigation, "order", Order.ASC)
-    }
-
-    const handleSortRevertClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        addSearchParam(navigation, "order", Order.DESC)
+    const handleSortClick = (e: React.MouseEvent<HTMLButtonElement>, order: Order) => {
+        addSearchParam(navigation, "order", order)
     }
 
     return (
@@ -71,7 +65,7 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
             <div className="grow basis-full sm:basis-auto">
                 <Select
                     value={breed ? breed : ""}
-                    onChange={handleBreedChange}
+                    onChange={(e) => handleChange(e, setBreed, "breed")}
                     variant={"inline"}
                     options={breedsOptions}
                 />
@@ -80,14 +74,14 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
                 <div className="grow">
                     <Select
                         value={limit ? limit : ""}
-                        onChange={handleLimitChange}
+                        onChange={(e) => handleChange(e, setLimit, "limit")}
                         variant={"inline"}
                         options={limitOptions} />
                 </div>
-                <Button onClick={handleSortClick} variant={"secondary"} state={"isHoverable"} size={"sm"}>
+                <Button onClick={(e) => handleSortClick(e, Order.ASC)} variant={"secondary"} state={"isHoverable"} size={"sm"}>
                     <IconWrapper Icon={SortIcon} />
                 </Button>
-                <Button onClick={handleSortRevertClick} variant={"secondary"} state={"isHoverable"} size={"sm"}>
+                <Button onClick={(e) => handleSortClick(e, Order.DESC)} variant={"secondary"} state={"isHoverable"} size={"sm"}>
                     <IconWrapper Icon={SortRevertIcon} />
                 </Button>
             </div>
