@@ -1,6 +1,6 @@
 "use client"
 
-import UploadForm from "../forms/UploadForm";
+import { UploadForm } from "@components/forms";
 import Modal from "./Modal";
 
 export function UploadModal() {

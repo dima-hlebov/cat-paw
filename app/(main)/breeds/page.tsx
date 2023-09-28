@@ -22,7 +22,7 @@ export default async function Breeds({ searchParams }: SearchParams) {
 
     // Get images of specified breed
     if (breedId && breedNames.some(name => name.id === breedId)) {
-        catsData = getCats({ breed: breedId, limit: Number(limit) as Limit, type: Image.STATIC })
+        catsData = getCats({ breed: breedId, has_breeds: 1, limit: Number(limit) as Limit, type: Image.STATIC })
     }
     // Get all breeds 
     else {

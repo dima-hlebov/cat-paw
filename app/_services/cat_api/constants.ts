@@ -7,4 +7,6 @@ export const maxLimit = 20
 
 export const defaultOrder = Order.ASC
 
+export const defaultHasBreeds = 1
+
 export const breedIdPattern = /^[A-Za-z]{4}$/

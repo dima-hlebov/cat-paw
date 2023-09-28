@@ -11,6 +11,7 @@ import { addSearchParams } from "@app/_lib/utils";
 import { useAppDispatch, useAppSelector } from "@app/_hooks";
 import { setBreed, setLimit } from "@app/_context/features/breedFilterSlice";
 import { useEffect } from "react";
+import { setOrder } from "@app/_context/features/galleryFilterSlice";
 
 export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
     const { breed, limit } = useAppSelector(state => state.breedFilterReducer)
@@ -26,9 +27,11 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
     useEffect(() => {
         const breedParam = navigation.searchParams.get("breed") ?? ""
         const limitParam = navigation.searchParams.get("limit") ?? ""
+        const orderParam = navigation.searchParams.get("order") ?? ""
 
         dispatch(setBreed(breedParam))
         dispatch(setLimit(limitParam))
+        dispatch(setOrder(orderParam))
     }, [dispatch, navigation.searchParams])
 
     // Refactor breed object to options and set options
@@ -47,19 +50,20 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
     const handleChange = (
         e: React.ChangeEvent<HTMLSelectElement>,
         dispatchAction: typeof setBreed | typeof setLimit,
-        paramName: string
+        paramName: "breed" | "limit"
     ) => {
         const value = e.target.value.trim()
         addSearchParams(navigation, [paramName], [e.target.value.trim()])
         dispatch(dispatchAction(value))
     }
 
-    const handleSortClick = (e: React.MouseEvent<HTMLButtonElement>, order: Order) => {
+    const handleSortClick = (e: React.MouseEvent<HTMLButtonElement>, order: Order.ASC | Order.DESC) => {
         addSearchParams(navigation, ["order"], [order])
     }
 
     return (
         <form
+            onSubmit={e => e.preventDefault()}
             className="flex flex-wrap gap-sm"
         >
             <div className="grow basis-full sm:basis-auto">

@@ -4,7 +4,7 @@ import { useAppDispatch } from "@app/_hooks";
 import Button from "@components/buttons";
 import IconWrapper, { UploadIcon } from "@components/icons";
 
-export default function UploadButton() {
+export function UploadButton() {
     const dispatch = useAppDispatch()
 
     const handleUploadClick = () => {

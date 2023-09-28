@@ -2,42 +2,42 @@ import { BreedName, Image, Limit, Order } from "@app/_types/cat_api"
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 type InitialState = {
-    breed: BreedName
-    limit: Limit
-    order: Order
-    type: Image
+    breed: string
+    limit: string
+    order: string
+    type: string
 }
 
 const initialState: InitialState = {
-    breed: { id: "none", name: "None" },
-    limit: 5,
-    order: Order.ASC,
-    type: Image.STATIC
+    breed: "",
+    limit: "",
+    order: "",
+    type: ""
 }
 
 export const galleryFilterSlice = createSlice({
     name: "galleryFilter",
     initialState,
     reducers: {
-        setBreed: (state, { payload }: PayloadAction<BreedName>) => {
+        setBreed: (state, { payload }: PayloadAction<string>) => {
             return {
                 ...state,
                 breed: payload
             }
         },
-        setLimit: (state, { payload }: PayloadAction<Limit>) => {
+        setLimit: (state, { payload }: PayloadAction<string>) => {
             return {
                 ...state,
                 limit: payload
             }
         },
-        setOrder: (state, { payload }: PayloadAction<Order>) => {
+        setOrder: (state, { payload }: PayloadAction<string>) => {
             return {
                 ...state,
                 order: payload
             }
         },
-        setType: (state, { payload }: PayloadAction<Image>) => {
+        setType: (state, { payload }: PayloadAction<string>) => {
             return {
                 ...state,
                 type: payload

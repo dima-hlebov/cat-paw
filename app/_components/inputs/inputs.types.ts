@@ -10,5 +10,5 @@ export type Options = {
 
 export type SelectProps = {
     options: Options
-    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+    onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void
 } & SelectHTMLAttributes<HTMLSelectElement> & VariantProps<typeof selectVariants>

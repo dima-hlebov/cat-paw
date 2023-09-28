@@ -17,7 +17,7 @@ export type ImageLinkPropss = LinkProps & {
 };
 
 export type ButtonProps = {
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 } & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
 
 export type ButtonGroupProps = {

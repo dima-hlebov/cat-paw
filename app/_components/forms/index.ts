@@ -1,1 +1,1 @@
-export { GalleryFilter } from "./GalleryFilter";
+export { UploadForm } from "./UploadForm";

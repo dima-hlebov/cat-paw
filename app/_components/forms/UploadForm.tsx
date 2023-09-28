@@ -1,10 +1,13 @@
+"use client"
+
 import Button from "@components/buttons";
 import Alert from "@components/alerts";
 import { DropZone } from "@components/inputs";
+import Form from "@components/forms";
 
 import { useAppSelector } from "@app/_hooks"
 
-export default function UploadForm() {
+export function UploadForm() {
     const { files } = useAppSelector(state => state.modalReducer)
 
     return (
@@ -19,7 +22,7 @@ export default function UploadForm() {
                 ?
                 <div>
                     <div className="flex justify-center mt-sm sm:mt-md">
-                        <Button variant={"primary"} state={"isActive"}>Upload photo</Button>
+                        <Button onClick={() => { }} variant={"primary"} state={"isActive"}>Upload photo</Button>
                     </div>
                 </div>
                 :
