@@ -1,6 +1,5 @@
 "use client"
 
-import Form from "@components/forms/Form";
 import Button from "@components/buttons/Button";
 import { SortIcon, SortRevertIcon } from "@components/icons";
 import IconWrapper from "@components/icons";
@@ -10,11 +9,11 @@ import { BreedName, Order } from "@app/_types/cat_api";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { addSearchParam } from "@app/_lib/utils";
 import { useAppDispatch, useAppSelector } from "@app/_hooks";
-import { setSelectedBreed, setSelectedLimit } from "@app/_context/features/breedFilterSlice";
+import { setBreed, setLimit } from "@app/_context/features/breedFilterSlice";
 import { useEffect } from "react";
 
 export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
-    const { selectedBreed, selectedLimit } = useAppSelector(state => state.breedFilterReducer)
+    const { breed, limit } = useAppSelector(state => state.breedFilterReducer)
     const dispatch = useAppDispatch()
 
     const navigation = {
@@ -28,8 +27,8 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
         const breedParam = navigation.searchParams.get("breed") ?? ""
         const limitParam = navigation.searchParams.get("limit") ?? ""
 
-        dispatch(setSelectedBreed(breedParam))
-        dispatch(setSelectedLimit(limitParam))
+        dispatch(setBreed(breedParam))
+        dispatch(setLimit(limitParam))
     }, [dispatch, navigation.searchParams])
 
     // Refactor breed object to options
@@ -48,13 +47,13 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
     const handleBreedChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const value = e.target.value.trim()
         addSearchParam(navigation, "breed", e.target.value.trim())
-        dispatch(setSelectedBreed(value))
+        dispatch(setBreed(value))
     }
 
     const handleLimitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const value = e.target.value.trim()
         addSearchParam(navigation, "limit", e.target.value.trim())
-        dispatch(setSelectedLimit(value))
+        dispatch(setLimit(value))
     }
 
     const handleSortClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -66,12 +65,12 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
     }
 
     return (
-        <Form
+        <form
             className="flex flex-wrap gap-sm"
         >
             <div className="grow basis-full sm:basis-auto">
                 <Select
-                    value={selectedBreed ? selectedBreed : ""}
+                    value={breed ? breed : ""}
                     onChange={handleBreedChange}
                     variant={"inline"}
                     options={breedsOptions}
@@ -80,7 +79,7 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
             <div className="flex gap-sm grow sm:grow-0">
                 <div className="grow">
                     <Select
-                        value={selectedLimit ? selectedLimit : ""}
+                        value={limit ? limit : ""}
                         onChange={handleLimitChange}
                         variant={"inline"}
                         options={limitOptions} />
@@ -92,6 +91,6 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
                     <IconWrapper Icon={SortRevertIcon} />
                 </Button>
             </div>
-        </Form>
+        </form>
     )
 }

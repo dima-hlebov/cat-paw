@@ -1,36 +1,36 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 type InitialState = {
-    selectedBreed: string
-    selectedLimit: string
+    breed: string
+    limit: string
 }
 
 const initialState: InitialState = {
-    selectedBreed: "",
-    selectedLimit: "",
+    breed: "",
+    limit: "",
 }
 
 export const breedFilterSlice = createSlice({
     name: "breedFilter",
     initialState,
     reducers: {
-        setSelectedBreed: (state, { payload }: PayloadAction<string>) => {
+        setBreed: (state, { payload }: PayloadAction<string>) => {
             return {
                 ...state,
-                selectedBreed: payload
+                breed: payload
             }
         },
-        setSelectedLimit: (state, { payload }: PayloadAction<string>) => {
+        setLimit: (state, { payload }: PayloadAction<string>) => {
             return {
                 ...state,
-                selectedLimit: payload
+                limit: payload
             }
         },
-        resetBreed: () => {
+        resetBreedFilters: () => {
             return initialState
         }
     }
 })
 
-export const { setSelectedBreed, setSelectedLimit, resetBreed } = breedFilterSlice.actions;
+export const { setBreed, setLimit, resetBreedFilters } = breedFilterSlice.actions;
 export default breedFilterSlice.reducer
