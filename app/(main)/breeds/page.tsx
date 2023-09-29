@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 
 import { Breadcrumbs } from "@components/navigations";
+import Alert from "@components/alerts";
 import Gallery, { GalleryItemLink, renderGridItem } from "@components/widgets/gallery";
 import { BreedFilter } from "./components/BreedFilter";
 
@@ -36,28 +37,26 @@ export default async function Breeds({ searchParams }: SearchParams) {
 
             <div className="mt-sm sm:mt-md">
                 <Gallery>
-                    <Suspense fallback={<div>loading...</div>}>
-                        {breeds && breeds.length !== 0
-                            ? isCats(breeds)
-                                ? breeds.map((cat, i) => {
-                                    return (
-                                        <GalleryItemLink
-                                            key={cat.breeds[0].id}
-                                            image={{ src: cat.url, alt: cat.breeds[0].name, width: cat.width, height: cat.height }}
-                                            itemLayout={renderGridItem(i)}
-                                            link={{ href: `breeds/${cat.breeds[0].id}` }} />)
+                    {breeds && breeds.length !== 0
+                        ? isCats(breeds)
+                            ? breeds.map((cat, i) => {
+                                return (
+                                    <GalleryItemLink
+                                        key={cat.breeds[0].id}
+                                        image={{ src: cat.url, alt: cat.breeds[0].name, width: cat.width, height: cat.height }}
+                                        itemLayout={renderGridItem(i)}
+                                        link={{ href: `breeds/${cat.breeds[0].id}` }} />)
 
-                                })
-                                : breeds.map((breed, i) => {
-                                    return (
-                                        <GalleryItemLink
-                                            key={breed.id}
-                                            image={{ src: breed.image.url, alt: breed.name, width: breed.image.width, height: breed.image.height }}
-                                            itemLayout={renderGridItem(i)}
-                                            link={{ href: `breeds/${breed.id}` }} />)
-                                })
-                            : null}
-                    </Suspense>
+                            })
+                            : breeds.map((breed, i) => {
+                                return (
+                                    <GalleryItemLink
+                                        key={breed.id}
+                                        image={{ src: breed.image.url, alt: breed.name, width: breed.image.width, height: breed.image.height }}
+                                        itemLayout={renderGridItem(i)}
+                                        link={{ href: `breeds/${breed.id}` }} />)
+                            })
+                        : <Alert text={"No item found"} />}
                 </Gallery>
             </div>
         </div>
