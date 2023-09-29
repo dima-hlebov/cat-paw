@@ -5,7 +5,7 @@ import Gallery, { GalleryItemLink, renderGridItem } from "@components/widgets/ga
 import { BreedFilter } from "./components/BreedFilter";
 
 import { defaultBreed, defaultLimit, getBreeds, getCats } from "@services/cat_api";
-import { Breed, BreedName, Cat, Limit, Order, Image } from "@app/_types/cat_api";
+import { Breed, BreedName, Cat, Limit, Order, Image, isCats } from "@app/_types/cat_api";
 import { SearchParams, getSearchParam } from "@lib/utils";
 
 export default async function Breeds({ searchParams }: SearchParams) {
@@ -17,19 +17,11 @@ export default async function Breeds({ searchParams }: SearchParams) {
     const breedNames: BreedName[] = await getBreeds({})
 
     // Populate gallery
-    let catsData: Promise<Cat[]> | null = null
-    let breedsData: Promise<Breed[]> | null = null
-
-    // Get images of specified breed
-    if (breedId && breedNames.some(name => name.id === breedId)) {
-        catsData = getCats({ breed: breedId, has_breeds: 1, limit: Number(limit) as Limit, type: Image.STATIC })
-    }
-    // Get all breeds 
-    else {
-        breedsData = getBreeds({ order: order as Order, limit: Number(limit) as Limit })
-    }
-
-    const [breeds, cats] = await Promise.all([breedsData, catsData])
+    const breeds: Cat[] | Breed[] = breedId && breedNames.some(name => name.id === breedId)
+        // Get images of specified breed
+        ? await getCats({ breed: breedId, has_breeds: 1, limit: Number(limit) as Limit, type: Image.STATIC })
+        // Get all breeds 
+        : await getBreeds({ order: order as Order, limit: Number(limit) as Limit })
 
     return (
         <div>
@@ -45,25 +37,25 @@ export default async function Breeds({ searchParams }: SearchParams) {
             <div className="mt-sm sm:mt-md">
                 <Gallery>
                     <Suspense fallback={<div>loading...</div>}>
-                        {breeds
-                            ? breeds.map((breed, i) => {
-                                return (
-                                    <GalleryItemLink
-                                        key={breed.id}
-                                        image={{ src: breed.image.url, alt: breed.name, width: breed.image.width, height: breed.image.height }}
-                                        itemLayout={renderGridItem(i)}
-                                        link={{ href: `breeds/${breed.id}` }} />)
-                            })
-                            : null}
-                        {cats
-                            ? cats.map((cat, i) => {
-                                return (
-                                    <GalleryItemLink
-                                        key={cat.breeds[0].id}
-                                        image={{ src: cat.url, alt: cat.breeds[0].name, width: cat.width, height: cat.height }}
-                                        itemLayout={renderGridItem(i)}
-                                        link={{ href: `breeds/${cat.breeds[0].id}` }} />)
-                            })
+                        {breeds && breeds.length !== 0
+                            ? isCats(breeds)
+                                ? breeds.map((cat, i) => {
+                                    return (
+                                        <GalleryItemLink
+                                            key={cat.breeds[0].id}
+                                            image={{ src: cat.url, alt: cat.breeds[0].name, width: cat.width, height: cat.height }}
+                                            itemLayout={renderGridItem(i)}
+                                            link={{ href: `breeds/${cat.breeds[0].id}` }} />)
+
+                                })
+                                : breeds.map((breed, i) => {
+                                    return (
+                                        <GalleryItemLink
+                                            key={breed.id}
+                                            image={{ src: breed.image.url, alt: breed.name, width: breed.image.width, height: breed.image.height }}
+                                            itemLayout={renderGridItem(i)}
+                                            link={{ href: `breeds/${breed.id}` }} />)
+                                })
                             : null}
                     </Suspense>
                 </Gallery>

@@ -7,3 +7,7 @@ export type Cat = {
     url: string
     breeds: Breed[]
 }
+
+export function isCats(obj: any[]): obj is Cat[] {
+    return obj[0].breeds !== undefined
+}

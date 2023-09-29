@@ -8,6 +8,7 @@ import { GalleryFilter, UploadButton } from "./components";
 import { defaultBreed, defaultLimit, getBreeds, getCats } from "@app/_services/cat_api";
 import { SearchParams, getSearchParam } from "@lib/utils";
 import { BreedName, Cat, Image, Limit, Order } from "@app/_types/cat_api";
+import Alert from "@app/_components/alerts/Alert";
 
 export default async function GalleryPage({ searchParams }: SearchParams) {
     const breedId: string = getSearchParam(searchParams?.breed, defaultBreed)
@@ -36,14 +37,17 @@ export default async function GalleryPage({ searchParams }: SearchParams) {
                     <GalleryFilter breeds={breedNames} />
                 </div>
                 <div className="mt-sm sm:mt-md">
-                    <Gallery>
-                        {cats.map((cat, i) => (
-                            <GalleryItemButton
-                                key={cat.id} icon={FavIcon}
-                                image={{ src: cat.url, alt: cat.breeds[0]?.name ? cat.breeds[0].name : "cat", width: cat.width, height: cat.height }}
-                                itemLayout={renderGridItem(i)} />
-                        ))}
-                    </Gallery>
+                    {cats.length !== 0 ?
+                        <Gallery>
+                            {cats.map((cat, i) => (
+                                <GalleryItemButton
+                                    key={cat.id} icon={FavIcon}
+                                    image={{ src: cat.url, alt: cat.breeds[0]?.name ? cat.breeds[0].name : "cat", width: cat.width, height: cat.height }}
+                                    itemLayout={renderGridItem(i)} />
+                            ))}
+                        </Gallery>
+                        : <Alert text={"No item found"} />
+                    }
                 </div>
             </main>
         </div>
