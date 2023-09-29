@@ -1,6 +1,10 @@
+"use server"
+
 import { Cat, HasBreeds, Image, Limit, Order, isValueInHasBreeds, isValueInImage, isValueInLimit, isValueInOrder } from "@app/_types/cat_api"
 import { getData } from "@lib/utils"
 import { breedIdPattern, defaultBreed, defaultHasBreeds, defaultLimit } from "@services/cat_api"
+
+import { cookies } from "next/headers"
 
 export type GetCatsArgs = {
     limit?: Limit
@@ -11,8 +15,12 @@ export type GetCatsArgs = {
 }
 
 export async function getCats({ breed, limit, order, has_breeds, type = Image.ALL }: GetCatsArgs): Promise<Cat[]> {
-    // Validate input and Initialize URLSearchParams with the optional "breed" and "order" parameters
+    // Validate input and Initialize URLSearchParams
     const searchParams = new URLSearchParams()
+    const userId = cookies().get("userId")
+    if (userId) {
+        searchParams.append("sub_ids", userId.value)
+    }
     if (breed && breed !== defaultBreed && breedIdPattern.test(breed)) {
         searchParams.append("breed_ids", breed.toString())
     }
@@ -31,7 +39,7 @@ export async function getCats({ breed, limit, order, has_breeds, type = Image.AL
     if (isValueInImage(type)) {
         searchParams.append("mime_types", type)
     }
-
+    console.log(searchParams)
     try {
         const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams, revalidate: 60 * 60 * 24 * 7 })
         return cats
