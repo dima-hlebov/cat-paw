@@ -1,4 +1,5 @@
 import { Breed } from "./Breed.types"
+import { Favourite } from "./Favourite.types"
 
 export type Cat = {
     id: string
@@ -6,6 +7,7 @@ export type Cat = {
     height: number
     url: string
     breeds: Breed[]
+    favourite: Favourite
 }
 
 export function isCats(obj: any[]): obj is Cat[] {

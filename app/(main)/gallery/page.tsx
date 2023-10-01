@@ -1,7 +1,6 @@
 import { Breadcrumbs } from "@components/navigations";
-import Gallery, { GalleryItemButton, renderGridItem } from "@components/widgets/gallery";
+import Gallery, { GalleryItemPlaceholder, renderGridItem } from "@components/widgets/gallery";
 import { UploadModal } from "@components/modals";
-import { FavIcon } from "@components/icons";
 import { GalleryFilter, UploadButton } from "./components";
 
 
@@ -9,6 +8,7 @@ import { defaultBreed, defaultLimit, getBreeds, getCats } from "@app/_services/c
 import { SearchParams, getSearchParam } from "@lib/utils";
 import { BreedName, Cat, Image, Limit, Order } from "@app/_types/cat_api";
 import Alert from "@app/_components/alerts/Alert";
+import FavouriteButton from "./components/buttons/FavouriteButton";
 
 export default async function GalleryPage({ searchParams }: SearchParams) {
     const breedId: string = getSearchParam(searchParams?.breed, defaultBreed)
@@ -40,10 +40,13 @@ export default async function GalleryPage({ searchParams }: SearchParams) {
                     {cats.length !== 0 ?
                         <Gallery>
                             {cats.map((cat, i) => (
-                                <GalleryItemButton
-                                    key={cat.id} icon={FavIcon}
+                                <GalleryItemPlaceholder
+                                    key={cat.id}
                                     image={{ src: cat.url, alt: cat.breeds[0]?.name ? cat.breeds[0].name : "cat", width: cat.width, height: cat.height }}
-                                    itemLayout={renderGridItem(i)} />
+                                    itemLayout={renderGridItem(i)}
+                                >
+                                    <FavouriteButton cat={cat} />
+                                </GalleryItemPlaceholder>
                             ))}
                         </Gallery>
                         : <Alert text={"No item found"} />

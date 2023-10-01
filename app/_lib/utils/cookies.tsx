@@ -11,6 +11,6 @@ export async function getUserId() {
 
         cookies().set("id", id, { secure: true })
     }
-    console.log(await cookies().get("id"))
+
     return cookies().get("id")
 }

@@ -1,4 +1,3 @@
-import { SvgProps } from "@components/icons";
 import { ImageProps } from "next/image";
 import { LinkProps } from "next/link";
 
@@ -19,7 +18,6 @@ export type GalleryItemLinkProps = {
 } & GalleryItemProps
 
 
-export type GalleryItemButtonProps = {
-    icon: React.FunctionComponent<SvgProps>
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+export type GalleryItemPlaceholderProps = {
+    children: React.ReactNode
 } & GalleryItemProps

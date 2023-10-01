@@ -21,7 +21,6 @@ export const iconVariants = cva(
 // Wrapper for svgs which is able to toggle betweend two icons. 
 // To toggle second icon needs to be provided
 export default function IconWrapper({ Icon, SecondaryIcon, className, size, active, ...props }: IconWrapperProps) {
-
     return (
         <div>
             <Icon className={`${SecondaryIcon ? "group-active:hidden" : ""} ${cn(iconVariants({ size, className }))}`} {...props} />

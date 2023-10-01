@@ -18,21 +18,87 @@ export function getApiKey(): string {
     return apiKey;
 }
 
-type GetDataParams = {
-    path: string
-    searchParams?: URLSearchParams
-    revalidate?: number
+export enum ContentType {
+    JSON = "application/json",
+    FORMDATA = "multipart/form-data",
 }
 
+type FetchParams = {
+    path: string
+    searchParams?: URLSearchParams
+    contentType?: ContentType
+}
+
+type GetDataParams = {
+    revalidate?: number
+} & FetchParams
+
 // By default doesn't caching 
-export async function getData<T>({ path, searchParams, revalidate = 0 }: GetDataParams): Promise<T> {
+export async function getData<T>({ path, searchParams, revalidate = 0, contentType = ContentType.JSON }: GetDataParams): Promise<T> {
     let apiUrl = ""
     try {
         apiUrl = `${getApiBaseUrl()}${path}${searchParams ? searchParams : ""}`
         const response = await fetch(apiUrl, {
             next: { revalidate: revalidate },
             headers: {
-                "x-api-key": getApiKey()
+                "x-api-key": getApiKey(),
+                "Content-Type": contentType
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${apiUrl} (HTTP ${response.status})`);
+        }
+
+        const data: T = await response.json();
+
+        return data;
+    } catch (error: any) {
+        console.error(`Error fetching: ${error.message}`);
+        throw error;
+    }
+}
+
+type PostDataParams<T> = {
+    body: T,
+} & FetchParams
+
+export async function postData<T, E>({ path, searchParams, body, contentType = ContentType.JSON }: PostDataParams<T>): Promise<E> {
+    let apiUrl = ""
+    try {
+        apiUrl = `${getApiBaseUrl()}${path}${searchParams ? searchParams : ""}`
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "x-api-key": getApiKey(),
+                "Content-Type": contentType
+            },
+            body: JSON.stringify(body)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${apiUrl} (HTTP ${response.status})`);
+        }
+
+        const data: E = await response.json();
+
+        return data;
+    } catch (error: any) {
+        console.error(`Error fetching: ${error.message}`);
+        throw error;
+    }
+}
+
+export async function deleteData<T>({ path, searchParams, contentType = ContentType.JSON }: FetchParams): Promise<T> {
+    let apiUrl = ""
+    try {
+        apiUrl = `${getApiBaseUrl()}${path}${searchParams ? searchParams : ""}`
+        const response = await fetch(apiUrl, {
+            method: "DELETE",
+            cache: 'no-store',
+            headers: {
+                "x-api-key": getApiKey(),
+                "Content-Type": contentType
             },
         });
 

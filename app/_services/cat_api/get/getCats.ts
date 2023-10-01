@@ -19,7 +19,7 @@ export async function getCats({ breed, limit, order, has_breeds, type = Image.AL
     const searchParams = new URLSearchParams()
     const userId = cookies().get("userId")
     if (userId) {
-        searchParams.append("sub_ids", userId.value)
+        searchParams.append("sub_id", userId.value)
     }
     if (breed && breed !== defaultBreed && breedIdPattern.test(breed)) {
         searchParams.append("breed_ids", breed.toString())
@@ -39,9 +39,9 @@ export async function getCats({ breed, limit, order, has_breeds, type = Image.AL
     if (isValueInImage(type)) {
         searchParams.append("mime_types", type)
     }
-    console.log(searchParams)
+
     try {
-        const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams, revalidate: 60 * 60 * 24 * 7 })
+        const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams, revalidate: 0 })
         return cats
     } catch (error: any) {
         console.error("Error fetching cats:", error);

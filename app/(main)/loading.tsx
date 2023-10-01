@@ -9,7 +9,7 @@ export default function LoadingMain() {
                 <Breadcrumbs />
             </div>
             <div className="mt-md flex justify-center">
-                <IconWrapper Icon={LoadingIcon} />
+                <IconWrapper Icon={LoadingIcon} className="w-[100px] h-[100px]" />
             </div>
         </div>
     )

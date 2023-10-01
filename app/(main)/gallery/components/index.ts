@@ -1,2 +1,2 @@
-export { UploadButton } from "./UploadButton";
-export { GalleryFilter } from "./GalleryFilter";
+export { UploadButton } from "./buttons/UploadButton";
+export { GalleryFilter } from "./forms/GalleryFilter";
