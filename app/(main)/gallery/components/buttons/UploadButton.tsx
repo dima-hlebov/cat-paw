@@ -1,5 +1,5 @@
 "use client"
-import { toggleModal } from "@context/features/modalSlice";
+import { toggleUploadModal } from "@app/_context/features/uploadModalSlice";
 import { useAppDispatch } from "@app/_hooks";
 import Button from "@components/buttons";
 import IconWrapper, { UploadIcon } from "@components/icons";
@@ -8,7 +8,7 @@ export function UploadButton() {
     const dispatch = useAppDispatch()
 
     const handleUploadClick = () => {
-        dispatch(toggleModal())
+        dispatch(toggleUploadModal())
     }
 
     return (

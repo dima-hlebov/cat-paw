@@ -1,6 +1,6 @@
 "use client"
 
-import { clearFiles, setFiles } from "@context/features/modalSlice"
+import { clearUploadedFiles, setUploadFiles } from "@app/_context/features/uploadModalSlice"
 import { useAppDispatch, useAppSelector } from "@app/_hooks"
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -18,9 +18,9 @@ export function DropZone() {
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
     if (files) {
-      dispatch(setFiles([...files]));
+      dispatch(setUploadFiles([...files]));
     } else {
-      dispatch(clearFiles());
+      dispatch(clearUploadedFiles());
     }
   };
 

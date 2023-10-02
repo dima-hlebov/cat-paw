@@ -9,7 +9,7 @@ type GalleryProps = {
 
 export default function Gallery({ children }: GalleryProps) {
     return (
-        <div className="grid grid-cols-1 gap-y-sm sm:gap-md sm:grid-cols-3 ">
+        <div className="grid grid-cols-1 gap-y-sm sm:gap-md sm:grid-cols-3">
             {children}
         </div>
     )

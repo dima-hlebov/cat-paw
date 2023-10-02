@@ -1,33 +1,33 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 type InitialState = {
-    isModalOpen: boolean
+    isUploadModalOpen: boolean
     files: File[]
 }
 
 const initialState: InitialState = {
-    isModalOpen: false,
+    isUploadModalOpen: false,
     files: [],
 }
 
-export const modalSlice = createSlice({
-    name: "modal",
+export const uploadModalSlice = createSlice({
+    name: "uploadModal",
     initialState,
     reducers: {
-        toggleModal: (state) => {
+        toggleUploadModal: (state) => {
             return {
                 ...state,
-                isModalOpen: !state.isModalOpen,
+                isUploadModalOpen: !state.isUploadModalOpen,
                 files: []
             }
         },
-        setFiles: (state, { payload }: PayloadAction<File[]>) => {
+        setUploadFiles: (state, { payload }: PayloadAction<File[]>) => {
             return {
                 ...state,
                 files: payload
             }
         },
-        clearFiles: (state) => {
+        clearUploadedFiles: (state) => {
             return {
                 ...state,
                 files: []
@@ -36,5 +36,5 @@ export const modalSlice = createSlice({
     }
 })
 
-export const { toggleModal, setFiles, clearFiles } = modalSlice.actions;
-export default modalSlice.reducer
+export const { toggleUploadModal, setUploadFiles, clearUploadedFiles } = uploadModalSlice.actions;
+export default uploadModalSlice.reducer
