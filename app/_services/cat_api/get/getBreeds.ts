@@ -19,11 +19,6 @@ export async function getBreeds({ order, limit }: GetBreedsArgs): Promise<Breed[
         searchParams.append("limit", limit.toString())
     }
 
-    try {
-        const breeds: Breed[] = await getData<Breed[]>({ path: `/breeds?`, revalidate: 60 * 60 * 24 * 7, searchParams })
-        return breeds
-    } catch (error: any) {
-        console.error("Error fetching breeds:", error);
-        throw error
-    }
+    const breeds: Breed[] = await getData<Breed[]>({ path: `/breeds?`, revalidate: 60 * 60 * 24 * 7, searchParams })
+    return breeds
 }

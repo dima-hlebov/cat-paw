@@ -12,7 +12,7 @@ export async function getBreed({ id }: GetBreedArgs): Promise<Breed> {
             const breed: Breed = await getData<Breed>({ path: `/breeds/${id}`, revalidate: 60 * 60 * 24 * 7 })
             return breed
         }
-        throw Error("Wrong id")
+        throw Error("Wrong breed id")
     } catch (error: any) {
         console.error("Error fetching breed:", error);
         throw error

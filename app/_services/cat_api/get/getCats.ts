@@ -40,12 +40,7 @@ export async function getCats({ breed, limit, order, has_breeds, type = Image.AL
         searchParams.append("mime_types", type)
     }
 
-    try {
-        const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams, revalidate: 0 })
-        return cats
-    } catch (error: any) {
-        console.error("Error fetching cats:", error);
-        throw error;
-    }
+    const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams, revalidate: 0 })
+    return cats
 }
 
