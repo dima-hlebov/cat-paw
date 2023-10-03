@@ -4,7 +4,7 @@ import { ButtonProps } from "@components/buttons";
 
 export default function Button({ onClick, variant, size, state, className, children }: ButtonProps) {
     return (
-        <button onClick={onClick} className={cn(buttonVariants({ variant, size, state, className }))}>
+        <button onClick={onClick} className={cn(buttonVariants({ variant, size, state, className }))} disabled={state === "isDisabled" ? true : false}>
             {children}
         </button>
     )
@@ -48,7 +48,7 @@ export const buttonVariants = cva(
             { variant: ["soft"], state: "isActive", className: "hover:text-white hover:bg-primary active:text-primary active:bg-primary/20" },
             { variant: ["soft"], state: "isHoverable", className: "hover:text-white hover:bg-primary" },
             { variant: ["secondary"], state: "isHoverable", className: "hover:border-primary/20 hover:text-primary dark:hover:border-primary/20" },
-            { variant: ["monochrome", "primary", "secondary", "soft"], state: "isDisabled", className: "" },
+            { variant: ["monochrome", "primary", "secondary", "soft"], state: "isDisabled", className: "border-2 border-primary/0 bg-primary/20 text-primary" },
         ]
     }
 )

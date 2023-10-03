@@ -65,19 +65,28 @@ type PostDataParams<T> = {
 
 export async function postData<T, E>({ path, searchParams, body, contentType = ContentType.JSON }: PostDataParams<T>): Promise<E> {
     let apiUrl = ""
+    let headers: HeadersInit = {
+        "x-api-key": getApiKey(),
+    }
+    let newBody: BodyInit | null = null
+    if (contentType === ContentType.JSON) {
+        newBody = JSON.stringify(body)
+        headers["Content-Type"] = ContentType.JSON
+    }
+    if (contentType === ContentType.FORMDATA) {
+        newBody = body as FormData
+    }
+
     try {
         apiUrl = `${getApiBaseUrl()}${path}${searchParams ? searchParams : ""}`
         const response = await fetch(apiUrl, {
             method: "POST",
-            headers: {
-                "x-api-key": getApiKey(),
-                "Content-Type": contentType
-            },
-            body: JSON.stringify(body)
+            headers,
+            body: newBody
         });
 
         if (!response.ok) {
-            throw new Error(`Failed to fetch ${apiUrl} (HTTP ${response.status})`);
+            throw new Error(`Failed to fetch ${apiUrl} (HTTP ${response.status}) ${await response.text()}`);
         }
 
         const data: E = await response.json();

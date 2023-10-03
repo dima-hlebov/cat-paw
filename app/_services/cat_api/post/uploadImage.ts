@@ -1,14 +1,14 @@
 import { ContentType, postData } from "@app/_lib/utils";
-import { ImageUpload, ResponseImageUpload } from "@app/_types/cat_api";
+import { ResponseImage } from "@app/_types/cat_api";
 
-export async function uploadImage({ body }: { body: ImageUpload }) {
-    const favourite: ResponseImageUpload =
-        await postData<ImageUpload, ResponseImageUpload>(
+export async function uploadImage({ formData }: { formData: FormData }) {
+    const uploadRes: ResponseImage =
+        await postData<FormData, ResponseImage>(
             {
-                path: "/favourites",
-                contentType: ContentType.JSON,
-                body: body
+                path: "/images/upload",
+                contentType: ContentType.FORMDATA,
+                body: formData
             })
 
-    return favourite
+    return uploadRes
 }

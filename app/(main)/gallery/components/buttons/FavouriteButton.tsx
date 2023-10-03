@@ -21,7 +21,7 @@ export default function FavouriteButton({ cat }: { cat: Cat }) {
                 }
             }
             if (!fav) {
-                const body: AddFavourite = { image_id: cat.id }
+                const body: AddFavourite = { image_id: cat.id, sub_id: "" }
                 const favouriteRes = await fetch('/api/favourites', {
                     method: "POST",
                     body: JSON.stringify(body)

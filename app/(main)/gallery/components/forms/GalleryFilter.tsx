@@ -103,7 +103,7 @@ export function GalleryFilter({ breeds }: { breeds: BreedName[] }) {
                     onChange={(e) => handleChange(e, setLimit)}
                     name='limit'
                     options={limitOptions}>
-                    <Button size={"sm"} className="dark:bg-dark">
+                    <Button size={"sm"}>
                         <IconWrapper Icon={UpdateIcon}></IconWrapper>
                     </Button>
                 </Select>

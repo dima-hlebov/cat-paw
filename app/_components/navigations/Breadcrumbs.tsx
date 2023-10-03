@@ -4,6 +4,7 @@ import { usePathname, useRouter } from 'next/navigation'
 
 import Button, { Link, buttonVariants } from "@components/buttons";
 import IconWrapper, { BackIcon } from "@components/icons";
+import { twMerge } from 'tailwind-merge';
 
 export function Breadcrumbs() {
     const router = useRouter()
@@ -25,7 +26,7 @@ export function Breadcrumbs() {
             {slugs.map((slug, i) => {
                 if (slugs.length - 1 === i) {
                     return (
-                        <span key={i} className={buttonVariants({ variant: "primary", state: "isDisabled" })}>
+                        <span key={i} className={twMerge(buttonVariants({ variant: "primary", state: "isDisabled" }), "bg-primary text-white")}>
                             {slug}
                         </span>
                     )

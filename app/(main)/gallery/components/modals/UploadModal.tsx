@@ -1,9 +1,9 @@
 "use client"
 
-import { UploadForm } from "@components/forms";
-import Modal from "./Modal";
+import Modal from "@components/modals/Modal";
 import { useAppSelector } from "@app/_hooks";
 import { toggleUploadModal } from "@context/features/uploadModalSlice";
+import { UploadForm } from "@app/(main)/gallery/components";
 
 export function UploadModal() {
     const { isUploadModalOpen } = useAppSelector(state => state.modalReducer)

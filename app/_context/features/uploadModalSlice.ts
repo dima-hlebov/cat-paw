@@ -1,13 +1,16 @@
+import { UploadedImage } from "@app/_types/cat_api"
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 type InitialState = {
     isUploadModalOpen: boolean
-    files: File[]
+    files: UploadedImage[]
+    isUploaded: boolean | null
 }
 
 const initialState: InitialState = {
     isUploadModalOpen: false,
     files: [],
+    isUploaded: null
 }
 
 export const uploadModalSlice = createSlice({
@@ -18,13 +21,18 @@ export const uploadModalSlice = createSlice({
             return {
                 ...state,
                 isUploadModalOpen: !state.isUploadModalOpen,
-                files: []
             }
         },
-        setUploadFiles: (state, { payload }: PayloadAction<File[]>) => {
+        setUploadedFiles: (state, { payload }: PayloadAction<UploadedImage[]>) => {
             return {
                 ...state,
                 files: payload
+            }
+        },
+        setIsUploaded: (state, { payload }: PayloadAction<boolean | null>) => {
+            return {
+                ...state,
+                isUploaded: payload
             }
         },
         clearUploadedFiles: (state) => {
@@ -36,5 +44,5 @@ export const uploadModalSlice = createSlice({
     }
 })
 
-export const { toggleUploadModal, setUploadFiles, clearUploadedFiles } = uploadModalSlice.actions;
+export const { toggleUploadModal, setUploadedFiles, clearUploadedFiles, setIsUploaded } = uploadModalSlice.actions;
 export default uploadModalSlice.reducer
