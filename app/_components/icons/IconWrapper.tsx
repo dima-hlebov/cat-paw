@@ -10,7 +10,7 @@ export const iconVariants = cva(
                 xs: "w-[16px] h-[16px]",
                 sm: "w-[20px] h-[20px]",
                 md: "w-[30px] h-[30px]",
-                btnGroup: "w-[22.5px] h-[22.5px] sm:w-[30px] sm:h-[30px]"
+                btnGroup: "w-[22px] h-[22px] sm:w-[30px] sm:h-[30px]"
             },
             active: {
                 white: "group-active:text-white"

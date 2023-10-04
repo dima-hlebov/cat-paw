@@ -1,4 +1,4 @@
-import { formatMinutes } from "@lib/utils/cn"
+import { formatMinutes } from "@lib/utils"
 import IconWrapper, { DislikeIcon, FavIcon, IconWrapperProps, LikeIcon } from "@components/icons"
 
 export enum UserAction {

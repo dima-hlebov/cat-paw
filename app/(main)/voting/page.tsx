@@ -1,13 +1,14 @@
 import { Logs, UserAction, UserLog } from "@components/lists";
 import { Breadcrumbs } from "@components/navigations";
+import { VotingPanel } from "./components/VotingPanel";
 
-import { VotingPanel } from "@app/_components/widgets";
+import { getCats } from "@services/cat_api";
+import { Cat } from "@app/_types/cat_api";
 
-import CatPic from "@img/cat-pic.jpg"
 
+export default async function Voting() {
+    const cat: Cat[] = await getCats({})
 
-export default function Voting() {
-    const alt: string = "some alt"
     const logs: UserLog[] = [
         { id: "1as12fds", timestamp: new Date(), action: UserAction.Like },
         { id: "1as12fds", timestamp: new Date(), action: UserAction.Dislike },
@@ -18,7 +19,7 @@ export default function Voting() {
             <Breadcrumbs />
             <main className="mt-md">
                 <div>
-                    <VotingPanel image={{ alt: alt, src: CatPic }} />
+                    <VotingPanel cat={cat[0]} />
                     <div className="mt-2xl">
                         <Logs logs={logs} />
                     </div>

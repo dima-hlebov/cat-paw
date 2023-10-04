@@ -1,2 +1,1 @@
-export { VotingPanel } from "./VotingPanel";
-export { ThemeSwitcher } from "./ThemeSwitcher";
+export { ThemeSwitcher } from "./switcher/ThemeSwitcher";
