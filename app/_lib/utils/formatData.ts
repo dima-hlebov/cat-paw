@@ -1,6 +1,12 @@
-export function formatMinutes(minutes: number): string {
-    const formattedMinutes: string = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    return formattedMinutes;
+export function formatTime(date: Date) {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+
+    // Add leading zeros if hours or minutes are less than 10
+    const formattedHours = hours < 10 ? `0${hours}` : hours;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+    return `${formattedHours}:${formattedMinutes}`;
 }
 
 export function getFirstSentence(text: string): string {

@@ -4,6 +4,7 @@ import searchReducer from "@context/features/searchSlice"
 import modalReducer from "@app/_context/features/uploadModalSlice"
 import breedFilterReducer from "@context/features/breedFilterSlice"
 import galleryFilterReducer from "@context/features/galleryFilterSlice"
+import logsReducer from '@context/features/logsSlice'
 
 export const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
         modalReducer,
         galleryFilterReducer,
         breedFilterReducer,
+        logsReducer,
     },
 })
 
