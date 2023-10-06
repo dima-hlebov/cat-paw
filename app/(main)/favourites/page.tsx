@@ -7,7 +7,7 @@ import FavouriteButton from "./components/buttons/FavouriteButton"
 import FavouriteLogs from "./components/lists/FavouriteLogs"
 
 export default async function Favourites() {
-    const favourites = await getFavourites()
+    const favourites = await getFavourites({})
 
     return (
         <div>

@@ -43,9 +43,16 @@ input, select {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-light-dark rounded-sm
+  @apply bg-primary rounded-sm
 }
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-light-dark
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
 }

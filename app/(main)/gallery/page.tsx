@@ -6,15 +6,15 @@ import { GalleryFilter, UploadButton, UploadModal } from "./components";
 
 
 import { defaultBreed, defaultLimit, getBreeds, getCats } from "@app/_services/cat_api";
-import { SearchParams, getSearchParam } from "@lib/utils";
+import { SearchParams, getSearchParams } from "@lib/utils";
 import { BreedName, Cat, Image, Limit, Order } from "@app/_types/cat_api";
 import FavouriteButton from "./components/buttons/FavouriteButton";
 
 export default async function GalleryPage({ searchParams }: SearchParams) {
-    const breedId: string = getSearchParam(searchParams?.breed, defaultBreed)
-    const limit: Limit = Number(getSearchParam(searchParams?.limit, defaultLimit.toString())) as Limit
-    const order: Order = getSearchParam(searchParams?.order, Order.RAND) as Order
-    const type: Image = getSearchParam(searchParams?.type, Image.STATIC) as Image
+    const breedId: string = getSearchParams(searchParams?.breed, defaultBreed)
+    const limit: Limit = Number(getSearchParams(searchParams?.limit, defaultLimit.toString())) as Limit
+    const order: Order = getSearchParams(searchParams?.order, Order.RAND) as Order
+    const type: Image = getSearchParams(searchParams?.type, Image.STATIC) as Image
 
     // Some images doesn't have breed. So when breed is specified we have to get only images with breed info
     const catsData: Promise<Cat[]> = breedId !== defaultBreed

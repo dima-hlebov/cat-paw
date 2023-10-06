@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@components/navigations"
 import Gallery, { GalleryItem, renderGridItem } from "@components/widgets/gallery"
 
 export default async function likes() {
-    const votes = await getVotes()
+    const votes = await getVotes({})
     const likes = votes.filter(vote => vote.value === 1)
     console.log(likes)
 

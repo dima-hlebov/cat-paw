@@ -30,7 +30,7 @@ export function addSearchParams(
 }
 
 
-export function getSearchParam(searchParam: string | string[] | undefined, defaultValue: string = ""): string {
+export function getSearchParams(searchParam: string | string[] | undefined, defaultValue: string = ""): string {
     const params: string | string[] = searchParam ?? defaultValue
     const param: string = Array.isArray(params) ? params[0] : params;
     return param

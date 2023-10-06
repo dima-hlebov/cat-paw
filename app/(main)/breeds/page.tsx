@@ -7,12 +7,12 @@ import { BreedFilter } from "./components/BreedFilter";
 
 import { defaultBreed, defaultLimit, getBreeds, getCats } from "@services/cat_api";
 import { Breed, BreedName, Cat, Limit, Order, Image, isCats } from "@app/_types/cat_api";
-import { SearchParams, getSearchParam } from "@lib/utils";
+import { SearchParams, getSearchParams } from "@lib/utils";
 
 export default async function Breeds({ searchParams }: SearchParams) {
-    const breedId = getSearchParam(searchParams?.breed, defaultBreed)
-    const limit = getSearchParam(searchParams?.limit, defaultLimit.toString())
-    const order = getSearchParam(searchParams?.order, Order.ASC)
+    const breedId = getSearchParams(searchParams?.breed, defaultBreed)
+    const limit = getSearchParams(searchParams?.limit, defaultLimit.toString())
+    const order = getSearchParams(searchParams?.order, Order.ASC)
 
     // Populate breed filter
     const breedNames: BreedName[] = await getBreeds({})

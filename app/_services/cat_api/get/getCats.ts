@@ -12,9 +12,10 @@ export type GetCatsArgs = {
     breed?: string
     type?: Image
     has_breeds?: HasBreeds
+    page?: number
 }
 
-export async function getCats({ breed, limit, order, has_breeds, type = Image.ALL }: GetCatsArgs): Promise<Cat[]> {
+export async function getCats({ breed, limit, order, has_breeds, page, type = Image.ALL }: GetCatsArgs): Promise<Cat[]> {
     // Validate input and Initialize URLSearchParams
     const searchParams = new URLSearchParams()
     const userId = cookies().get("userId")
@@ -38,6 +39,9 @@ export async function getCats({ breed, limit, order, has_breeds, type = Image.AL
     }
     if (isValueInImage(type)) {
         searchParams.append("mime_types", type)
+    }
+    if (limit && page !== undefined && page >= 0) {
+        searchParams.append("page", page.toString())
     }
 
     const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams, revalidate: 0 })

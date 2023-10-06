@@ -5,7 +5,7 @@ import Gallery, { GalleryItem, renderGridItem } from "@components/widgets/galler
 import CatPic from "@img/cat-pic.jpg"
 
 export default async function Likes() {
-    const votes = await getVotes()
+    const votes = await getVotes({})
     const dislikes = votes.filter(vote => vote.value === -1)
 
     return (

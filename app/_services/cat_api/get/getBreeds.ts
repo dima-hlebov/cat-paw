@@ -5,9 +5,10 @@ import { defaultLimit, defaultOrder } from "@services/cat_api"
 export type GetBreedsArgs = {
     limit?: Limit
     order?: Order
+    page?: number
 }
 
-export async function getBreeds({ order, limit }: GetBreedsArgs): Promise<Breed[]> {
+export async function getBreeds({ order, limit, page }: GetBreedsArgs): Promise<Breed[]> {
     // Validate input and Initialize URLSearchParams
     const searchParams = new URLSearchParams()
     if (order) {
@@ -17,6 +18,9 @@ export async function getBreeds({ order, limit }: GetBreedsArgs): Promise<Breed[
     if (limit) {
         if (!isValueInLimit(limit)) limit = defaultLimit
         searchParams.append("limit", limit.toString())
+    }
+    if (limit && page !== undefined && page >= 0) {
+        searchParams.append("page", page.toString())
     }
 
     const breeds: Breed[] = await getData<Breed[]>({ path: `/breeds?`, revalidate: 60 * 60 * 24 * 7, searchParams })
