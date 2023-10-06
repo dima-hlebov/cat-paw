@@ -31,7 +31,7 @@ export const buttonVariants = cva(
                 isDisabled: ""
             },
             size: {
-                default: "px-[18px] py-xs xs:px-[28px] xs:py-sm rounded-sm",
+                default: "px-[18px] py-sm rounded-sm xs:px-[28px]",
                 sm: "p-[8px] rounded-sm",
                 md: "p-[13px] rounded-md",
                 groupSize: "p-[15px] sm:p-[21px]"

@@ -24,24 +24,21 @@ export const selectVariants = cva(
     }
 );
 
-export function Select({ value, name, options, children, variant, size, className, ...props }: PropsWithChildren<SelectProps>) {
+export function Select({ value, name, options, variant, size, className, ...props }: SelectProps) {
     return (
         <div className="flex flex-col">
             {variant === "inline" ? null : <label className="pl-[13px] text-sm uppercase font-medium" htmlFor={name}>{name}</label>}
-            <div className="flex">
-                <select
-                    value={value}
-                    id={name}
-                    name={name}
-                    className={`${children ? "mr-sm" : ""} ${cn(selectVariants({ variant, size, className }))}`}
-                    {...props}
-                >
-                    {options.map((option) => (
-                        <option key={option.value} value={option.value}>{option.str}</option>
-                    ))}
-                </select>
-                {children}
-            </div>
+            <select
+                value={value}
+                id={name}
+                name={name}
+                className={cn(selectVariants({ variant, size, className }))}
+                {...props}
+            >
+                {options.map((option) => (
+                    <option key={option.value} value={option.value}>{option.str}</option>
+                ))}
+            </select>
         </div>
     )
 }

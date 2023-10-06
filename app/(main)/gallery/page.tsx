@@ -33,7 +33,7 @@ export default async function GalleryPage({ searchParams }: SearchParams) {
                 <UploadButton />
             </div>
             <main className="mt-sm sm:mt-md">
-                <div className="rounded-md px-md pt-sm pb-md bg-secondary dark:bg-white/5">
+                <div className="rounded-md px-sm sm:px-md pt-sm pb-md bg-secondary dark:bg-white/5">
                     <GalleryFilter breeds={breedNames} />
                 </div>
                 <div className="mt-sm sm:mt-md">

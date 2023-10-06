@@ -9,9 +9,10 @@ import { addSearchParams } from '@app/_lib/utils'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useAppDispatch, useAppSelector } from '@app/_hooks'
 import { setBreed, setLimit, setOrder, setType } from '@app/_context/features/galleryFilterSlice'
-import { useEffect } from 'react'
+import { useEffect, useTransition } from 'react'
 
 export function GalleryFilter({ breeds }: { breeds: BreedName[] }) {
+    const [isPending, startTransition] = useTransition()
     const { breed, limit, order, type } = useAppSelector(state => state.galleryFilterReducer)
     const dispatch = useAppDispatch()
 
@@ -67,14 +68,15 @@ export function GalleryFilter({ breeds }: { breeds: BreedName[] }) {
     }
     const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
-        addSearchParams(navigation, ["type", "order", "limit", "breed"], [type, order, limit, breed])
+        startTransition(() => {
+            addSearchParams(navigation, ["type", "order", "limit", "breed"], [type, order, limit, breed])
+        })
     }
 
     return (
         <form
             onSubmit={onFormSubmit}
-            className="grid grid-cols-2 gap-x-lg gap-y-sm"
+            className="grid gap-y-sm sm:grid-cols-2 sm:gap-x-lg "
         >
             <div>
                 <Select
@@ -97,16 +99,19 @@ export function GalleryFilter({ breeds }: { breeds: BreedName[] }) {
                     name='breed'
                     options={breedsOptions} />
             </div>
-            <div>
-                <Select
-                    value={limit}
-                    onChange={(e) => handleChange(e, setLimit)}
-                    name='limit'
-                    options={limitOptions}>
-                    <Button size={"sm"}>
-                        <IconWrapper Icon={UpdateIcon}></IconWrapper>
+            <div className='flex flex-col sm:flex-row justify-between  gap-sm'>
+                <div className='flex-grow'>
+                    <Select
+                        value={limit}
+                        onChange={(e) => handleChange(e, setLimit)}
+                        name='limit'
+                        options={limitOptions} />
+                </div>
+                <div className="flex items-end">
+                    <Button size={"sm"} className="w-full">
+                        <IconWrapper Icon={UpdateIcon} className={isPending ? "animate-spin" : ""}></IconWrapper>
                     </Button>
-                </Select>
+                </div>
             </div>
         </form>
     )
