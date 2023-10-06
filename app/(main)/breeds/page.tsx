@@ -8,10 +8,12 @@ import { BreedFilter } from "./components/BreedFilter";
 import { defaultBreed, defaultLimit, getBreeds, getCats } from "@services/cat_api";
 import { Breed, BreedName, Cat, Limit, Order, Image, isCats } from "@app/_types/cat_api";
 import { SearchParams, getSearchParams } from "@lib/utils";
+import { Link } from "@app/_components/buttons";
 
 export default async function Breeds({ searchParams }: SearchParams) {
     const breedId = getSearchParams(searchParams?.breed, defaultBreed)
     const limit = getSearchParams(searchParams?.limit, defaultLimit.toString())
+    const page = getSearchParams(searchParams?.limit, "0")
     const order = getSearchParams(searchParams?.order, Order.ASC)
 
     // Populate breed filter
@@ -58,6 +60,12 @@ export default async function Breeds({ searchParams }: SearchParams) {
                             })
                         : <Alert text={"No item found"} />}
                 </Gallery>
+                {breeds.length > 20
+                    ? <div>
+                        <Link href={""}>Left</Link>
+                        <Link href={""}>Right</Link>
+                    </div>
+                    : null}
             </div>
         </div>
     )

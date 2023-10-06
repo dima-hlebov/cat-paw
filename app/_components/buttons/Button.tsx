@@ -12,7 +12,7 @@ export default function Button({ onClick, variant, size, state, className, disab
 
 // Fix: Rework using compound variants
 export const buttonVariants = cva(
-    "group uppercase text-center text-xs font-normal tracking-[2px] transition-all duration-300",
+    "flex items-center justify-center group uppercase text-xs font-normal tracking-[2px] transition-all duration-300",
     {
         variants: {
             variant: {
@@ -31,7 +31,7 @@ export const buttonVariants = cva(
                 isDisabled: ""
             },
             size: {
-                default: "px-[28px] py-sm rounded-sm",
+                default: "px-[18px] py-xs xs:px-[28px] xs:py-sm rounded-sm",
                 sm: "p-[8px] rounded-sm",
                 md: "p-[13px] rounded-md",
                 groupSize: "p-[15px] sm:p-[21px]"

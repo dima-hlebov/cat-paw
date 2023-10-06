@@ -13,6 +13,7 @@ export default function Carousel({ slides }: { slides: ImageProps[] }) {
         <Swiper
             modules={[Pagination]}
             pagination={{ clickable: true }}
+            slidesPerView={"auto"}
         >
             {slides.map((slide, i) => (
                 <SwiperSlide key={i}>

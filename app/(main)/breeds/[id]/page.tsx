@@ -17,8 +17,8 @@ export default async function Breed({ params }: { params: { id: string } }) {
         return {
             src: cat.url,
             alt: cat.breeds[0].name,
-            width: cat.width,
-            height: cat.height
+            width: 500,
+            height: 500
         }
     })
 

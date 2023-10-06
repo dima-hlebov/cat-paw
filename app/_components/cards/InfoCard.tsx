@@ -15,7 +15,7 @@ export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCa
         <article className="relative px-sm pb-sm border-2 border-primary/20 rounded-md sm:px-md sm:pb-md ">
             <header className="px-lg sm:px-xl text-center">
                 <div className="absolute top-0 transform -translate-x-[50%] -translate-y-[14px] sm:-translate-y-[25px] inline-block px-md py-xs rounded-md bg-white sm:px-2xl dark:bg-zinc-800">
-                    <h2>{mainHeading}</h2>
+                    <h2 className="whitespace-nowrap">{mainHeading}</h2>
                 </div>
                 <h3 className="mt-md sm:mt-lg">{secondaryHeading}</h3>
             </header>
