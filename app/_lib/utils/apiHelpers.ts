@@ -47,7 +47,7 @@ export async function getData<T>({ path, searchParams, revalidate = 0, contentTy
         });
 
         if (!response.ok) {
-            throw new Error(`Failed to fetch ${apiUrl} (HTTP ${response.status})`);
+            throw new Error(`Failed to fetch ${apiUrl} (HTTP ${response.status}) ${await response.text()}`);
         }
 
         const data: T = await response.json();
@@ -112,7 +112,7 @@ export async function deleteData<T>({ path, searchParams, contentType = ContentT
         });
 
         if (!response.ok) {
-            throw new Error(`Failed to fetch ${apiUrl} (HTTP ${response.status})`);
+            throw new Error(`Failed to fetch ${apiUrl} (HTTP ${response.status}) ${await response.text()}`);
         }
 
         const data: T = await response.json();

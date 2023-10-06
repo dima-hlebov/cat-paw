@@ -4,7 +4,7 @@ import Button, { ButtonGroup } from '@components/buttons'
 import IconWrapper, { DislikeIcon, FavFullIcon, FavIcon, LikeIcon } from '@components/icons'
 
 
-import { AddFavourite, Cat, Favourite, ResponseFavorite, Vote } from '@app/_types/cat_api'
+import { AddFavourite, AddVote, Cat, Favourite, ResponseFavorite } from '@app/_types/cat_api'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { useLogs } from '@app/_hooks/localstorageHooks'
@@ -22,7 +22,7 @@ export default function VotingButtonGroup({ cat }: { cat: Cat }) {
     const handleVoting = async (e: React.MouseEvent<HTMLButtonElement>, vote: 1 | -1) => {
         setCurrentlyPending(vote)
 
-        const body: Vote = { image_id: cat.id, value: vote, sub_id: "" }
+        const body: AddVote = { image_id: cat.id, value: vote, sub_id: "" }
         startTransition(async () => {
             const voteRes = await fetch('/api/vote', {
                 method: "POST",
@@ -85,10 +85,7 @@ export default function VotingButtonGroup({ cat }: { cat: Cat }) {
                     size={"groupSize"}
                     state={isPending ? "isDisabled" : "isHoverable"}
                 >
-                    {isPending && currentlyPending === 0
-                        ? <IconWrapper Icon={fav ? FavIcon : FavFullIcon} size={"btnGroup"} />
-                        : <IconWrapper Icon={fav ? FavFullIcon : FavIcon} size={"btnGroup"} />
-                    }
+                    <IconWrapper Icon={fav ? FavFullIcon : FavIcon} size="md" className={isPending ? "animate-ping" : ""} />
                 </Button>
                 <Button onClick={(e) => handleVoting(e, -1)}
                     variant={"btnGroupLast"}

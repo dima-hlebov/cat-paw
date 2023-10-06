@@ -1,13 +1,14 @@
 import { Breadcrumbs } from "@components/navigations";
 import Gallery, { GalleryItemPlaceholder, renderGridItem } from "@components/widgets/gallery";
+import Alert from "@components/alerts/Alert";
 import { GalleryFilter, UploadButton, UploadModal } from "./components";
-import FavouriteButton from "./components/buttons/FavouriteButton";
-import Alert from "@app/_components/alerts/Alert";
+
 
 
 import { defaultBreed, defaultLimit, getBreeds, getCats } from "@app/_services/cat_api";
 import { SearchParams, getSearchParam } from "@lib/utils";
 import { BreedName, Cat, Image, Limit, Order } from "@app/_types/cat_api";
+import FavouriteButton from "./components/buttons/FavouriteButton";
 
 export default async function GalleryPage({ searchParams }: SearchParams) {
     const breedId: string = getSearchParam(searchParams?.breed, defaultBreed)
@@ -36,8 +37,8 @@ export default async function GalleryPage({ searchParams }: SearchParams) {
                     <GalleryFilter breeds={breedNames} />
                 </div>
                 <div className="mt-sm sm:mt-md">
-                    {cats.length !== 0 ?
-                        <Gallery>
+                    {cats.length
+                        ? <Gallery>
                             {cats.map((cat, i) => (
                                 <GalleryItemPlaceholder
                                     key={cat.id}

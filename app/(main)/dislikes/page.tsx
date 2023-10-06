@@ -1,21 +1,22 @@
+import { getVotes } from "@app/_services/cat_api/get/getVotes"
 import { Breadcrumbs } from "@components/navigations"
 import Gallery, { GalleryItem, renderGridItem } from "@components/widgets/gallery"
-import { getImages } from "@app/_db/db"
 
 import CatPic from "@img/cat-pic.jpg"
 
-export default function Likes() {
-    const images = getImages()
+export default async function Likes() {
+    const votes = await getVotes()
+    const dislikes = votes.filter(vote => vote.value === -1)
 
     return (
         <div>
             <Breadcrumbs />
             <main className="mt-sm sm:mt-md">
                 <Gallery>
-                    {images.map((image, i) => (
+                    {dislikes.map((dislike, i) => (
                         <GalleryItem
-                            key={image.id}
-                            image={{ src: image.src, alt: image.name, width: image.width, height: image.height }}
+                            key={dislike.id}
+                            image={{ src: dislike.image.url, alt: "Disliked cat", width: 500, height: 500 }}
                             itemLayout={renderGridItem(i)}
                         />
                     ))}

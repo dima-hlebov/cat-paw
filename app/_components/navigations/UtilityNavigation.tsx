@@ -6,13 +6,13 @@ export function UtilityNavigation() {
   const buttonVariant = buttonVariants({ variant: "monochrome", state: "isActive", size: "md" })
   return (
     <Navigation className="flex gap-sm">
-      <Link href="/" className={buttonVariant} >
+      <Link href="/likes" className={buttonVariant} >
         <IconWrapper Icon={LikeIcon} size="md" />
       </Link>
-      <Link href="/" className={buttonVariant} >
+      <Link href="/favourites" className={buttonVariant} >
         <IconWrapper Icon={FavIcon} size="md" />
       </Link>
-      <Link href="/" className={buttonVariant} >
+      <Link href="/dislikes" className={buttonVariant} >
         <IconWrapper Icon={DislikeIcon} size="md" />
       </Link>
     </Navigation>
