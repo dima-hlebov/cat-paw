@@ -6,7 +6,7 @@ import { LogAction } from "@app/_types/Log.type"
 
 export default function FavouriteLogs() {
     const [logs] = useLogs()
-    const unfavourites = logs.filter(log => log.action === LogAction.UNFAVOURITE)
+    const unfavourites = logs.filter(log => log.action === LogAction.UNFAVOURITE || log.action === LogAction.FAVOURITE)
 
     return <Logs logs={unfavourites} />
 }

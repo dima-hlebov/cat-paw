@@ -4,10 +4,7 @@ import Gallery, { GalleryItemPlaceholder, renderGridItem } from "@components/wid
 
 import { getFavourites } from "@services/cat_api/get/getFavourites"
 import FavouriteButton from "./components/buttons/FavouriteButton"
-
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
-export const revalidate = 0
+import FavouriteLogs from "./components/lists/FavouriteLogs"
 
 export default async function Favourites() {
     const favourites = await getFavourites()
@@ -31,9 +28,11 @@ export default async function Favourites() {
                     : <Alert text={"No item found"} />
                 }
                 <div className="mt-xl">
-                    {/* <Logs /> */}
+                    <FavouriteLogs />
                 </div>
             </main>
         </div>
     )
 }
+
+export const revalidate = 0
