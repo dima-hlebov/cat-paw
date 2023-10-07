@@ -22,7 +22,7 @@ const logsSlice = createSlice({
         addLog: (state, { payload }: PayloadAction<Log>) => {
             const newLogs =
                 state.logs
-                    ? [...state.logs, payload]
+                    ? [payload, ...state.logs]
                     : [payload]
             return {
                 ...state,
