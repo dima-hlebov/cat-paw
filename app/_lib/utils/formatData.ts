@@ -16,21 +16,14 @@ export function getFirstSentence(text: string): string {
     return match ? match[0] : '';
 }
 
-export function base64ToBlob(base64: string, contentType: string, fileName: string): Blob {
-    // Convert the Base64 data to a binary string
-    const binaryString = atob(base64);
+import { Limit } from "@app/_types/cat_api";
 
-    // Create an array buffer from the binary string
-    const arrayBuffer = new ArrayBuffer(binaryString.length);
-    const uint8Array = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < binaryString.length; i++) {
-        uint8Array[i] = binaryString.charCodeAt(i);
-    }
+export function paginate<T>(currentPage: number, limit: Limit, arr: T[]): T[][] {
+    const startIndex = currentPage * limit;
+    const endIndex = startIndex + limit;
 
-    // Create a Blob from the array buffer
-    const blob = new Blob([arrayBuffer], { type: contentType });
+    const nextStartIndex = (currentPage + 1) * limit;
+    const nextEndIndex = nextStartIndex + limit;
 
-    // Create a File object from the Blob
-
-    return blob
+    return [arr.slice(startIndex, endIndex), arr.slice(nextStartIndex, nextEndIndex),];
 }

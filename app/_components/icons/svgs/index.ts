@@ -1,4 +1,5 @@
 export { BackIcon } from "./back-icon"
+export { ForwardIcon } from "./forward-icon"
 export { CloseIcon } from "./close-icon"
 export { DislikeIcon } from "./dislike-icon"
 export { FavFullIcon } from "./fav-full-icon"

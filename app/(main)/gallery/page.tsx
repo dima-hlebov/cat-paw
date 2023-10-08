@@ -7,23 +7,35 @@ import { GalleryFilter, UploadButton, UploadModal } from "./components";
 
 import { defaultBreed, defaultLimit, getBreeds, getCats } from "@app/_services/cat_api";
 import { SearchParams, getSearchParams } from "@lib/utils";
-import { BreedName, Cat, Image, Limit, Order } from "@app/_types/cat_api";
+import { BreedName, Cat, Image, Limit, Order, isValueInImage, isValueInLimit, isValueInOrder } from "@app/_types/cat_api";
 import FavouriteButton from "./components/buttons/FavouriteButton";
+import Pagination from "@app/_components/widgets/pagination/Pagination";
 
 export default async function GalleryPage({ searchParams }: SearchParams) {
     const breedId: string = getSearchParams(searchParams?.breed, defaultBreed)
-    const limit: Limit = Number(getSearchParams(searchParams?.limit, defaultLimit.toString())) as Limit
-    const order: Order = getSearchParams(searchParams?.order, Order.RAND) as Order
-    const type: Image = getSearchParams(searchParams?.type, Image.STATIC) as Image
+    const limit: string = getSearchParams(searchParams?.limit, defaultLimit.toString())
+    const page = getSearchParams(searchParams?.page, "0")
+    const order: string = getSearchParams(searchParams?.order, Order.RAND)
+    const type: string = getSearchParams(searchParams?.type, Image.STATIC)
 
-    // Some images doesn't have breed. So when breed is specified we have to get only images with breed info
-    const catsData: Promise<Cat[]> = breedId !== defaultBreed
-        ? getCats({ breed: breedId, has_breeds: 1, limit, order, type })
-        : getCats({ breed: breedId, limit, order, type })
+    const validatedLimit: Limit = isValueInLimit(Number(limit)) ? Number(limit) as Limit : defaultLimit
+    const validatedPage: number = Number(page) && Number(page) > 0 ? Number(page) : 0
+    const validatedOrder: Order = isValueInOrder(order) ? order : Order.ASC
+    const validatedType: Image = isValueInImage(type) ? type : Image.STATIC
+
+
+    // Some images doesn't have breed. So when breed is specified we have to get images only with breed info
+    const currentCatsData: Promise<Cat[]> = breedId !== defaultBreed
+        ? getCats({ breed: breedId, has_breeds: 1, limit: validatedLimit, page: validatedPage, order: validatedOrder, type: validatedType })
+        : getCats({ breed: breedId, limit: validatedLimit, page: validatedPage, order: validatedOrder, type: validatedType })
+    // To check if there next page
+    const nextCatsData: Promise<Cat[]> = breedId !== defaultBreed
+        ? getCats({ breed: breedId, has_breeds: 1, limit: validatedLimit, page: validatedPage + 1, order: validatedOrder, type: validatedType })
+        : getCats({ breed: breedId, limit: validatedLimit, page: validatedPage + 1, order: validatedOrder, type: validatedType })
 
     const breedNamesData: Promise<BreedName[]> = getBreeds({})
 
-    const [breedNames, cats] = await Promise.all([breedNamesData, catsData])
+    const [breedNames, currentCats, nextCats] = await Promise.all([breedNamesData, currentCatsData, nextCatsData])
 
     return (
         <div>
@@ -37,9 +49,9 @@ export default async function GalleryPage({ searchParams }: SearchParams) {
                     <GalleryFilter breeds={breedNames} />
                 </div>
                 <div className="mt-sm sm:mt-md">
-                    {cats.length
+                    {currentCats.length
                         ? <Gallery>
-                            {cats.map((cat, i) => (
+                            {currentCats.map((cat, i) => (
                                 <GalleryItemPlaceholder
                                     key={cat.id}
                                     image={{ src: cat.url, alt: cat.breeds[0]?.name ? cat.breeds[0].name : "cat", width: cat.width, height: cat.height }}
@@ -51,6 +63,16 @@ export default async function GalleryPage({ searchParams }: SearchParams) {
                         </Gallery>
                         : <Alert text={"No item found"} />
                     }
+                    <div className="flex flex-grow items-end justify-center mt-sm">
+                        {currentCats.length
+                            ? <Pagination
+                                hrefBase={`gallery?breed=${breedId}&order=${validatedOrder}&type=${validatedType}&`}
+                                limit={validatedLimit}
+                                currentPage={validatedPage}
+                                isNextPage={nextCats.length ? true : false}
+                            />
+                            : null}
+                    </div>
                 </div>
             </main>
         </div>

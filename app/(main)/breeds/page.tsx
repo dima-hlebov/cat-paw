@@ -6,28 +6,37 @@ import Gallery, { GalleryItemLink, renderGridItem } from "@components/widgets/ga
 import { BreedFilter } from "./components/BreedFilter";
 
 import { defaultBreed, defaultLimit, getBreeds, getCats } from "@services/cat_api";
-import { Breed, BreedName, Cat, Limit, Order, Image, isCats } from "@app/_types/cat_api";
+import { BreedName, Limit, Order, Image, isCats, isValueInLimit, isValueInOrder } from "@app/_types/cat_api";
 import { SearchParams, getSearchParams } from "@lib/utils";
-import { Link } from "@app/_components/buttons";
+import Pagination from "@app/_components/widgets/pagination/Pagination";
 
 export default async function Breeds({ searchParams }: SearchParams) {
     const breedId = getSearchParams(searchParams?.breed, defaultBreed)
     const limit = getSearchParams(searchParams?.limit, defaultLimit.toString())
-    const page = getSearchParams(searchParams?.limit, "0")
+    const page = getSearchParams(searchParams?.page, "0")
     const order = getSearchParams(searchParams?.order, Order.ASC)
+
+    const validatedLimit: Limit = isValueInLimit(Number(limit)) ? Number(limit) as Limit : defaultLimit
+    const validatedPage: number = Number(page) && Number(page) > 0 ? Number(page) : 0
+    const validatedOrder: Order = isValueInOrder(order) ? order : Order.ASC
 
     // Populate breed filter
     const breedNames: BreedName[] = await getBreeds({})
-
     // Populate gallery
-    const breeds: Cat[] | Breed[] = breedId && breedNames.some(name => name.id === breedId)
+    const [currentBreeds, nextBreeds] = breedId && breedNames.some(name => name.id === breedId)
         // Get images of specified breed
-        ? await getCats({ breed: breedId, has_breeds: 1, limit: Number(limit) as Limit, type: Image.STATIC })
+        ? await Promise.all([
+            await getCats({ breed: breedId, has_breeds: 1, limit: validatedLimit, page: validatedPage, type: Image.STATIC, order: validatedOrder }),
+            await getCats({ breed: breedId, has_breeds: 1, limit: validatedLimit, page: validatedPage + 1, type: Image.STATIC, order: validatedOrder }),
+        ])
         // Get all breeds 
-        : await getBreeds({ order: order as Order, limit: Number(limit) as Limit })
+        : await Promise.all([
+            await getBreeds({ order: validatedOrder, limit: validatedLimit, page: validatedPage, }),
+            await getBreeds({ order: validatedOrder, limit: validatedLimit, page: validatedPage + 1, })
+        ])
 
     return (
-        <div>
+        <div className="flex flex-col h-full">
             <div className="flex flex-wrap">
                 <div className="basis-full md:basis-auto">
                     <Breadcrumbs />
@@ -37,11 +46,11 @@ export default async function Breeds({ searchParams }: SearchParams) {
                 </div>
             </div>
 
-            <div className="mt-sm sm:mt-md">
-                <Gallery>
-                    {breeds && breeds.length !== 0
-                        ? isCats(breeds)
-                            ? breeds.map((cat, i) => {
+            <main className="flex flex-col flex-grow mt-sm sm:mt-md ">
+                {currentBreeds.length
+                    ? <Gallery>
+                        {isCats(currentBreeds)
+                            ? currentBreeds.map((cat, i) => {
                                 return (
                                     <GalleryItemLink
                                         key={cat.breeds[0].id}
@@ -50,23 +59,28 @@ export default async function Breeds({ searchParams }: SearchParams) {
                                         link={{ href: `breeds/${cat.breeds[0].id}` }} />)
 
                             })
-                            : breeds.map((breed, i) => {
+                            : currentBreeds.map((breed, i) => {
                                 return (
                                     <GalleryItemLink
                                         key={breed.id}
-                                        image={{ src: breed.image.url, alt: breed.name, width: breed.image.width, height: breed.image.height }}
+                                        image={{ src: breed.image?.url, alt: breed.name, width: breed.image?.width, height: breed.image?.height }}
                                         itemLayout={renderGridItem(i)}
                                         link={{ href: `breeds/${breed.id}` }} />)
-                            })
-                        : <Alert text={"No item found"} />}
-                </Gallery>
-                {breeds.length > 20
-                    ? <div>
-                        <Link href={""}>Left</Link>
-                        <Link href={""}>Right</Link>
-                    </div>
-                    : null}
-            </div>
+                            })}
+                    </Gallery>
+                    : <Alert text={"No item found"} />
+                }
+                <div className="flex flex-grow items-end justify-center mt-sm">
+                    {currentBreeds.length
+                        ? <Pagination
+                            hrefBase={`breeds?breed=${breedId}&order=${validatedOrder}&`}
+                            limit={validatedLimit}
+                            currentPage={validatedPage}
+                            isNextPage={nextBreeds.length ? true : false}
+                        />
+                        : null}
+                </div>
+            </main>
         </div>
     )
 }

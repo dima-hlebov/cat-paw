@@ -15,7 +15,8 @@ export function addSearchParams(
     paramValues: string[]
 ) {
     const current = new URLSearchParams(navigation.searchParams);
-
+    current.delete("limit")
+    current.delete("page")
     paramValues.forEach((paramValue, i) => {
         if (!paramValue || paramValue === "") {
             return current.delete(paramNames[i])

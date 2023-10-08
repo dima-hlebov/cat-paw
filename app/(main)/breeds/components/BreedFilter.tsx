@@ -11,10 +11,13 @@ import { addSearchParams } from "@app/_lib/utils";
 import { useAppDispatch, useAppSelector } from "@app/_hooks";
 import { setBreed, setLimit } from "@app/_context/features/breedFilterSlice";
 import { useEffect } from "react";
+import { useSmoothScroll } from "@app/_hooks/animationHooks";
 
 export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
     const { breed, limit } = useAppSelector(state => state.breedFilterReducer)
     const dispatch = useAppDispatch()
+
+    const { scrollTop } = useSmoothScroll()
 
     const navigation = {
         router: useRouter(),
@@ -52,10 +55,12 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
         const value = e.target.value.trim()
         addSearchParams(navigation, [paramName], [e.target.value.trim()])
         dispatch(dispatchAction(value))
+        scrollTop()
     }
 
     const handleSortClick = (e: React.MouseEvent<HTMLButtonElement>, order: Order.ASC | Order.DESC) => {
         addSearchParams(navigation, ["order"], [order])
+        scrollTop()
     }
 
     return (
