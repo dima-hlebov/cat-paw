@@ -1,3 +1,4 @@
+"use client"
 import { GalleryItem, GalleryItemPlaceholderProps } from "@components/widgets/gallery";
 
 export function GalleryItemPlaceholder({ itemLayout, image, children }: GalleryItemPlaceholderProps) {
