@@ -1,4 +1,5 @@
-import { Header, Container } from "@layouts/index";
+import { Header } from "@app/_layouts/Header";
+import { Container } from "@layouts/index";
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
     return (
