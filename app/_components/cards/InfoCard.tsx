@@ -23,7 +23,7 @@ export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCa
                 <div className="flex flex-col gap-sm p-sm sm:p-md">
                     {column1.map((item, i) => (
                         <div key={i}>
-                            <h4 className="text-dark">{item.title}:</h4>
+                            <h4 className="text-dark font-medium dark:text-white">{item.title}:</h4>
                             <p>{item.text}</p>
                         </div>
                     ))}
@@ -32,7 +32,7 @@ export default function InfoCard({ mainHeading, secondaryHeading, info }: InfoCa
                     <div className="flex flex-col gap-sm p-sm pt-0 sm:p-md">
                         {column2.map((item, i) => (
                             <div key={i} className="flex">
-                                <h4 className="text-dark whitespace-pre font-medium">{`${item.title}: `}</h4>
+                                <h4 className="text-dark dark:text-white whitespace-pre font-medium">{`${item.title}: `}</h4>
                                 <p>{item.text}</p>
                             </div>
                         ))}
