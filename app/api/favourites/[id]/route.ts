@@ -7,7 +7,8 @@ import { revalidatePath } from "next/cache";
 export async function DELETE(req: NextRequest) {
     const path: string[] = req.nextUrl.pathname.split("/")
 
-    const favouriteRes: ResponseFavorite = await deleteFavourite({ imageiId: path[path.length - 1] })
+    const favouriteRes: ResponseFavorite = await deleteFavourite({ imageId: path[path.length - 1] })
     revalidatePath("/gallery")
-    return Response.json({ favouriteRes })
+
+    return Response.json({ favouriteRes }, { status: 200 })
 }

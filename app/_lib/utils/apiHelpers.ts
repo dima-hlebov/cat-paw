@@ -31,15 +31,16 @@ type FetchParams = {
 
 type GetDataParams = {
     revalidate?: number
+    tags?: string[]
 } & FetchParams
 
 // By default doesn't caching 
-export async function getData<T>({ path, searchParams, revalidate = 0, contentType = ContentType.JSON }: GetDataParams): Promise<T> {
+export async function getData<T>({ path, searchParams, revalidate = 0, tags, contentType = ContentType.JSON }: GetDataParams): Promise<T> {
     let apiUrl = ""
     try {
         apiUrl = `${getApiBaseUrl()}${path}${searchParams ? searchParams : ""}`
         const response = await fetch(apiUrl, {
-            next: { revalidate: revalidate },
+            next: { revalidate: revalidate, tags },
             headers: {
                 "x-api-key": getApiKey(),
                 "Content-Type": contentType

@@ -3,13 +3,14 @@ import { addFavourite } from "@app/_services/cat_api/post/addFavourite"
 import { AddFavourite } from "@app/_types/cat_api"
 import { revalidatePath } from "next/cache"
 
-import { NextRequest } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest, res: NextResponse) {
     const favourite: AddFavourite = await req.json()
     favourite.sub_id = getUserId(req)
 
     const resUpload = await addFavourite({ body: favourite })
     revalidatePath('/favourites')
+
     return Response.json(resUpload)
 }

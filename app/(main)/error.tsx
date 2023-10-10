@@ -9,7 +9,7 @@ export default function Error() {
             <div>
                 <Breadcrumbs />
             </div>
-            <div>
+            <div className="mt-sm">
                 <Alert text={"Something went wrong! Please refresh the page or come back later."} />
             </div>
         </div>

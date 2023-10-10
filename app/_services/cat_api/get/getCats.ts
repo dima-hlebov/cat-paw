@@ -46,7 +46,7 @@ export async function getCats({ breed, limit, order, has_breeds, page, type = Im
         searchParams.append("page", page.toString())
     }
 
-    const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams, revalidate: 0 })
+    const cats: Cat[] = await getData<Cat[]>({ path: "/images/search?", searchParams, revalidate: 0, tags: ["gallery"] })
     return cats
 }
 

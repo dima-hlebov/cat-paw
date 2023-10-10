@@ -22,6 +22,6 @@ export async function getFavourites({ limit, page }: GetFavouritesArgs): Promise
         searchParams.append("page", page.toString())
     }
 
-    const breeds: Favourite[] = await getData<Favourite[]>({ path: `/favourites?`, searchParams, revalidate: 0 })
+    const breeds: Favourite[] = await getData<Favourite[]>({ path: `/favourites?`, searchParams, revalidate: 0, tags: ["favourites"] })
     return breeds
 }
