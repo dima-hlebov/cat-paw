@@ -85,7 +85,7 @@ export default function VotingButtonGroup({ cat }: { cat: Cat }) {
                     size={"groupSize"}
                     state={isPending ? "isDisabled" : "isHoverable"}
                 >
-                    <IconWrapper Icon={fav ? FavFullIcon : FavIcon} size="md" className={isPending && currentlyPending === 0 ? "animate-ping" : ""} />
+                    <IconWrapper Icon={fav ? FavFullIcon : FavIcon} size="btnGroup" className={isPending && currentlyPending === 0 ? "animate-ping" : ""} />
                 </Button>
                 <Button onClick={(e) => handleVoting(e, -1)}
                     variant={"btnGroupLast"}
