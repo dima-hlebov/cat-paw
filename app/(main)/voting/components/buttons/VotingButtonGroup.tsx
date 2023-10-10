@@ -31,6 +31,7 @@ export default function VotingButtonGroup({ cat }: { cat: Cat }) {
             if (voteRes.ok) {
                 const newLog: Log = { message: cat.id, timestamp: formatTime(new Date()), action: vote === 1 ? LogAction.LIKE : LogAction.DISLIKE }
                 setLog(newLog)
+                setFav(null)
             }
             router.refresh()
         })
