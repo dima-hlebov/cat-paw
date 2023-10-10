@@ -11,10 +11,9 @@ export type LinkProps = {
     children?: ReactNode
 } & NextLinkProps
 
-export type ImageLinkPropss = {
+export type ImageLinkPropss = LinkProps & {
     name: string;
     image: ImageProps;
-    href: string
 };
 
 export type ButtonProps = {
