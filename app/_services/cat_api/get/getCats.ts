@@ -17,9 +17,7 @@ export type GetCatsArgs = {
 
 export async function getCats({ breed, limit, order, has_breeds, page, type = Image.ALL }: GetCatsArgs): Promise<Cat[]> {
     // Validate input and Initialize URLSearchParams
-    const searchParams = new URLSearchParams({
-        size: "full"
-    })
+    const searchParams = new URLSearchParams()
     const userId = cookies().get("userId")
     if (userId) {
         searchParams.append("sub_id", userId.value)
