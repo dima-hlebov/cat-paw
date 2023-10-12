@@ -60,7 +60,13 @@ export default function FavouriteButton({ cat }: { cat: Cat }) {
     }
 
     return (
-        <Button onClick={handleClick} state={isPending ? "isDisabled" : "isHoverable"} variant={"monochrome"} size={"sm"} className="dark:bg-zinc-800">
+        <Button
+            onClick={handleClick}
+            state={isPending ? "isDisabled" : "isHoverable"}
+            variant={"monochrome"}
+            size={"sm"}
+            className="dark:bg-zinc-800"
+            aria-label={fav ? "Unfavourite" : "Favourite"}>
             <IconWrapper Icon={fav ? FavFullIcon : FavIcon} size="md" className={isPending ? "animate-ping" : ""} />
         </Button>
     )

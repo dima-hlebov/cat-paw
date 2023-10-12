@@ -22,7 +22,8 @@ export function BurgerMenu() {
             <Button
                 variant={"monochrome"}
                 size={"md"}
-                onClick={handleClick}>
+                onClick={handleClick}
+                aria-label="Open menu">
                 <IconWrapper Icon={MenuIcon} size={"md"} />
             </Button>
             {/* overlay */}
@@ -35,7 +36,8 @@ export function BurgerMenu() {
                         <Button
                             onClick={handleClick}
                             variant={"monochrome"}
-                            size={"md"}>
+                            size={"md"}
+                            aria-label="Close menu">
                             <IconWrapper Icon={CloseIcon} size={"md"} />
                         </Button>
                     </div>

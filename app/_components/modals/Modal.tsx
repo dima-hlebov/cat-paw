@@ -26,7 +26,8 @@ export default function Modal({ children, state }: ModalProps) {
                             onClick={handleClick}
                             variant={"monochrome"}
                             size={"sm"}
-                            className="ml-auto">
+                            className="ml-auto"
+                            aria-label="Close modal">
                             <IconWrapper Icon={CloseIcon} size={"sm"} />
                         </Button>
                         {children}

@@ -55,7 +55,7 @@ export function Search({ initialData, placeholder, ...props }: Search) {
                             {...props} />
                     </div>
                     <div className="pl-sm">
-                        <Button variant={"soft"} state={"isHoverable"} size={"sm"}>
+                        <Button variant={"soft"} state={"isHoverable"} size={"sm"} aria-label="Search">
                             <IconWrapper Icon={SearchIcon} />
                         </Button>
                     </div>

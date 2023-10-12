@@ -108,7 +108,10 @@ export function GalleryFilter({ breeds }: { breeds: BreedName[] }) {
                         options={limitOptions} />
                 </div>
                 <div className="flex items-end">
-                    <Button size={"sm"} className="w-full">
+                    <Button
+                        size={"sm"}
+                        className="w-full"
+                        aria-label="Refresh filtered images">
                         <IconWrapper Icon={UpdateIcon} className={isPending ? "animate-spin" : ""}></IconWrapper>
                     </Button>
                 </div>

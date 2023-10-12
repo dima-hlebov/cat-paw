@@ -84,10 +84,19 @@ export function BreedFilter({ breeds }: { breeds: BreedName[] }) {
                         variant={"inline"}
                         options={limitOptions} />
                 </div>
-                <Button onClick={(e) => handleSortClick(e, Order.ASC)} variant={"secondary"} state={"isHoverable"} size={"sm"}>
+                <Button
+                    onClick={(e) => handleSortClick(e, Order.ASC)}
+                    variant={"secondary"}
+                    state={"isHoverable"} size={"sm"}
+                    aria-label="Order ascending">
                     <IconWrapper Icon={SortIcon} />
                 </Button>
-                <Button onClick={(e) => handleSortClick(e, Order.DESC)} variant={"secondary"} state={"isHoverable"} size={"sm"}>
+                <Button
+                    onClick={(e) => handleSortClick(e, Order.DESC)}
+                    variant={"secondary"}
+                    state={"isHoverable"}
+                    size={"sm"}
+                    aria-label="Order descending">
                     <IconWrapper Icon={SortRevertIcon} />
                 </Button>
             </div>

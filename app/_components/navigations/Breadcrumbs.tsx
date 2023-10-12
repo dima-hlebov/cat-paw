@@ -20,7 +20,8 @@ export function Breadcrumbs() {
             <Button
                 variant="soft"
                 size="sm"
-                onClick={handleClick} >
+                onClick={handleClick}
+                aria-label="Navigate back">
                 <IconWrapper Icon={BackIcon} />
             </Button>
             {slugs.map((slug, i) => {
@@ -36,6 +37,7 @@ export function Breadcrumbs() {
                             key={i}
                             href={"/" + slug}
                             className={buttonVariants({ variant: "soft", state: "isActive" })}
+                            aria-label={`Navigate to ${slug}`}
                         >
                             {slug}
                         </Link>

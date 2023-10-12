@@ -74,6 +74,7 @@ export default function VotingButtonGroup({ cat }: { cat: Cat }) {
                     variant={"btnGroupFirst"}
                     size={"groupSize"}
                     state={isPending ? "isDisabled" : "isHoverable"}
+                    aria-label="Like"
                 >
                     <IconWrapper
                         Icon={LikeIcon}
@@ -85,6 +86,7 @@ export default function VotingButtonGroup({ cat }: { cat: Cat }) {
                     variant={"btnGroupMiddle"}
                     size={"groupSize"}
                     state={isPending ? "isDisabled" : "isHoverable"}
+                    aria-label={fav ? "Unfavourite" : "Favourite"}
                 >
                     <IconWrapper Icon={fav ? FavFullIcon : FavIcon} size="btnGroup" className={isPending && currentlyPending === 0 ? "animate-ping" : ""} />
                 </Button>
@@ -92,6 +94,7 @@ export default function VotingButtonGroup({ cat }: { cat: Cat }) {
                     variant={"btnGroupLast"}
                     size={"groupSize"}
                     state={isPending ? "isDisabled" : "isHoverable"}
+                    aria-label="Dislike"
                 >
                     <IconWrapper
                         Icon={DislikeIcon}

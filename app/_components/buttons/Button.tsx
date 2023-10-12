@@ -2,9 +2,12 @@ import { cva } from "class-variance-authority";
 import { cn } from "@lib/utils/cn";
 import { ButtonProps } from "@components/buttons";
 
-export default function Button({ onClick, variant, size, state, className, disabled, children }: ButtonProps) {
+export default function Button({ onClick, variant, size, state, className, children, ...props }: ButtonProps) {
     return (
-        <button onClick={onClick} className={cn(buttonVariants({ variant, size, state, className }))} disabled={state === "isDisabled" ? true : false}>
+        <button onClick={onClick}
+            className={cn(buttonVariants({ variant, size, state, className }))}
+            disabled={state === "isDisabled" ? true : false}
+            {...props}>
             {children}
         </button>
     )

@@ -12,7 +12,10 @@ export function UploadButton() {
     }
 
     return (
-        <Button variant={"soft"} onClick={handleUploadClick}>
+        <Button
+            variant={"soft"}
+            onClick={handleUploadClick}
+            aria-label="Upload">
             <div className="flex justify-center ">
                 <IconWrapper Icon={UploadIcon} size="xs" />
                 <div>&nbsp;&nbsp;Upload</div>

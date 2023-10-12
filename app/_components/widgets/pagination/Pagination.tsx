@@ -29,6 +29,7 @@ export default function Pagination({ hrefBase, currentPage, isNextPage, limit }:
         variant="primary"
         state={`${currentPage > 0 ? "isActive" : "isDisabled"}`}
         size="sm"
+        aria-label={`Previous ${limit} images`}
       >
         <IconWrapper Icon={BackIcon} size={"md"} />
       </Button>
@@ -37,6 +38,7 @@ export default function Pagination({ hrefBase, currentPage, isNextPage, limit }:
         variant="primary"
         state={isNextPage ? "isActive" : "isDisabled"}
         size="sm"
+        aria-label={`Next ${limit} images`}
       >
         <IconWrapper Icon={ForwardIcon} size={"md"} />
       </Button>

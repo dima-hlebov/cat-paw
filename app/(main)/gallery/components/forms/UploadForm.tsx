@@ -48,10 +48,14 @@ export function UploadForm() {
                 ?
                 <div>
                     <div className="flex justify-center mt-sm sm:mt-md">
-                        <Button variant={"primary"} state={isPending ? "isDisabled" : "isActive"}>{
-                            isPending
-                                ? <div className="flex items-center whitespace-pre">Uploading <IconWrapper Icon={LoadingIcon} size={"xs"} /></div>
-                                : "Upload photo"}
+                        <Button
+                            variant={"primary"}
+                            state={isPending ? "isDisabled" : "isActive"}
+                            aria-label="upload photo"
+                        >{
+                                isPending
+                                    ? <div className="flex items-center whitespace-pre">Uploading <IconWrapper Icon={LoadingIcon} size={"xs"} /></div>
+                                    : "Upload photo"}
                         </Button>
                     </div>
                 </div> : null}
