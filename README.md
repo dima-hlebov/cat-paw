@@ -2,7 +2,7 @@
 
 Welcome to the PetsPaw! This is a web application that utilizes the [Cat API](https://thecatapi.com/) to showcase adorable cat images and information about various cat breeds. With this app, you can satisfy your love for cat by exploring their world.
 
-App: https://catpaw-five.vercel.app/
+https://catpaw-five.vercel.app/
 
 ## Technologies Used
 
