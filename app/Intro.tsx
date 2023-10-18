@@ -13,7 +13,7 @@ export default function Intro() {
 
       <div className="mt-[80px]">
         <p className="text-[44px] font-medium leading-[58px] text-dark dark:text-white">Hi!👋</p>
-        <h1 className="text-xl text-light-dark dark:text-light-dark">Welcome to MacPaw Bootcamp 2023!</h1>
+        <h1 className="text-xl text-light-dark dark:text-light-dark">Welcome to PetsPaw! The Ultimate Cat Lover&apos;s App.</h1>
       </div>
 
       <h2 className="mt-[60px] text-xl">Lets start using The Cat API</h2>
