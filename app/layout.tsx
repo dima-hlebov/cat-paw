@@ -8,8 +8,8 @@ import Providers from "@app/providers";
 const jost = Jost({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CatPaw",
-  description: "Tinder for cats",
+  title: "PetsPaw",
+  description: "Satisfy your love for cats with PetsPaw",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode; }) {
